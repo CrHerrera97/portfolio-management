@@ -145,19 +145,48 @@
 
         <!---OTRA FILA...--->
         <br><br>
+
+        <!---OTRA FILA...--->
+        <br><br>
         
         <div class="col-sm-3">
-          <h4>Ahorro</h4>
+          <h4>Total Ingresos</h4>
         </div>
         <div class="col-sm-3">
-        <input type="text" class="form-control" id="ahorro" name="ahorro" placeholder="Ingrese el Valor" value="0" required="" disabled>
+        <input type="text" class="form-control" id="total_ingresos" name="total_ingresos" placeholder="Ingrese el Valor" value="0" required="" disabled>
         </div>
         <div class="col-sm-3">
-          <h4>Multas</h4>
+          <h4>Total Cartera Actual</h4>
         </div>
         <div class="col-sm-3">
-        <input type="text" class="form-control" id="multas" name="multas" placeholder="Ingrese el Valor" value="0" required="" disabled>
+        <input type="text" class="form-control" id="total_cartera_actual" name="total_cartera_actual" placeholder="Ingrese el Valor" value="0" required="" disabled>
         </div>
+
+        <!---OTRA FILA...--->
+        <br><br>
+        <div class="col-sm-3">
+          <h4>Total Cartera Vencida</h4>
+        </div>
+        <div class="col-sm-3">
+        <input type="text" class="form-control" id="total_cartera_vencida" name="total_cartera_vencida" placeholder="Ingrese el Valor" value="0" required="" disabled>
+        </div>
+        <div class="col-sm-3">
+          <h4>Total Multas</h4>
+        </div>
+        <div class="col-sm-3">
+        <input type="text" class="form-control" id="total_multas" name="total_multas" placeholder="Ingrese el Valor" value="0" required="" disabled>
+        </div>
+
+        <!---OTRA FILA...--->
+        <br><br>
+        
+        <div class="col-sm-3">
+          <h4>Total Ahorros</h4>
+        </div>
+        <div class="col-sm-3">
+        <input type="text" class="form-control" id="total_ahorros" name="total_ahorros" placeholder="Ingrese el Valor" value="0" required="" disabled>
+        </div>
+        
 
         <br><br>
         
@@ -333,6 +362,16 @@ function consulta(){
             $("#ahorro").val(respuesta.ahorro);
 
             $("#multas").val(respuesta.multas);
+
+            $("#total_ingresos").val(respuesta.total_ingresos);
+
+            $('#total_cartera_actual').val(respuesta.total_cartera_actual);
+
+            $('#total_cartera_vencida').val(respuesta.total_cartera_vencida);
+
+            $('#total_multas').val(respuesta.total_multas);
+
+            $('#total_ahorros').val(respuesta.total_ahorros);
 
         },
         error: function (xhr,status){

@@ -39,12 +39,44 @@ $fecha_fin = $_POST["fecha_fin"];
     $sql_multas = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE sub_categoria = 'multas' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $multas = mysqli_fetch_row($sql_multas);
 
+
+    //vamos a crear las variables para los totales de los ingresos, cartera actual, cartera vencida, ahorros y multas
+    
+
+    //total ingresos
+    $sql_total_ingresos = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE pendiente = 'no' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $total_ingresos = mysqli_fetch_row($sql_total_ingresos);
+
+
+    //total cartera actual
+
+    $sql_total_cartera_actual = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'cartera' AND pendiente = 'si' AND sub_categoria <> 'vencida' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $total_cartera_actual = mysqli_fetch_row($sql_total_cartera_actual);
+
+    //total cartera vencida
+    $sql_total_cartera_vencida = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'cartera' AND sub_categoria = 'vencida' AND pendiente = 'si' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $total_cartera_vencida = mysqli_fetch_row($sql_total_cartera_vencida);
+
+    //total multas
+    $sql_total_multas = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'cartera' AND sub_categoria = 'multas' AND pendiente = 'si' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $total_multas = mysqli_fetch_row($sql_total_multas);    
+
+    //total ahorros
+    $sql_total_ahorros = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'ingreso' AND sub_categoria = 'ahorro' AND pendiente = 'si' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $total_ahorros = mysqli_fetch_row($sql_total_ahorros);    
+
 $response = array('administracion' => $administracion,
     'parqueadero' => $parqueadero,
     'agua' => $agua,
     'luz' => $luz,
     'ahorro' => $ahorro,
-    'multas' => $multas
+    'multas' => $multas,
+
+    'total_ingresos' => $total_ingresos,
+    'total_cartera_actual' => $total_cartera_actual,
+    'total_cartera_vencida' => $total_cartera_vencida,
+    'total_multas' => $total_multas,
+    'total_ahorros' => $total_ahorros
     );
     
     header('Content-Type: application/json');

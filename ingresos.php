@@ -400,6 +400,8 @@ function categoria_radio(){
         $('#agua').attr("disabled", 'disabled');
         $('#luz').attr("disabled", 'disabled');
 
+        $('#fecha_pago').attr("disabled", 'disabled');
+
     }else if(ahorros_radio.checked){
         document.getElementById('valor').style.display = 'flex'
         document.getElementById('valor_total').style.display = 'flex'
