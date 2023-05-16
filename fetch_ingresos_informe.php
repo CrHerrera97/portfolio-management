@@ -21,13 +21,11 @@ $table = <<<EOT
     i.categoria,
     i.sub_categoria,
     i.valor,
-    i.abono,
     i.pendiente,
     i.observaciones
   FROM ingresos i
   INNER JOIN locales l on i.local_fk = l.id
   INNER JOIN personas p on i.persona_fk = p.id
-  WHERE i.pendiente = 'no'
  ) temp
 EOT;
 
@@ -47,12 +45,11 @@ $con = new mysqli("localhost","root","","sistema_pagos");
     array( 'db' => 'categoria',  'dt' => 7 ),
     array( 'db' => 'sub_categoria',  'dt' => 8 ),
     array( 'db' => 'valor',  'dt' => 9 ),
-    array( 'db' => 'abono',  'dt' => 10 ),
-    array( 'db' => 'pendiente',  'dt' => 11 ),
-    array( 'db' => 'observaciones',  'dt' => 12 ), 
+    array( 'db' => 'pendiente',  'dt' => 10 ),
+    array( 'db' => 'observaciones',  'dt' => 11 ), 
     array( 
     'db'        => 'id',
-    'dt'        => 13, 
+    'dt'        => 12, 
     'formatter' => function( $d, $row ) { 
         return '<a href="javascript:void(0)" class="btn btn-primary btn-edit" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete" data-id="'.$row['id'].'"> Eliminar </a>'; 
     } 

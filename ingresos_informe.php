@@ -88,7 +88,6 @@
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
 <th width="7%">Valor</th>
-<th width="7%">Abono</th>
 <th width="1%">Pendiente</th>
 <th width="7%">Observaciones</th>
 <th width="12%">Acciones</th>
@@ -106,7 +105,6 @@
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
 <th width="7%">Valor</th>
-<th width="7%">Abono</th>
 <th width="1%">Pendiente</th>
 <th width="7%">Observaciones</th>
 <th width="12%">Acciones</th>
@@ -237,12 +235,6 @@
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Abono</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor del abono" value="" maxlength="50">
-        </div>
-    </div>
-    <div class="col">
     <label for="name" class="col-sm-12 control-label">Pendiente</label>
         <div class="col-sm-12">
         <select class="form-select" name="pendiente" id="pendiente">
@@ -250,6 +242,10 @@
             <option value="si">si</option>
             <option value="no">no</option>
         </select>
+        </div>  
+    </div>
+    <div class="col">
+        <div class="col-sm-12">
         </div>
     </div>
   </div>
@@ -489,7 +485,7 @@ $('#sub_categ').val(result.sub_categoria);
 $('#valor').val(result.valor);
 //$('#persona').val(result.persona_fk);
 //$('#local').val(result.local_fk);
-$('#abono').val(result.abono);
+//$('#abono').val(result.abono);
 $('#pendiente').val(result.pendiente);
 $('#obs').val(result.observaciones);
 $('#edit-modal').modal('show');
