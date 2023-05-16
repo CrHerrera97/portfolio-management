@@ -420,7 +420,9 @@ function categoria_radio(){
         $('#agua').attr("disabled", 'disabled');
         $('#luz').attr("disabled", 'disabled');
 
-        $("#fecha_pago").removeAttr("disabled");
+        //$("#fecha_pago").removeAttr("disabled");
+
+        $('#fecha_pago').attr("disabled", 'disabled');
     }
 
 }
