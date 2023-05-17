@@ -8,9 +8,15 @@ $admon = $_POST["admon"];
 $parque = $_POST["parque"];
 $agua = $_POST["agua"];
 $luz = $_POST["luz"];
-$ahorro = $_POST["ahorro"];
-$multas = $_POST["multas"];
+//$ahorro = $_POST["ahorro"];
+//$multas = $_POST["multas"];
 
+
+$total_ingresos =$_POST["total_ingresos"];
+$total_cartera_actual =$_POST["total_cartera_actual"];
+$total_cartera_vencida =$_POST["total_cartera_vencida"];
+$total_multas =$_POST["total_multas"];
+$total_ahorros =$_POST["total_ahorros"];
 
 /*
 $parametro1 = $_POST['parametro1'];
@@ -32,9 +38,15 @@ $pdf->Cell(80,80,'Agua: '.$agua);
 $pdf->SetY(5);
 $pdf->Cell(80,100,'Luz: '.$luz);
 $pdf->SetY(5);
-$pdf->Cell(80,120,'Ahorro: '.$ahorro);
+$pdf->Cell(80,120,'Total Ingresos: '.$total_ingresos);
 $pdf->SetY(5);
-$pdf->Cell(80,140,'Multas: '.$multas);
+$pdf->Cell(80,140,'Total Cartera Actual: '.$total_cartera_actual);
+$pdf->SetY(5);
+$pdf->Cell(80,160,'Total Cartera Vencida: '.$total_cartera_vencida);
+$pdf->SetY(5);
+$pdf->Cell(80,180,'Total Multas: '.$total_multas);
+$pdf->SetY(5);
+$pdf->Cell(80,200,'Total Ahorros: '.$total_ahorros);
 $pdf->Output();
 
 /*

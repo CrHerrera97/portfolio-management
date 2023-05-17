@@ -260,8 +260,15 @@ function pdf() {
     let parque = document.getElementById("parque").value;
     let agua = document.getElementById("agua").value;
     let luz = document.getElementById("luz").value;
-    let ahorro = document.getElementById("ahorro").value;
-    let multas = document.getElementById("multas").value;
+    //let ahorro = document.getElementById("ahorro").value;
+    //let multas = document.getElementById("multas").value;
+
+
+    let total_ingresos = document.getElementById("total_ingresos").value;
+    let total_cartera_actual = document.getElementById("total_cartera_actual").value;
+    let total_cartera_vencida = document.getElementById("total_cartera_vencida").value;
+    let total_multas = document.getElementById("total_multas").value;
+    let total_ahorros = document.getElementById("total_ahorros").value;
 
 
     var datos = {
@@ -269,8 +276,13 @@ function pdf() {
         parque : parque,
         agua : agua,
         luz: luz,
-        ahorro : ahorro,
-        multas : multas
+        total_ingresos: total_ingresos,
+        total_cartera_actual: total_cartera_actual,
+        total_cartera_vencida:total_cartera_vencida,
+        total_multas:total_multas,
+        total_ahorros:total_ahorros
+        //ahorro : ahorro,
+        //multas : multas
     }
         //window.location.href = 'pdf.php';
         $.ajax({

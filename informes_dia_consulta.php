@@ -19,18 +19,18 @@ $fecha_fin = $_POST["fecha_fin"];
 //aqui en estas consultas vamos a extrer las sumas de los diferentes conceptos: "administracion", "parqueadero", etc.
 
     //administracion
-    $sql_admon = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE sub_categoria = 'administracion' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $sql_admon = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'ingreso' AND sub_categoria = 'administracion' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $administracion = mysqli_fetch_row($sql_admon);
     //echo json_encode($row);
 
     //parqueadero
-    $sql_parque = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE sub_categoria = 'parqueadero' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $sql_parque = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'ingreso' AND sub_categoria = 'parqueadero' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $parqueadero = mysqli_fetch_row($sql_parque);
 
-    $sql_agua = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE sub_categoria = 'agua' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $sql_agua = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'ingreso' AND sub_categoria = 'agua' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $agua = mysqli_fetch_row($sql_agua);
 
-    $sql_luz = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE sub_categoria = 'luz' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $sql_luz = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'ingreso' AND sub_categoria = 'luz' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $luz = mysqli_fetch_row($sql_luz);
 
     $sql_ahorro = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE sub_categoria = 'ahorro' and fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
@@ -50,7 +50,7 @@ $fecha_fin = $_POST["fecha_fin"];
 
     //total cartera actual
 
-    $sql_total_cartera_actual = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'cartera' AND pendiente = 'si' AND sub_categoria <> 'vencida' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $sql_total_cartera_actual = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'cartera' AND pendiente = 'si' AND sub_categoria <> 'vencida' AND sub_categoria <> 'multas' AND fecha_desde BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $total_cartera_actual = mysqli_fetch_row($sql_total_cartera_actual);
 
     //total cartera vencida
