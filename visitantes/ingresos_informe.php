@@ -39,18 +39,20 @@
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: -50px;
+    top: 70px;
     z-index: 9999;
-    width: 206px;
+    width: 192px;
+    left: -220px;
 }
 
 #sugerencia {
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: 125px;
+    top: 70px;
     z-index: 9999;
-    width: 206px;
+    width: 192px;
+    left: 270px;
 }
  
 #suggestions  .suggest-element {
@@ -76,22 +78,36 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="14%">Fecha</th>
-<th width="14%">Persona</th>
-<th width="14%">Puesto</th>
-<th width="14%">Valor</th>
-<th width="14%">Servicio</th>
-<th width="10%">Pendiente</th>
+<th width="7%">Fecha Desde</th>
+<th width="7%">Fecha Hasta</th>
+<th width="7%">Fecha Ingreso</th>
+<th width="7%">Fecha Pago</th>
+<th width="7%">Persona</th>
+<th width="7%">Puesto</th>
+<th width="7%">Recibo</th>
+<th width="7%">Categoria</th>
+<th width="7%">Sub Categoria</th>
+<th width="7%">Valor</th>
+<th width="1%">Pendiente</th>
+<th width="7%">Observaciones</th>
+<th width="12%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th width="14%">Fecha</th>
-<th width="14%">Persona</th>
-<th width="14%">Puesto</th>
-<th width="14%">Valor</th>
-<th width="14%">Servicio</th>
-<th width="10%">Pendiente</th>
+<th width="7%">Fecha Desde</th>
+<th width="7%">Fecha Hasta</th>
+<th width="7%">Fecha Ingreso</th>
+<th width="7%">Fecha Pago</th>
+<th width="7%">Persona</th>
+<th width="7%">Puesto</th>
+<th width="7%">Recibo</th>
+<th width="7%">Categoria</th>
+<th width="7%">Sub Categoria</th>
+<th width="7%">Valor</th>
+<th width="1%">Pendiente</th>
+<th width="7%">Observaciones</th>
+<th width="12%">Acciones</th>
 </tr>
 </tfoot>
 </table>
@@ -106,11 +122,157 @@
 <div class="modal-header">
 <h4 class="modal-title" id="userCrudModal"></h4>
 </div>
+
+
 <div class="modal-body">
 <form id="update-form" name="update-form" class="form-horizontal" autocomplete="off">
 <input type="hidden" name="id" id="id">
 <input type="hidden" class="form-control" id="mode" name="mode" value="update_ingresos_informe">
 
+<!---DIVIDIR MODALES EN 2-->
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Fecha Desde</label>
+        <div class="col-sm-12">
+            <input type="date" class="form-control" id="fecha_desde" name="fecha_desde" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
+        </div>
+    </div>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Fecha Hasta</label>
+        <div class="col-sm-12">
+            <input type="date" class="form-control" id="fecha_hasta" name="fecha_hasta" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+<!--SEGUNDA FILA-->
+
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Fecha Ingreso</label>
+        <div class="col-sm-12">
+            <input type="date" class="form-control" id="fecha_ing" name="fecha_ing" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
+        </div>
+    </div>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Fecha Pago</label>
+        <div class="col-sm-12">
+            <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="Escriba el # del Local" value="" maxlength="50" >
+        </div>
+    </div>
+  </div>
+</div>
+
+<!--TERCERA FILA-->
+
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Persona</label>
+        <div class="col-sm-12">
+            <!--<input type="text" class="form-control" id="persona" name="persona" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
+            <input type="text" class="form-control" id="perteneces" name="perteneces" placeholder="Escriba el nombre" value="" required="">
+            <input type="hidden" class="form-control" id="perteneces_id" name="perteneces_id" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
+        </div>
+        <div id="sugerencia"></div>
+    </div>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Puesto</label>
+        <div class="col-sm-12">
+            <!--<input type="text" class="form-control" id="local" name="local" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
+            <input type="text" class="form-control" id="pertenece" name="pertenece" placeholder="Escriba el # del Puesto" value="" maxlength="50" required="">
+            <input type="hidden" class="form-control" id="pertenece_id" name="pertenece_id" placeholder="Escriba a quien Pertenecee" value="" maxlength="50" required="">
+        </div>
+        <div id="suggestions"></div>    
+    </div>
+  </div>
+</div>
+
+<!--CUARTA FILA-->
+
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Recibo</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="recibo" name="recibo" placeholder="Escriba el # del Recibo" value="" maxlength="50" required="">
+        </div>
+    </div>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Categoria</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+<!--QUINTA FILA-->
+
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="">
+        </div>
+    </div>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Valor</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="valor" name="valor" placeholder="Escriba el valor" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<!--SEXTA FILA-->
+
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+    <label for="name" class="col-sm-12 control-label">Pendiente</label>
+        <div class="col-sm-12">
+        <select class="form-select" name="pendiente" id="pendiente">
+            <option value=""></option>
+            <option value="si">si</option>
+            <option value="no">no</option>
+        </select>
+        </div>  
+    </div>
+    <div class="col">
+        <div class="col-sm-12">
+        </div>
+    </div>
+  </div>
+</div>
+
+<!--SEPTIMA FILA-->
+
+<div class="form-group">
+  <div class="row">
+    <div class="">
+        <label for="name" class="col-sm-12 control-label">Observaciones</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="obs" name="obs" placeholder="Escriba las observaciones" value="" maxlength="50" >
+        </div>
+    </div>
+    <div class="col">
+        <!--
+        <label for="name" class="col-sm-2 control-label">Fecha</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
+        </div>
+        -->
+    </div>
+  </div>
+</div>
+
+<!---CODIGO ANTERIOR
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Fecha</label>
 <div class="col-sm-12">
@@ -122,7 +284,9 @@
 <label class="col-sm-2 control-label">Persona</label>
 <div class="col-sm-12">
 <div id="sugerencia"></div>
+-->
 <!--<input type="text" class="form-control" id="persona" name="persona" placeholder="Escriba el nombre del Local" value="" required="">-->
+<!---
 <input type="text" class="form-control" id="perteneces" name="perteneces" placeholder="Escriba el nombre del Local" value="" required="">
 <input type="hidden" class="form-control" id="perteneces_id" name="perteneces_id" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
 </div>
@@ -132,7 +296,10 @@
 <label for="name" class="col-sm-2 control-label">Local</label>
 <div class="col-sm-12">
 <div id="suggestions"></div>    
+
+-->
 <!--<input type="text" class="form-control" id="local" name="local" placeholder="Escriba una descripción del Local" value="" maxlength="50" required="">-->
+<!--
 <input type="text" class="form-control" id="pertenece" name="pertenece" placeholder="Escriba una descripción del Local" value="" maxlength="50" required="">
 <input type="hidden" class="form-control" id="pertenece_id" name="pertenece_id" placeholder="Escriba a quien Pertenecee" value="" maxlength="50" required="">
 </div>
@@ -166,6 +333,8 @@
 </div>
 </div>
 
+----->
+
 <div class="col-sm-offset-2 col-sm-10">
 <button type="submit" class="btn btn-primary" id="btn-save" value="create">Guardar Cambios
 </button>
@@ -194,8 +363,52 @@
 </div>
 <script>
 $(document).ready(function(){
-$('#usersListTable').DataTable({
+    var table = $('#usersListTable').DataTable({
+    dom: 'Bfrtip',
+    lengthMenu: [
+            [10, 25, 50, 100, 500, -1],
+            [10, 25, 50, 100, 500, 'Todo'],
+        ],
+    buttons: [
+        {
+            extend: 'excelHtml5',
+            titleAttr: 'Exportar a Excel',
+            className: 'btn btn-success',
+            exportOptions: {
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
+                }
+        },
+        {
+            extend: 'pdfHtml5',
+            orientation: 'landscape',
+            titleAttr: 'Exportar a Pdf',
+            className: 'btn btn-danger',
+            exportOptions: {
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
+                },
+                "customize": function (doc) {
+                doc.defaultStyle.fontSize = 11; // Cambiar tamaño de fuente predeterminado
+                //doc.styles.table.header.fontSize = 12; // Cambiar tamaño de fuente del encabezado de tabla
+                //doc.styles.table.body.fontSize = 10; // Cambiar tamaño de fuente del cuerpo de tabla
+            },                
+            filename: function() {
+            return "informe_ingresos"      
+            },      
+            title: function() {
+            var searchString = table.search();        
+            return searchString.length? "Search: " + searchString : "Ingresos Informe"
+            }
+        },
+        {
+            extend: "pageLength",
+            //text: "Registros"
+        }
+            
+    ],
     language: {
+        buttons: {
+        pageLength: '%d'
+    },
         "decimal": "",
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
@@ -253,17 +466,28 @@ mode: 'edit_ingresos_informe'
 },
 dataType : 'json',
 success: function(result){
+
+//nombre y num_local
 $('#id').val(result.id);
-$('#fecha').val(result.fecha);
+$('#fecha_desde').val(result.fecha_desde);
+$('#fecha_hasta').val(result.fecha_hasta);
+$('#fecha_ing').val(result.fecha_ingreso);
+$('#fecha_pago').val(result.fecha_pago);
 $('#perteneces').val(result.nombre);
 $('#perteneces_id').val(result.persona_fk);
 $('#pertenece').val(result.num_local);
 $('#pertenece_id').val(result.local_fk);
+//$('#persona').val(result.nombre);
+//$('#local').val(result.num_local);
+$('#recibo').val(result.recibo);
+$('#categoria').val(result.categoria);
+$('#sub_categ').val(result.sub_categoria);
+$('#valor').val(result.valor);
 //$('#persona').val(result.persona_fk);
 //$('#local').val(result.local_fk);
-$('#valor').val(result.valor);
-$('#servicio').val(result.servicio);
+//$('#abono').val(result.abono);
 $('#pendiente').val(result.pendiente);
+$('#obs').val(result.observaciones);
 $('#edit-modal').modal('show');
 }
 });

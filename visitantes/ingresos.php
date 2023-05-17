@@ -36,22 +36,24 @@
 <!---Se va a poner los diferentes botones para hacer los ingresos-->
 
 <style>
-    #suggestions, #sugerencia_persona {
+    #suggestions {
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: 88px;
+    top: 85px;
     z-index: 9999;
     width: 206px;
+    left: 25px;
 }
 
 #sugerencia_persona {
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: 198px;
+    top: 85px;
     z-index: 9999;
     width: 206px;
+    left: 25px;
 }
  
 #suggestions  .suggest-element {
@@ -80,35 +82,141 @@
 
 <br><br>
 
-<div class="container">
+<div class="">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-5">
       <form id="form-ingresos" name="form-ingresos" autocomplete="off">
-        <h4><label class="col-sm-2 control-label">Puesto</label></h4>
-        <div id="suggestions"></div>
-        <div class="col-sm-7">
-        <input type="text" class="form-control" id="key" name="key" placeholder="Ingrese el local" value="" required="" autocomplete="off">
-        <input type="hidden" class="form-control" id="key_id" name="key_id" placeholder="Ingrese el local" value="" required="" autocomplete="off">
-        </div>
-        <br>
-        <h4><label class="col-sm-2 control-label">Persona</label></h4>
-        <div id="sugerencia_persona"></div>
-        <div class="col-sm-7">
-        <input type="text" class="form-control" id="persona" name="persona" placeholder="Ingrese la persona" value="" required="" autocomplete="off">
-        <input type="hidden" class="form-control" id="persona_key" name="persona_key" placeholder="Ingrese la persona" value="" required="" autocomplete="off">
-        </div>        
+        <!------- SE VA A AGREGAR MAS CAMPOS, PRIMERO LA CATEGORIA----->
 
         <br>
-        <h4><label class="col-sm-2 control-label">Fecha</label></h4>
-        <div class="col-sm-6">
-        <input type="date" name="fecha" id="fecha">
+        <h4><label class="col-sm-12 control-label">Categoría</label></h4>
+
+        <!--- CONTENEDOR PARA ALBERGAR LOS RADIO BUTTONS--->
+        <div class="row container">
+            <div class="col-sm-1">
+                    
+            </div>
+            <div class="col-sm-6 form-check">
+                <input class="form-check-input" type="radio" name="categoria" id="ingresos_radio" value="ingresos_radio" onclick="categoria_radio()">
+                <label class="form-check-label" for="flexRadioDefault1">Ingresos</label><br>
+
+                <input class="form-check-input" type="radio" name="categoria" id="cartera_actual_radio" value="cartera_actual_radio"onclick="categoria_radio()">
+                <label class="form-check-label" for="flexRadioDefault1">Cartera Actual</label><br>
+
+                <input class="form-check-input" type="radio" name="categoria" id="cartera_vencida_radio" value="cartera_vencida_radio"onclick="categoria_radio()">
+                <label class="form-check-label" for="flexRadioDefault1">Cartera Vencida</label><br>
+            </div>
+            <div class="col-sm-5 form-check">
+
+                <input class="form-check-input" type="radio" name="categoria" id="ahorro_radio" value="ahorro_radio"onclick="categoria_radio()">
+                <label class="form-check-label" for="flexRadioDefault1">Ahorro</label><br>
+
+                <input class="form-check-input" type="radio" name="categoria" id="multas_radio" value="multas_radio"onclick="categoria_radio()">
+                <label class="form-check-label" for="flexRadioDefault1">Multas</label><br>
+            </div>       
         </div>
+        <br>
+
+        <!---
+        <div class="row">
+            <div class="col-sm-6">
+                <h4><label class="col-sm-12 control-label"># Recibo</label></h4>
+                <div id="sugerencia_persona"></div>
+                <div class="col-sm-12">
+                <input type="text" class="form-control" id="" name="" placeholder="Ingrese el # del recibo" value="" required="" autocomplete="off">
+                <input type="hidden" class="form-control" id="" name="" placeholder="Ingrese el # del recibo" value="" required="" autocomplete="off">
+                </div>     
+            </div>
+
+            <div class="col-sm-6">
+                <h4><label class="col-sm-12 control-label"># Recibo</label></h4>
+                <div id="sugerencia_persona"></div>
+                <div class="col-sm-12">
+                <input type="text" class="form-control" id="" name="" placeholder="Ingrese el # del recibo" value="" required="" autocomplete="off">
+                <input type="hidden" class="form-control" id="" name="" placeholder="Ingrese el # del recibo" value="" required="" autocomplete="off">
+                </div>     
+            </div>
+
         </div>
-        <div class="col-sm-8">
+
+        --->
+
+        <!---FECHAS-->
+
+        <div class="row">
+        <div class="col-sm-1"></div>
+
+            <div class="col-sm-5">
+                <h4><label class="col-sm-12 control-label">Fecha Desde</label></h4>
+                <div class="col-sm-12">
+                <input type="date" class="form-control" id="fecha_desde" name="fecha_desde" placeholder="" value="" required="" autocomplete="off">
+                </div>     
+            </div>
+
+            <div class="col-sm-5">
+                <h4><label class="col-sm-12 control-label">Fecha Hasta</label></h4>
+                <div class="col-sm-12">
+                <input type="date" class="form-control" id="fecha_hasta" name="fecha_hasta" placeholder="" value="" required="" autocomplete="off">
+                </div>     
+            </div>
+
+        </div>
+        <br>
+
+        <!----FECHA DE PAGO Y PERSONA--->
+
+            <div class="row">
+            <div class="col-sm-1"></div>
+                
+                <div class="col-sm-5">
+                    <h4><label class="col-sm-12 control-label">Fecha Pago</label></h4>
+                    <div class="col-sm-12">
+                    <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="" value="" required="" autocomplete="off">
+                    </div>     
+                </div>
+
+                <div class="col-sm-5">
+                    <h4><label class="col-sm-12 control-label">Persona</label></h4>
+                    <div id="sugerencia_persona"></div>
+                    <div class="col-sm-12">
+                    <input type="text" class="form-control" id="persona" name="persona" placeholder="Ingrese la persona" value="" required="" autocomplete="off">
+                    <input type="hidden" class="form-control" id="persona_key" name="persona_key" placeholder="Ingrese la persona" value="" required="" autocomplete="off">
+                    </div>     
+                </div>
+
+            </div>
+        <br>
+
+        <!----PUESTO DE PAGO Y # DE RECIBO--->
+
+        <div class="row">
+        <div class="col-sm-1"></div>
+                <div class="col-sm-5">
+                    <h4><label class="col-sm-12 control-label">Puesto</label></h4>
+                    <div id="suggestions"></div>
+                    <div class="col-sm-12">
+                    <input type="text" class="form-control" id="key" name="key" placeholder="Ingrese el local" value="" required="" autocomplete="off">
+                    <input type="hidden" class="form-control" id="key_id" name="key_id" placeholder="Ingrese el local" value="" required="" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="col-sm-5">
+                    <h4><label class="col-sm-12 control-label"># De Recibo</label></h4>
+                    <div class="col-sm-12">
+                    <input type="text" class="form-control" id="recibo" name="recibo" placeholder="Ingrese la persona" value="" required="" autocomplete="off">
+                    </div>     
+                </div>
+
+        </div>
+        <br>
+
+        </div>
+        <div class="col-sm-7">
+            <br>
         <h4><label class="control-label">Concepto</label></h4>
     
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <h4>Administracion</h4>
                 </div>
 
@@ -116,7 +224,7 @@
                     <input type="text" class="form-control" id="admon" name="admon" placeholder="Ingrese el Valor" value="0" required="">
                 </div>
 
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                 <h4>Parqueadero</h4>
                 </div>
                 
@@ -124,17 +232,23 @@
                     <input type="text" class="form-control" id="parque" name="parque" placeholder="Ingrese el Valor" value="0" required="">
                 </div>
 
+                <div class="col-sm-2">
+                    
+                </div>
+
+                <br>
+
         <!---OTRA FILA...--->
         <br><br>
-                <div class="col-sm-3">
-                    <h4>Agua</h4>
-                </div>
+            <div class="col-sm-2">
+                <h4>Agua</h4>
+            </div>
 
             <div class="col-sm-3">
                 <input type="text" class="form-control" id="agua" name="agua" placeholder="Ingrese el Valor" value="0" required="">
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <h4>Luz</h4>
             </div>
 
@@ -142,24 +256,21 @@
                 <input type="text" class="form-control" id="luz" name="luz" placeholder="Ingrese el Valor" value="0" required="">
             </div>
 
-        <!---OTRA FILA...--->
-        <br><br>
-        
-        <div class="col-sm-3">
-          <h4>Ahorro</h4>
-        </div>
-        <div class="col-sm-3">
-        <input type="text" class="form-control" id="ahorro" name="ahorro" placeholder="Ingrese el Valor" value="0" required="">
-        </div>
-        <div class="col-sm-3">
-          <h4>Multas</h4>
-        </div>
-        <div class="col-sm-3">
-        <input type="text" class="form-control" id="multas" name="multas" placeholder="Ingrese el Valor" value="0" required="">
-        </div>
+            <div class="col-sm-2">
+                    
+            </div>
 
-        <br><br>
+        <!---OTRA FILA...--->
+
+        <br><br><br>
+        <div class="col-sm-2">
+          <h4>Observaciones</h4>
+        </div>
+        <div class="col-sm-3">
+        <input type="text" class="form-control" id="obs" name="obs" placeholder="Ingrese las observaciones" value="" >
+        </div>
         
+        <!--
         <div class="col-sm-3">
         <h4>Pendiente</h4>
         </div>
@@ -171,7 +282,17 @@
         </select>
         </div>
 
-        <br><br>
+        --->
+
+        <div class="col-sm-2" id="valor_total">
+          <h4>Valor:</h4>
+        </div>
+        <div class="col-sm-3">
+        <input type="text" class="form-control" id="valor" name="valor" placeholder="Ingrese las observaciones" value="">
+        </div>
+
+        <br><br><br>
+
         <div class="row">
         
         <div class="col-sm">
@@ -220,6 +341,95 @@
 
 <script>
 
+
+//funcion para esconder o mostrar el valor
+
+//definimos el valor como invisible
+
+let valor_1 = document.getElementById('valor').style.display = 'none'
+let valor_2 = document.getElementById('valor_total').style.display = 'none'
+
+function eliminarAtribu(){
+    $('#admon').removeAttr("disabled");
+    $('#parque').removeAttr("disabled");
+    $('#agua').removeAttr("disabled");
+    $('#luz').removeAttr("disabled");
+}
+
+
+
+function categoria_radio(){
+
+
+    //let ingresos_radio = $('input[id="ingresos_radio"]:checked').val();
+
+    let ingresos_radio = document.getElementById('ingresos_radio')
+    let cartera_actual_radio = document.getElementById('cartera_actual_radio')
+    let cartera_vencida_radio = document.getElementById('cartera_vencida_radio')
+    let ahorros_radio = document.getElementById('ahorro_radio')
+    let multas_radio = document.getElementById('multas_radio')
+
+
+    if(ingresos_radio.checked){
+        document.getElementById('valor').style.display = 'none'
+        document.getElementById('valor_total').style.display = 'none'
+
+        //ponemos para que me ponga visible los siguientes campos
+        $("#fecha_pago").removeAttr("disabled");
+
+        eliminarAtribu();
+        
+
+    }else if(cartera_actual_radio.checked){
+        document.getElementById('valor').style.display = 'none'
+        document.getElementById('valor_total').style.display = 'none'
+
+        $('#fecha_pago').attr("disabled", 'disabled');
+
+
+        eliminarAtribu();
+
+    }else if(cartera_vencida_radio.checked){
+        document.getElementById('valor').style.display = 'flex'
+        document.getElementById('valor_total').style.display = 'flex'
+
+        //tambien ponemos para que cuando seleccione la cartera vencida, no sea posible poner datos en admon,parqueadero,agua, etc
+
+        $('#admon').attr("disabled", 'disabled');
+        $('#parque').attr("disabled", 'disabled');
+        $('#agua').attr("disabled", 'disabled');
+        $('#luz').attr("disabled", 'disabled');
+
+        $('#fecha_pago').attr("disabled", 'disabled');
+
+    }else if(ahorros_radio.checked){
+        document.getElementById('valor').style.display = 'flex'
+        document.getElementById('valor_total').style.display = 'flex'
+
+        $('#admon').attr("disabled", 'disabled');
+        $('#parque').attr("disabled", 'disabled');
+        $('#agua').attr("disabled", 'disabled');
+        $('#luz').attr("disabled", 'disabled');
+
+        $("#fecha_pago").removeAttr("disabled");
+
+    }else if(multas_radio.checked){
+        document.getElementById('valor').style.display = 'flex'
+        document.getElementById('valor_total').style.display = 'flex'
+
+        $('#admon').attr("disabled", 'disabled');
+        $('#parque').attr("disabled", 'disabled');
+        $('#agua').attr("disabled", 'disabled');
+        $('#luz').attr("disabled", 'disabled');
+
+        //$("#fecha_pago").removeAttr("disabled");
+
+        $('#fecha_pago').attr("disabled", 'disabled');
+    }
+
+}
+
+
   //traemos los datos de los inputs para que el botón pueda asignar un 0
 
 function myFunction() {
@@ -237,6 +447,16 @@ function myFunction() {
   $('#pendiente').val('');
 
   $('#fecha').val('');
+
+  $("#recibo").val('');
+
+  $("#fecha_desde").val('');
+  $("#fecha_hasta").val('');
+  $("#fecha_pago").val('');
+
+  $("#obs").val('');
+
+  $("#valor").val('');
 
   //borrar tambien el local y la persona
 }

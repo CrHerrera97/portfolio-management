@@ -2,7 +2,7 @@
   // Iniciar la sesión
   session_start();
   if(isset($_SESSION['username'])) {
-      //header('Location: inicio.php');
+      header('Location: ingresos.php');
   }else{
     header('Location: login.php');
   }
@@ -28,8 +28,9 @@
         }
     </style>
 
+<!--
 <div class="d-flex" id="wrapper">
-            <!-- Sidebar-->
+
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light">Sistema Pagos</div>
                 <div class="list-group list-group-flush">
@@ -38,7 +39,7 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="personas.php">Personas</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cartera.php">Cartera</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="ahorros.php">Ahorros</a>
-                    <!--<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Informes</a>-->
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Informes</a>
 
                     <li class="nav-item dropdown" id="lista">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Informes</a>
@@ -52,9 +53,9 @@
                     </li>
                 </div>
             </div>
-            <!-- Page content wrapper-->
+
             <div id="page-content-wrapper">
-                <!-- Top navigation-->
+               Top navigation
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
                         <button class="btn btn-primary" id="sidebarToggle">Mostrar/Ocultar</button>
@@ -67,10 +68,12 @@
                         </div>
                     </div>
                 </nav>
-                <!-- Page content-->
+               Page content
 
             </div>
         </div>
+
+    -->
 
     </body>
 </html>

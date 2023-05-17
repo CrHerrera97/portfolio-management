@@ -30,7 +30,7 @@
 
 
 <h2 class="float-left">Listado Puestos</h2>
-<!--<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Locales </a>-->
+<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Puesto </a>
 </div>
 
 <!---Se va a poner los diferentes botones para hacer los ingresos-->
@@ -40,9 +40,10 @@
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: 88px;
+    top: 40px;
     z-index: 9999;
     width: 206px;
+    
 }
 
 #suggestions  .suggest-element , .sugerencia  , .suggest-element2{
@@ -66,6 +67,7 @@
 <th width="16%">Descripcion</th>
 <th width="16%">Servicios</th>
 <th width="16%">Pertenece</th>
+<th width="20%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
@@ -75,6 +77,7 @@
 <th width="16%">Descripcion</th>
 <th width="16%">Servicios</th>
 <th width="16%">Pertenece</th>
+<th width="20%">Acciones</th>
 </tr>
 </tfoot>
 </table>
@@ -97,28 +100,28 @@
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Numero</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="numero" name="numero" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
+<input type="text" class="form-control" id="numero" name="numero" placeholder="Escriba el # del Puesto" value="" maxlength="50" required="">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Nombre</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba el nombre del Local" value="" required="">
+<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba el nombre del Puesto" value="" required="">
 </div>
 </div>
 
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Descripcion</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Escriba una descripción del Local" value="" maxlength="50" required="">
+<input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Escriba una descripción del Puesto" value="" maxlength="50" required="">
 </div>
 </div>
 
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Servicios</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Local separado por comas" value="" maxlength="50" required="">
+<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Puesto separado por comas" value="" maxlength="50" required="">
 </div>
 </div>
 
@@ -156,28 +159,28 @@
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Numero</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="numero" name="numero" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
+<input type="text" class="form-control" id="numero" name="numero" placeholder="Escriba el # del Puesto" value="" maxlength="50" required="">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Nombre</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba el nombre del Local" value="" required="">
+<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba el nombre del Puesto" value="" required="">
 </div>
 </div>
 
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Descripcion</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Escriba una descripción del Local" value="" maxlength="50" required="">
+<input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Escriba una descripción del Puesto" value="" maxlength="50" required="">
 </div>
 </div>
 
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Servicios</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Local separado por comas" value="" maxlength="50" required="">
+<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Puesto separado por comas" value="" maxlength="50" required="">
 </div>
 </div>
 
@@ -231,7 +234,7 @@ $('#usersListTable').DataTable({
 "processing": true,
 "serverSide": true,
 "order": [],
-"ajax": "./../fetch_locales.php"
+"ajax": "fetch_locales.php"
 });
 });
 /*  add user model */
@@ -243,7 +246,7 @@ $('#add-form').submit(function(e){
 e.preventDefault();
 // ajax
 $.ajax({
-url:"./../add-edit-delete.php",
+url:"add-edit-delete.php",
 type: "POST",
 data: $(this).serialize(), // get all form field value in serialize form
 success: function(){
@@ -258,7 +261,7 @@ $('#add-form').trigger("reset");
 $('body').on('click', '.btn-edit', function () {
 var id = $(this).data('id');
 $.ajax({
-url:"./../add-edit-delete.php",
+url:"add-edit-delete.php",
 type: "POST",
 data: {
 id: id,
@@ -282,7 +285,7 @@ $('#update-form').submit(function(e){
 e.preventDefault();
 // ajax
 $.ajax({
-url:"./../add-edit-delete.php",
+url:"add-edit-delete.php",
 type: "POST",
 data: $(this).serialize(), // get all form field value in serialize form
 success: function(){
@@ -298,7 +301,7 @@ $('body').on('click', '.btn-delete', function () {
 var id = $(this).data('id');
 if (confirm("Estás seguro que deseas eliminar el registro !")) {
 $.ajax({
-url:"./../add-edit-delete.php",
+url:"add-edit-delete.php",
 type: "POST",
 data: {
 id: id,

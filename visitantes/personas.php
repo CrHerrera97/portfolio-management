@@ -29,19 +29,21 @@
     </style>
 
 <h2 class="float-left">Listado Personas</h2>
-<!--<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Personas </a>-->
+<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Persona </a>
 </div>
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
 <th width="40%">Nombre</th>
 <th width="40%">Apellido</th>
+<th width="20%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
 <th>Nombre</th>
 <th>Apellido</th>
+<th>Acciones</th>
 </tr>
 </tfoot>
 </table>

@@ -10,13 +10,23 @@ $dbDetails = array(
 $table = <<<EOT
  (
     SELECT
-    c.id, 
-    c.fecha, 
+    i.id, 
+    i.fecha_desde, 
+    i.fecha_hasta, 
+    i.fecha_ingreso,
+    i.fecha_pago,
     concat(p.nombre,' ',p.apellido) as nombre,
-    l.nombre as nom_local, c.valor, c.servicio, c.pendiente
-  FROM cartera c
-  INNER JOIN locales l on c.local_fk = l.id
-  INNER JOIN personas p on c.persona_fk = p.id
+    l.numero as nom_local,
+    i.recibo,
+    i.categoria,
+    i.sub_categoria,
+    i.valor,
+    i.pendiente,
+    i.observaciones
+  FROM ingresos i
+  INNER JOIN locales l on i.local_fk = l.id
+  INNER JOIN personas p on i.persona_fk = p.id
+  WHERE categoria = 'cartera'
  ) temp
 EOT;
 // Table's primary key 
@@ -27,17 +37,23 @@ $primaryKey = 'id';
 
 
    $columns = array( 
-    array( 'db' => 'fecha', 'dt' => 0 ), 
-    array( 'db' => 'nombre',  'dt' => 1 ), 
-    array( 'db' => 'nom_local',  'dt' => 2 ), 
-    array( 'db' => 'valor',  'dt' => 3 ), 
-    array( 'db' => 'servicio',  'dt' => 4 ), 
-    array( 'db' => 'pendiente',  'dt' => 5 ),
+    array( 'db' => 'fecha_desde', 'dt' => 0 ),
+    array( 'db' => 'fecha_hasta', 'dt' => 1 ),
+    array( 'db' => 'fecha_ingreso', 'dt' => 2 ),
+    array( 'db' => 'fecha_pago', 'dt' => 3 ),
+    array( 'db' => 'nombre', 'dt' => 4 ),
+    array( 'db' => 'nom_local', 'dt' => 5 ),
+    array( 'db' => 'recibo', 'dt' => 6 ), 
+    array( 'db' => 'categoria',  'dt' => 7 ), 
+    array( 'db' => 'sub_categoria',  'dt' => 8 ), 
+    array( 'db' => 'valor',  'dt' => 9 ), 
+    array( 'db' => 'pendiente',  'dt' => 10 ), 
+    array( 'db' => 'observaciones',  'dt' => 11 ),
     array( 
     'db'        => 'id',
-    'dt'        => 6, 
+    'dt'        => 12, 
     'formatter' => function( $d, $row ) { 
-        return '<a href="javascript:void(0)" class="btn btn-primary btn-edit" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete ml-2" data-id="'.$row['id'].'"> Eliminar </a>'; 
+        return '<a href="javascript:void(0)" class="btn btn-primary btn-edit ml-2" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete ml-2" data-id="'.$row['id'].'"> Eliminar </a>'; 
     } 
     ) 
     ); 

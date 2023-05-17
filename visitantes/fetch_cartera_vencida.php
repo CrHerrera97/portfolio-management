@@ -27,7 +27,7 @@ $table = <<<EOT
   INNER JOIN personas p on i.persona_fk = p.id
   WHERE i.pendiente = 'si'
   AND i.categoria = 'cartera'
-  AND i.sub_categoria NOT LIKE 'vencida'
+  AND i.sub_categoria = 'vencida'
  ) temp
 EOT;
 // Table's primary key 

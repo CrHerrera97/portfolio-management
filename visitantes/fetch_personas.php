@@ -20,7 +20,7 @@ array(
 'db'        => 'id',
 'dt'        => 2, 
 'formatter' => function( $d, $row ) { 
-    return '<a href="javascript:void(0)" class="btn btn-primary btn-edit" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete ml-2" data-id="'.$row['id'].'"> Eliminar </a>'; 
+    return '<a href="javascript:void(0)" class="btn btn-primary btn-edit" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete" data-id="'.$row['id'].'"> Eliminar </a>'; 
 } 
 ) 
 ); 
