@@ -284,15 +284,17 @@
 
 <div class="form-group">
   <div class="row">
+    <!--
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Abono</label>
         <div class="col-sm-12">
             <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor del abono" value="" maxlength="50">
         </div>
     </div>
+-->
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Pendiente</label>
-        <div class="col-sm-12">
+        <div class="col-sm-6">
         <select class="form-select" name="pendiente" id="pendiente">
             <option value=""></option>
             <option value="si">si</option>
@@ -411,18 +413,24 @@ $(document).ready(function(){
             titleAttr: 'Exportar a Excel',
             className: 'btn btn-success',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
                 }
         },
         {
             extend: 'pdfHtml5',
             titleAttr: 'Exportar a Pdf',
+            orientation: 'landscape',
             className: 'btn btn-danger',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
                 },
+                "customize": function (doc) {
+                doc.defaultStyle.fontSize = 11; // Cambiar tamaño de fuente predeterminado
+                //doc.styles.table.header.fontSize = 12; // Cambiar tamaño de fuente del encabezado de tabla
+                //doc.styles.table.body.fontSize = 10; // Cambiar tamaño de fuente del cuerpo de tabla
+            },
             filename: function() {
-            return "MyPDF"      
+            return "Total Cartera"      
             },      
             title: function() {
             var searchString = table.search();        

@@ -284,7 +284,7 @@ var table = $('#usersListTable').DataTable({
             titleAttr: 'Exportar a Excel',
             className: 'btn btn-success',
             exportOptions: {
-                    columns: [ 0,1,2,3]
+                    columns: [ 0,1,2,3,4]
                 }
         },
         {
@@ -292,7 +292,7 @@ var table = $('#usersListTable').DataTable({
             titleAttr: 'Exportar a Pdf',
             className: 'btn btn-danger',
             exportOptions: {
-                    columns: [ 0,1,2,3]
+                    columns: [ 0,1,2,3,4]
                 },
             filename: function() {
             return "MyPDF"      

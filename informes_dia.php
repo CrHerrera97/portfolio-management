@@ -219,10 +219,10 @@
 
 <div class="col-sm-offset-2 col-sm-12">
         <br>
-        <button type ="button" class="btn btn-success" id="" value="create">Excel</button>
+        <!--<button type ="button" class="btn btn-success" id="" value="create">Excel</button>-->
         <button type = "button" class="btn btn-danger" id="pdf_button" name="pdf_button" value="create" onclick="pdf();">PDF</button>
 
-        <input class="btn btn-danger" onclick="myFunction();" id="btn-borrar-todo" type="button" value="Borrar Todo">
+        <input class="btn btn-primary " onclick="myFunction();" id="btn-borrar-todo" type="button" value="Borrar Todo">
 </div>
 
 
