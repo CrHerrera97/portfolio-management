@@ -90,7 +90,6 @@
 <th width="7%">Valor</th>
 <th width="1%">Pendiente</th>
 <th width="7%">Observaciones</th>
-<th width="12%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
@@ -107,7 +106,6 @@
 <th width="7%">Valor</th>
 <th width="1%">Pendiente</th>
 <th width="7%">Observaciones</th>
-<th width="12%">Acciones</th>
 </tr>
 </tfoot>
 </table>

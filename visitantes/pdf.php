@@ -2,7 +2,7 @@
 
 //declaramos los requerimientos para exportar a pdf
 
-require('pdf/fpdf.php');
+require('./../pdf/fpdf.php');
 
 $admon = $_POST["admon"];
 $parque = $_POST["parque"];

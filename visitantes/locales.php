@@ -30,7 +30,7 @@
 
 
 <h2 class="float-left">Listado Puestos</h2>
-<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Puesto </a>
+<!--<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Puesto </a>-->
 </div>
 
 <!---Se va a poner los diferentes botones para hacer los ingresos-->
@@ -62,22 +62,20 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="16%">Numero</th>
-<th width="16%">Nombre</th>
-<th width="16%">Descripcion</th>
-<th width="16%">Servicios</th>
-<th width="16%">Pertenece</th>
-<th width="20%">Acciones</th>
+<th width="20%">Numero</th>
+<th width="20%">Nombre</th>
+<th width="20%">Descripcion</th>
+<th width="20%">Servicios</th>
+<th width="20%">Pertenece</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th width="16%">Numero</th>
-<th width="16%">Nombre</th>
-<th width="16%">Descripcion</th>
-<th width="16%">Servicios</th>
-<th width="16%">Pertenece</th>
-<th width="20%">Acciones</th>
+<th width="20%">Numero</th>
+<th width="20%">Nombre</th>
+<th width="20%">Descripcion</th>
+<th width="20%">Servicios</th>
+<th width="20%">Pertenece</th>
 </tr>
 </tfoot>
 </table>

@@ -18,9 +18,9 @@
         <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="./../assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="./../css/styles.css" rel="stylesheet" />
     </head>
     <body>
 
@@ -35,7 +35,6 @@
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light">Sistema Pagos</div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="ingresos.php">Ingresos</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="locales.php">Puestos</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="personas.php">Personas</a>
                     <li class="nav-item dropdown" id="lista">
@@ -82,7 +81,6 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                                 <li class="nav-item active"><a class="nav-link" href="ingresos.php">Inicio</a></li>
-                                <li class="nav-item"><a class="nav-link" href="admin.php">Cuentas</a></li>
                                 <li class="nav-item"><a class="nav-link" href="cerrar_sesion.php">Cerrar Sesión</a></li>
                             </ul>
                         </div>
@@ -101,7 +99,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="./../js/scripts.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
