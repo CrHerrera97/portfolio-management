@@ -29,6 +29,7 @@
     </style>
 
 <h2 class="float-left">Cartera Actual</h2>
+<!---<input type="text" name="abono" id="abono">--->
 <!--<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Locales </a>-->
 </div>
 
@@ -75,10 +76,13 @@
 <th width="6%">Recibo</th>
 <th width="6%">Categoria</th>
 <th width="6%">Sub Categoria</th>
+<th width="6%">Otros</th>
 <th width="6%">Valor</th>
-<th width="6%">Pendiente</th>
+<th width="6%">Abono</th>
+<th width="6%">Saldo</th>
+<th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
-<th width="19%">Acciones</th>
+<th width="25%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
@@ -91,10 +95,13 @@
 <th width="6%">Recibo</th>
 <th width="6%">Categoria</th>
 <th width="6%">Sub Categoria</th>
+<th width="6%">Otros</th>
 <th width="6%">Valor</th>
-<th width="6%">Pendiente</th>
+<th width="6%">Abono</th>
+<th width="6%">Saldo</th>
+<th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
-<th width="19%">Acciones</th>
+<th width="25%">Acciones</th>
 </tr>
 </tfoot>
 </table>
@@ -113,48 +120,6 @@
 <form id="update-form" name="update-form" class="form-horizontal" autocomplete="off">
 <input type="hidden" name="id" id="id">
 <input type="hidden" class="form-control" id="mode" name="mode" value="update_cartera">
-
-<!---
-<div class="form-group">
-<label for="name" class="col-sm-2 control-label">Fecha</label>
-<div class="col-sm-12">
-<input type="date" name="fecha" id="fecha">
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-2 control-label">Persona</label>
-<div class="col-sm-12">
-<div id="sugerencia"></div>
-<input type="text" class="form-control" id="perteneces" name="perteneces" placeholder="Escriba el nombre del Local" value="" required="">
-<input type="hidden" class="form-control" id="perteneces_id" name="perteneces_id" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
-</div>
-</div>
-
-<div class="form-group">
-<label for="name" class="col-sm-2 control-label">Local</label>
-<div class="col-sm-12">
-<div id="suggestions"></div>
-<input type="text" class="form-control" id="pertenece" name="pertenece" placeholder="Escriba una descripción del Local" value="" maxlength="50" required="">
-<input type="hidden" class="form-control" id="pertenece_id" name="pertenece_id" placeholder="Escriba a quien Pertenecee" value="" maxlength="50" required="">
-</div>
-</div>
-
-<div class="form-group">
-<label for="name" class="col-sm-2 control-label">Valor</label>
-<div class="col-sm-12">
-<input type="text" class="form-control" id="valor" name="valor" placeholder="Escriba los servicios del Local separado por comas" value="" maxlength="50" required="">
-</div>
-</div>
-
-<div class="form-group">
-<label for="name" class="col-sm-2 control-label">Servicios</label>
-<div class="col-sm-12">
-<input type="text" class="form-control" id="servicio" name="servicio" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
-</div>
-</div>
-
--->
 
 <!---DIVIDIR MODALES EN 2-->
 <div class="form-group">
@@ -289,6 +254,50 @@
 </div>
 </div>
 </div>
+
+<!----AGREGAMOS MODAL PARA PODER HACER ABONOS A LA CARTERA---->
+
+
+<div class="modal fade" id="abonar-modal" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal"></h4>
+</div>
+<div class="modal-body">
+<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
+
+<!---DIVIDIR MODALES EN 2-->
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-offset-2 col-sm-10">
+<button type="button" class="btn btn-primary" id="btn-save-abonar" value="create">Guardar Cambios
+</button>
+</div>
+</form>
+</div>
+
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<!-------------------------------------------------------------->
+
+
 <div class="modal fade" id="add-modal" aria-hidden="true">
 <div class="modal-dialog">
 <div class="modal-content">
@@ -492,7 +501,39 @@ oTable.fnDraw(false);
 return false;
 });
 
-/*SE DEBE CREAR UN BOTON PARA HACER EL PAGO DE LA CARTERA*/
+/*BOTON PARA HACER ABONOS A CARTERA*/
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#btn-save-abonar').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_cartera'
+      },
+      success: function(result) {
+        var oTable = $('#usersListTable').dataTable();
+        oTable.fnDraw(false);
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
+});
+
+
+
 
 
 
