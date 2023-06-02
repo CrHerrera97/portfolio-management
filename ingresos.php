@@ -307,7 +307,7 @@
         <!---OTRA FILA...--->
         <br><br>
             <div class="col-sm-2">
-                <h4>Otros</h4>
+                <h4>Otross</h4>
             </div>
 
             <div class="col-sm-3">
