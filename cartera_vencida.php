@@ -67,34 +67,40 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
-<th width="7%">Fecha Ingreso</th>
-<th width="10%">Persona</th>
-<th width="10%">Puesto</th>
-<th width="6%">Recibo</th>
-<th width="6%">Categoria</th>
-<th width="6%">Sub Categoria</th>
-<th width="6%">Valor</th>
-<th width="6%">Pendiente</th>
+<th width="5%">Fecha Desde</th>
+<th width="5%">Fecha Hasta</th>
+<th width="5%">Fecha Ingreso</th>
+<th width="5%">Persona</th>
+<th width="5%">Puesto</th>
+<th width="3%">Recibo</th>
+<th width="4%">Categoria</th>
+<th width="4%">Sub Categoria</th>
+<th width="4%">Otros</th>
+<th width="4%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
+<th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
-<th width="19%">Acciones</th>
+<th width="36%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
-<th width="7%">Fecha Ingreso</th>
-<th width="10%">Persona</th>
-<th width="10%">Puesto</th>
-<th width="6%">Recibo</th>
-<th width="6%">Categoria</th>
-<th width="6%">Sub Categoria</th>
-<th width="6%">Valor</th>
-<th width="6%">Pendiente</th>
+<th width="5%">Fecha Desde</th>
+<th width="5%">Fecha Hasta</th>
+<th width="5%">Fecha Ingreso</th>
+<th width="5%">Persona</th>
+<th width="5%">Puesto</th>
+<th width="3%">Recibo</th>
+<th width="4%">Categoria</th>
+<th width="4%">Sub Categoria</th>
+<th width="4%">Otros</th>
+<th width="4%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
+<th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
-<th width="19%">Acciones</th>
+<th width="36%">Acciones</th>
 </tr>
 </tfoot>
 </table>
@@ -348,6 +354,46 @@
 </div>
 </div>
 </div>
+
+<!----AGREGAMOS MODAL PARA PODER HACER ABONOS A LA CARTERA---->
+
+
+<div class="modal fade" id="abonar-modal" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal"></h4>
+</div>
+<div class="modal-body">
+<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
+
+<!---DIVIDIR MODALES EN 2-->
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-offset-2 col-sm-10">
+<button type="button" class="btn btn-primary" id="btn-save-abonar" value="create">Guardar Cambios
+</button>
+</div>
+</form>
+</div>
+
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
+
 <script>
 $(document).ready(function(){
 $('#usersListTable').DataTable({
@@ -494,6 +540,34 @@ return false;
 
 /*SE DEBE CREAR UN BOTON PARA HACER EL PAGO DE LA CARTERA*/
 
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#btn-save-abonar').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_cartera'
+      },
+      success: function(result) {
+        var oTable = $('#usersListTable').dataTable();
+        oTable.fnDraw(false);
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
+});
 
 
 //autocompletar el local en el editar

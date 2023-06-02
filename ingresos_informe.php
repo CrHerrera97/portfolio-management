@@ -88,6 +88,8 @@
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
 <th width="7%">Valor</th>
+<th width="7%">Abono</th>
+<th width="7%">Saldo</th>
 <th width="1%">Pendiente</th>
 <th width="7%">Observaciones</th>
 <th width="12%">Acciones</th>
@@ -105,6 +107,8 @@
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
 <th width="7%">Valor</th>
+<th width="7%">Abono</th>
+<th width="7%">Saldo</th>
 <th width="1%">Pendiente</th>
 <th width="7%">Observaciones</th>
 <th width="12%">Acciones</th>

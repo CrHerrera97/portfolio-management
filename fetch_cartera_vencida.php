@@ -19,7 +19,10 @@ $table = <<<EOT
     i.recibo,
     i.categoria,
     i.sub_categoria,
+    i.otros,
     i.valor,
+    i.abono,
+    i.saldo,
     i.pendiente,
     i.observaciones
   FROM ingresos i
@@ -46,14 +49,17 @@ $primaryKey = 'id';
     array( 'db' => 'recibo', 'dt' => 5 ), 
     array( 'db' => 'categoria',  'dt' => 6 ), 
     array( 'db' => 'sub_categoria',  'dt' => 7 ), 
-    array( 'db' => 'valor',  'dt' => 8 ), 
-    array( 'db' => 'pendiente',  'dt' => 9 ), 
-    array( 'db' => 'observaciones',  'dt' => 10 ),
+    array( 'db' => 'otros',  'dt' => 8 ), 
+    array( 'db' => 'valor',  'dt' => 9 ), 
+    array( 'db' => 'abono',  'dt' => 10 ), 
+    array( 'db' => 'saldo',  'dt' => 11 ), 
+    array( 'db' => 'pendiente',  'dt' => 12 ), 
+    array( 'db' => 'observaciones',  'dt' => 13 ),
     array( 
     'db'        => 'id',
-    'dt'        => 11, 
+    'dt'        => 14, 
     'formatter' => function( $d, $row ) { 
-        return '<a href="javascript:void(0)" class="btn btn-primary btn-edit ml-2" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete ml-2" data-id="'.$row['id'].'"> Eliminar </a> <a href="javascript:void(0)" class="btn btn-success btn-pagar ml-2" data-id="'.$row['id'].'"> Pagar </a>'; 
+        return '<a href="javascript:void(0)" class="btn btn-primary btn-edit ml-2" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete ml-2" data-id="'.$row['id'].'"> Eliminar </a> <a href="javascript:void(0)" class="btn btn-warning btn-abonar ml-2" data-id="'.$row['id'].'"> Abonar </a> <a href="javascript:void(0)" class="btn btn-success btn-pagar ml-2" data-id="'.$row['id'].'"> Pagar </a>'; 
     } 
     ) 
     ); 
