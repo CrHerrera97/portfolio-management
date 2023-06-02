@@ -68,40 +68,40 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
-<th width="7%">Fecha Ingreso</th>
-<th width="10%">Persona</th>
-<th width="10%">Puesto</th>
-<th width="6%">Recibo</th>
-<th width="6%">Categoria</th>
-<th width="6%">Sub Categoria</th>
-<th width="6%">Otros</th>
-<th width="6%">Valor</th>
-<th width="6%">Abono</th>
-<th width="6%">Saldo</th>
+<th width="5%">Fecha Desde</th>
+<th width="5%">Fecha Hasta</th>
+<th width="5%">Fecha Ingreso</th>
+<th width="5%">Persona</th>
+<th width="5%">Puesto</th>
+<th width="3%">Recibo</th>
+<th width="4%">Categoria</th>
+<th width="4%">Sub Categoria</th>
+<th width="4%">Otros</th>
+<th width="4%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
 <th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
-<th width="25%">Acciones</th>
+<th width="36%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
-<th width="7%">Fecha Ingreso</th>
-<th width="10%">Persona</th>
-<th width="10%">Puesto</th>
-<th width="6%">Recibo</th>
-<th width="6%">Categoria</th>
-<th width="6%">Sub Categoria</th>
-<th width="6%">Otros</th>
-<th width="6%">Valor</th>
-<th width="6%">Abono</th>
-<th width="6%">Saldo</th>
+<th width="5%">Fecha Desde</th>
+<th width="5%">Fecha Hasta</th>
+<th width="5%">Fecha Ingreso</th>
+<th width="5%">Persona</th>
+<th width="5%">Puesto</th>
+<th width="3%">Recibo</th>
+<th width="4%">Categoria</th>
+<th width="4%">Sub Categoria</th>
+<th width="4%">Otros</th>
+<th width="4%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
 <th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
-<th width="25%">Acciones</th>
+<th width="36%">Acciones</th>
 </tr>
 </tfoot>
 </table>

@@ -37,7 +37,7 @@
 
 <style>
 
-@media (min-width: 1000px) { .modal-dialog { max-width: 75%; } }
+@media (min-width: 1000px) { .modal-dialog { max-width: 90%; } }
 
 
     #suggestions {
@@ -276,6 +276,8 @@
         <div class="col-sm-3">
         <input type="text" class="form-control" id="obs" name="obs" placeholder="Ingrese las observaciones" value="" >
         </div>
+
+        
         
         <!--
         <div class="col-sm-3">
@@ -295,12 +297,28 @@
           <h4>Valor:</h4>
         </div>
         <div class="col-sm-3">
-        <input type="text" class="form-control" id="valor" name="valor" placeholder="Ingrese las observaciones" value="">
+        <input type="text" class="form-control" id="valor" name="valor" placeholder="Ingrese el Valor" value="">
         </div>
 
         <br><br><br>
 
         <div class="row">
+
+        <!---OTRA FILA...--->
+        <br><br>
+            <div class="col-sm-2">
+                <h4>Otros</h4>
+            </div>
+
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="agua" name="agua" placeholder="Ingrese el Valor" value="0" required="">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+        
         
         <div class="col-sm">
         <input class="btn btn-danger" onclick="myFunction();" id="btn-borrar-todo" type="button" value="Borrar Todo">
@@ -423,34 +441,40 @@
 
                 <thead>
                 <tr>
-                    <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
-                    <th width="7%">Fecha Ingreso</th>
-                    <th width="10%">Persona</th>
-                    <th width="10%">Puesto</th>
-                    <th width="6%">Recibo</th>
-                    <th width="6%">Categoria</th>
-                    <th width="6%">Sub Categoria</th>
-                    <th width="6%">Valor</th>
-                    <th width="6%">Pendiente</th>
+                <th width="5%">Fecha Desde</th>
+                    <th width="5%">Fecha Hasta</th>
+                    <th width="5%">Fecha Ingreso</th>
+                    <th width="5%">Persona</th>
+                    <th width="5%">Puesto</th>
+                    <th width="3%">Recibo</th>
+                    <th width="4%">Categoria</th>
+                    <th width="4%">Sub Categoria</th>
+                    <th width="4%">Otros</th>
+                    <th width="4%">Valor</th>
+                    <th width="4%">Abono</th>
+                    <th width="4%">Saldo</th>
+                    <th width="1%">Pendiente</th>
                     <th width="10%">Observaciones</th>
-                    <th width="19%">Acciones</th>
+                    <th width="36%">Acciones</th>
                     </tr>
-                </thead>
-                <tfoot>
+                    </thead>
+                    <tfoot>
                     <tr>
-                    <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
-                    <th width="7%">Fecha Ingreso</th>
-                    <th width="10%">Persona</th>
-                    <th width="10%">Puesto</th>
-                    <th width="6%">Recibo</th>
-                    <th width="6%">Categoria</th>
-                    <th width="6%">Sub Categoria</th>
-                    <th width="6%">Valor</th>
-                    <th width="6%">Pendiente</th>
+                    <th width="5%">Fecha Desde</th>
+                    <th width="5%">Fecha Hasta</th>
+                    <th width="5%">Fecha Ingreso</th>
+                    <th width="5%">Persona</th>
+                    <th width="5%">Puesto</th>
+                    <th width="3%">Recibo</th>
+                    <th width="4%">Categoria</th>
+                    <th width="4%">Sub Categoria</th>
+                    <th width="4%">Otros</th>
+                    <th width="4%">Valor</th>
+                    <th width="4%">Abono</th>
+                    <th width="4%">Saldo</th>
+                    <th width="1%">Pendiente</th>
                     <th width="10%">Observaciones</th>
-                    <th width="19%">Acciones</th>
+                    <th width="36%">Acciones</th>
                 </tr>
                 </tfoot>
                 </table>
@@ -460,6 +484,49 @@
 </div>
 </div>
 </div>
+
+
+<!-------HACER ABONOS CON MODAL------------------->
+
+<!----AGREGAMOS MODAL PARA PODER HACER ABONOS A LA CARTERA---->
+
+
+<div class="modal fade" id="abonar-modal" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal"></h4>
+</div>
+<div class="modal-body">
+<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
+
+<!---DIVIDIR MODALES EN 2-->
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-offset-2 col-sm-10">
+<button type="button" class="btn btn-primary" id="btn-save-abonar" value="create">Guardar Cambios
+</button>
+</div>
+</form>
+</div>
+
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
+<!--------------------------------------------->
 
 
 
@@ -477,34 +544,40 @@
 
                 <thead>
                 <tr>
-                    <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
-                    <th width="7%">Fecha Ingreso</th>
-                    <th width="10%">Persona</th>
-                    <th width="10%">Puesto</th>
-                    <th width="6%">Recibo</th>
-                    <th width="6%">Categoria</th>
-                    <th width="6%">Sub Categoria</th>
-                    <th width="6%">Valor</th>
-                    <th width="6%">Pendiente</th>
+                    <th width="5%">Fecha Desde</th>
+                    <th width="5%">Fecha Hasta</th>
+                    <th width="5%">Fecha Ingreso</th>
+                    <th width="5%">Persona</th>
+                    <th width="5%">Puesto</th>
+                    <th width="3%">Recibo</th>
+                    <th width="4%">Categoria</th>
+                    <th width="4%">Sub Categoria</th>
+                    <th width="4%">Otros</th>
+                    <th width="4%">Valor</th>
+                    <th width="4%">Abono</th>
+                    <th width="4%">Saldo</th>
+                    <th width="1%">Pendiente</th>
                     <th width="10%">Observaciones</th>
-                    <th width="19%">Acciones</th>
+                    <th width="36%">Acciones</th>
                     </tr>
-                </thead>
-                <tfoot>
+                    </thead>
+                    <tfoot>
                     <tr>
-                    <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
-                    <th width="7%">Fecha Ingreso</th>
-                    <th width="10%">Persona</th>
-                    <th width="10%">Puesto</th>
-                    <th width="6%">Recibo</th>
-                    <th width="6%">Categoria</th>
-                    <th width="6%">Sub Categoria</th>
-                    <th width="6%">Valor</th>
-                    <th width="6%">Pendiente</th>
+                    <th width="5%">Fecha Desde</th>
+                    <th width="5%">Fecha Hasta</th>
+                    <th width="5%">Fecha Ingreso</th>
+                    <th width="5%">Persona</th>
+                    <th width="5%">Puesto</th>
+                    <th width="3%">Recibo</th>
+                    <th width="4%">Categoria</th>
+                    <th width="4%">Sub Categoria</th>
+                    <th width="4%">Otros</th>
+                    <th width="4%">Valor</th>
+                    <th width="4%">Abono</th>
+                    <th width="4%">Saldo</th>
+                    <th width="1%">Pendiente</th>
                     <th width="10%">Observaciones</th>
-                    <th width="19%">Acciones</th>
+                    <th width="36%">Acciones</th>
                 </tr>
                 </tfoot>
                 </table>
@@ -599,6 +672,143 @@ $('#add-form').trigger("reset");
 }
 });
 });  
+
+
+
+
+
+////////aqui colocamos las funcionalidades para editar, pagar, eliminar o abonar a cartera
+
+
+
+/* edit user function */
+$('body').on('click', '.btn-edit', function () {
+    $('#add-modal').modal('hide');
+var id = $(this).data('id');
+$.ajax({
+url:"add-edit-delete.php",
+type: "POST",
+data: {
+id: id,
+mode: 'edit_cartera' 
+},
+dataType : 'json',
+success: function(result){
+$('#id').val(result.id);
+$('#fecha_desde').val(result.fecha_desde);
+$('#fecha_hasta').val(result.fecha_hasta);
+$('#fecha_ing').val(result.fecha_ingreso);
+$('#fecha_pago').val(result.fecha_pago);
+$('#perteneces').val(result.nombre);
+$('#perteneces_id').val(result.persona_fk);
+$('#pertenece').val(result.num_local);
+$('#pertenece_id').val(result.local_fk);
+//$('#persona').val(result.nombre);
+//$('#local').val(result.num_local);
+$('#recibo').val(result.recibo);
+$('#categoria').val(result.categoria);
+$('#sub_categ').val(result.sub_categoria);
+$('#valor').val(result.valor);
+//$('#persona').val(result.persona_fk);
+//$('#local').val(result.local_fk);
+$('#abono').val(result.abono);
+$('#pendiente').val(result.pendiente);
+$('#obs').val(result.observaciones);
+$('#edit-modal').modal('show');
+}
+});
+});
+// add form submit
+$('#update-form').submit(function(e){
+e.preventDefault();
+// ajax
+$.ajax({
+url:"add-edit-delete.php",
+type: "POST",
+data: $(this).serialize(), // get all form field value in serialize form
+success: function(){
+var oTable = $('#usersListTable').dataTable(); 
+oTable.fnDraw(false);
+$('#edit-modal').modal('hide');
+$('#update-form').trigger("reset");
+}
+});
+});  
+/* DELETE FUNCTION */
+$('body').on('click', '.btn-delete', function () {
+var id = $(this).data('id');
+if (confirm("Estás seguro que deseas eliminar el registro !")) {
+$.ajax({
+url:"add-edit-delete.php",
+type: "POST",
+data: {
+id: id,
+mode: 'delete_cartera' 
+},
+dataType : 'json',
+success: function(result){
+var oTable = $('#usersListTable').dataTable(); 
+oTable.fnDraw(false);
+}
+});
+} 
+return false;
+});
+/*HASTA AQUI EL BOTON DE ELIMINAR*/
+
+
+$('body').on('click', '.btn-pagar', function () {
+var id = $(this).data('id');
+if (confirm("Estás seguro que deseas pagar !")) {
+$.ajax({
+url:"add-edit-delete.php",
+type: "POST",
+data: {
+id: id,
+mode: 'pagar_cartera' 
+},
+dataType : 'json',
+success: function(result){
+var oTable = $('#usersListTable').dataTable(); 
+oTable.fnDraw(false);
+}
+});
+} 
+return false;
+});
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#add-modal').modal('hide');
+    $('#add-modal2').modal('hide');
+    $('#btn-save-abonar').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_cartera'
+      },
+      success: function(result) {
+        var oTable = $('#abono_cartera').dataTable();
+        oTable.fnDraw(false);
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
+});
+
+///////////////////////hasta aqui
 
 
 //funcion para esconder o mostrar el valor
