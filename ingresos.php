@@ -31,7 +31,7 @@
 
 
 
-<h2 class="float-left">Ingresoss</h2>
+<h2 class="float-left">Ingresos</h2>
 
 <!---Se va a poner los diferentes botones para hacer los ingresos-->
 
