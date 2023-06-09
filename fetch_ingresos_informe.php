@@ -28,6 +28,8 @@ $table = <<<EOT
   FROM ingresos i
   INNER JOIN locales l on i.local_fk = l.id
   INNER JOIN personas p on i.persona_fk = p.id
+  WHERE i.abono <> '0'
+  ORDER BY i.id DESC
  ) temp
 EOT;
 
