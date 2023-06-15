@@ -440,7 +440,7 @@ $(document).ready(function(){
     },
 "processing": true,
 "serverSide": true,
-"order": [],
+"order": [[0, "desc"]],
 "ajax": "fetch_ingresos_informe.php"
 });
 });
