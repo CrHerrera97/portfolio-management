@@ -168,6 +168,53 @@ echo json_encode(true);
     }
 
 
+    //abonar ahorros
+
+        if ($_POST['mode'] === 'abonar_ahorros') {
+
+        //primero para hacer el abono a cartera debemos saber cual es el abono actual y el valor del ingreso
+        $result = mysqli_query($conn,"SELECT valor, abono, persona_fk, local_fk, id FROM ingresos WHERE id =  '". $_POST['id']."'");
+        $row= mysqli_fetch_array($result);
+        //echo json_encode($row);
+
+        //extraemos los datos de nuestra consulta
+        $valor_total = $row[0];
+        $abono_actual = $row[1];
+        $persona = $row[2];
+        $local = $row[3];
+        $id_abono = $row[4];
+
+        $abono = $_POST["abono"];
+
+        if ($abono_actual === $valor_total) {
+            //hacemos para que el valor de pendiente esté en "si"
+            mysqli_query($conn,"UPDATE ingresos set pendiente='no' WHERE id='" . $_POST['id'] . "'");
+        }else{
+            //$abono = 10000;
+
+            $abono_total = $abono_actual+$abono;
+    
+            $saldo = $valor_total - $abono_total;
+    
+                //$abono_nuevo = $filas->abono;
+    
+            mysqli_query($conn, "UPDATE ingresos set abono = '".$abono_total."',saldo = '".$saldo."' WHERE id='" . $_POST["id"] . "'");
+            //echo json_encode(true);
+
+            //extraemos la fecha actual
+            date_default_timezone_set("America/Bogota");
+            $fecha_hoy = date("Y/m/d");
+
+            //hacemos la inserccion para que se vea en la tabla de abonos
+            //INSERT INTO `abonos` (`id`, `fecha`, `ingresos_fk`, `persona_fk`, `local_fk`, `valor`) VALUES (NULL, '2023-05-30', '1', '1', '1', '5000');
+            mysqli_query($conn,"INSERT INTO abonos (fecha,ingresos_fk,persona_fk,local_fk,valor) VALUES ('$fecha_hoy','$id_abono','$persona','$local','$abono')");
+            
+        }
+        echo json_encode(true);
+
+    }
+
+
     //CRUD DE AHORROS
 
     if($_POST['mode'] === 'edit_ahorros'){

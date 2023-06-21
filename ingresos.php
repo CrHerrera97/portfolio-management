@@ -149,7 +149,7 @@
             </div>
 
             <div class="col-sm-5">
-                <a id="abono_ahorro_venc_btn" href="javascript:void(0)" class="btn btn-success  add-model4"> Abono a Ahorro Vencido </a>
+                
             </div>
         </div>
         <br>
@@ -620,7 +620,7 @@
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
-<h4 class="modal-title" id="userCrudModal">Abono a Cartera</h4>
+<h4 class="modal-title" id="userCrudModal">Abono a Ahorro</h4>
 </div>
 <div class="modal-body"></div>
 <table id="abono_ahorro" class="display" style="width:100%">
@@ -636,14 +636,17 @@
                     <th width="6%">Recibo</th>
                     <th width="6%">Categoria</th>
                     <th width="6%">Sub Categoria</th>
+                    <th width="6%">Otros</th>
                     <th width="6%">Valor</th>
+                    <th width="6%">Abono</th>
+                    <th width="6%">Saldo</th>
                     <th width="6%">Pendiente</th>
-                    <th width="10%">Observaciones</th>
+                    <th width="5%">Observaciones</th>
                     <th width="19%">Acciones</th>
                     </tr>
                     </thead>
                     <tfoot>
-                    <tr>
+                <tr>
                     <th width="7%">Id</th>    
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>
@@ -653,9 +656,12 @@
                     <th width="6%">Recibo</th>
                     <th width="6%">Categoria</th>
                     <th width="6%">Sub Categoria</th>
+                    <th width="6%">Otros</th>
                     <th width="6%">Valor</th>
+                    <th width="6%">Abono</th>
+                    <th width="6%">Saldo</th>
                     <th width="6%">Pendiente</th>
-                    <th width="10%">Observaciones</th>
+                    <th width="5%">Observaciones</th>
                     <th width="19%">Acciones</th>
                 </tr>
                 </tfoot>
@@ -812,10 +818,6 @@ $('.add-model3').click(function () {
 $('#add-modal3').modal('show');
 });
 
-//add model 4 hace referencia a abono a ahorro vencido
-$('.add-model4').click(function () {
-$('#add-modal4').modal('show');
-});
 
 // add form submit
 $('#add-form').submit(function(e){
@@ -972,6 +974,40 @@ $(document).ready(function() {
 ///////////////////////hasta aqui
 
 
+///////////////////////ABONO DE AHORRO
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar-ahorro', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#add-modal3').modal('hide');
+    $('#add-modal2').modal('hide');
+    $('#btn-save-abonar').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_ahorros'
+      },
+      success: function(result) {
+        var oTable = $('#abono_cartera').dataTable();
+        oTable.fnDraw(false);
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
+});
+
+
 //funcion para esconder o mostrar el valor
 
 //definimos el valor como invisible
@@ -985,7 +1021,6 @@ let abono_cartera_venc_btn = document.getElementById('abono_cartera_venc_btn').s
 
 let abono_ahorro_btn = document.getElementById('abono_ahorro_btn').style.display = 'none'
 
-let abono_ahorro_venc_btn = document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
 
 let valor_1 = document.getElementById('valor').style.display = 'none'
 let valor_2 = document.getElementById('valor_total').style.display = 'none'
@@ -1016,7 +1051,6 @@ function categoria_radio(){
         document.getElementById('abono_cartera_venc_btn').style.display = 'inline'
 
         document.getElementById('abono_ahorro_btn').style.display = 'inline'
-        document.getElementById('abono_ahorro_venc_btn').style.display = 'inline'
     }
 
 
@@ -1031,7 +1065,6 @@ function categoria_radio(){
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
-        document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
 
         eliminarAtribu();
         
@@ -1044,7 +1077,6 @@ function categoria_radio(){
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
-        document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
 
         $('#fecha_pago').attr("disabled", 'disabled');
 
@@ -1068,7 +1100,7 @@ function categoria_radio(){
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
-        document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
+    
 
     }else if(ahorros_radio.checked){
         document.getElementById('valor').style.display = 'flex'
@@ -1084,7 +1116,7 @@ function categoria_radio(){
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
-        document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
+
 
     }else if(multas_radio.checked){
         document.getElementById('valor').style.display = 'flex'
@@ -1100,7 +1132,7 @@ function categoria_radio(){
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
-        document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
+
 
         $('#fecha_pago').attr("disabled", 'disabled');
     }
