@@ -78,6 +78,7 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
+<th width="7%">Id</th>
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>
 <th width="7%">Fecha Ingreso</th>
@@ -97,6 +98,7 @@
 </thead>
 <tfoot>
 <tr>
+<th width="7%">Id</th>  
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>
 <th width="7%">Fecha Ingreso</th>

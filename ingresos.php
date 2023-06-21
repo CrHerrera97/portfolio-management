@@ -117,6 +117,9 @@
 
                 <input class="form-check-input" type="radio" name="categoria" id="multas_radio" value="multas_radio"onclick="categoria_radio()">
                 <label class="form-check-label" for="flexRadioDefault1">Multas</label><br>
+
+                <input class="form-check-input" type="radio" name="categoria" id="abono_radio" value="abono_radio"onclick="categoria_radio()">
+                <label class="form-check-label" for="flexRadioDefault1">Abonos</label><br>
             </div>       
         </div>
         <br>
@@ -126,11 +129,27 @@
 
             <div class="col-sm-6">
                 <!--<input class="btn btn-success" type="button" value="Abono a Cartera">-->
-                <a href="javascript:void(0)" class="btn btn-success  add-model"> Abono a Cartera </a>
+                <a id="abono_cartera_btn" href="javascript:void(0)" class="btn btn-success  add-model"> Abono a Cartera </a>
             </div>
 
             <div class="col-sm-5">
-                <a href="javascript:void(0)" class="btn btn-success  add-model2"> Abono a Cartera Vencida. </a>
+                <a id="abono_cartera_venc_btn" href="javascript:void(0)" class="btn btn-success  add-model2"> Abono a Cartera Vencida </a>
+            </div>
+        </div>
+
+
+        <br>
+        <!-----ABONOS A AHORRO Y AHORRO VENCIDO----->
+        <div class="row container">
+            <div class="col-sm-1"></div>
+
+            <div class="col-sm-6">
+                <!--<input class="btn btn-success" type="button" value="Abono a Cartera">-->
+                <a id="abono_ahorro_btn" href="javascript:void(0)" class="btn btn-success  add-model"> Abono a Ahorro </a>
+            </div>
+
+            <div class="col-sm-5">
+                <a id="abono_ahorro_venc_btn" href="javascript:void(0)" class="btn btn-success  add-model2"> Abono a Ahorro Vencido </a>
             </div>
         </div>
         <br>
@@ -441,7 +460,8 @@
 
                 <thead>
                 <tr>
-                <th width="5%">Fecha Desde</th>
+                    <th width="5%">Id</th>
+                    <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
                     <th width="5%">Persona</th>
@@ -460,6 +480,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                    <th width="5%">Id</th>
                     <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
@@ -544,6 +565,7 @@
 
                 <thead>
                 <tr>
+                    <th width="5%">Id</th>
                     <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
@@ -563,6 +585,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                    <th width="5%">Id</th>
                     <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
@@ -587,6 +610,105 @@
 </div>
 </div>
 </div>
+
+
+
+<!---------------ABONOS A AHORRO---------------------------------------------->
+
+
+<div class="modal fade" id="add-modal" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal">Abono a Cartera</h4>
+</div>
+<div class="modal-body"></div>
+<table id="abono_cartera" class="display" style="width:100%">
+
+                <thead>
+                <tr>
+                    <th width="7%">Id</th>    
+                    <th width="7%">Fecha Desde</th>
+                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Ingreso</th>
+                    <th width="10%">Persona</th>
+                    <th width="10%">Puesto</th>
+                    <th width="6%">Recibo</th>
+                    <th width="6%">Categoria</th>
+                    <th width="6%">Sub Categoria</th>
+                    <th width="6%">Valor</th>
+                    <th width="6%">Pendiente</th>
+                    <th width="10%">Observaciones</th>
+                    <th width="19%">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                    <th width="7%">Id</th>    
+                    <th width="7%">Fecha Desde</th>
+                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Ingreso</th>
+                    <th width="10%">Persona</th>
+                    <th width="10%">Puesto</th>
+                    <th width="6%">Recibo</th>
+                    <th width="6%">Categoria</th>
+                    <th width="6%">Sub Categoria</th>
+                    <th width="6%">Valor</th>
+                    <th width="6%">Pendiente</th>
+                    <th width="10%">Observaciones</th>
+                    <th width="19%">Acciones</th>
+                </tr>
+                </tfoot>
+                </table>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
+<!-------HACER ABONOS CON MODAL------------------->
+
+<!----AGREGAMOS MODAL PARA PODER HACER ABONOS AL AHORRO---->
+
+
+<div class="modal fade" id="abonar-modal" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal"></h4>
+</div>
+<div class="modal-body">
+<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
+
+<!---DIVIDIR MODALES EN 2-->
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-offset-2 col-sm-10">
+<button type="button" class="btn btn-primary" id="btn-save-abonar" value="create">Guardar Cambios
+</button>
+</div>
+</form>
+</div>
+
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
+<!--------------------------------------------->
 
 <script>
 
@@ -815,6 +937,17 @@ $(document).ready(function() {
 
 //definimos el valor como invisible
 
+//definimos los botones de hacer abonos como invisibles tambien
+
+let abono_cartera_btn = document.getElementById('abono_cartera_btn').style.display = 'none'
+
+let abono_cartera_venc_btn = document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+
+
+let abono_ahorro_btn = document.getElementById('abono_ahorro_btn').style.display = 'none'
+
+let abono_ahorro_venc_btn = document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
+
 let valor_1 = document.getElementById('valor').style.display = 'none'
 let valor_2 = document.getElementById('valor_total').style.display = 'none'
 
@@ -837,6 +970,15 @@ function categoria_radio(){
     let cartera_vencida_radio = document.getElementById('cartera_vencida_radio')
     let ahorros_radio = document.getElementById('ahorro_radio')
     let multas_radio = document.getElementById('multas_radio')
+    let abono_radio = document.getElementById('abono_radio')
+
+    if(abono_radio.checked){
+        document.getElementById('abono_cartera_btn').style.display = 'inline'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'inline'
+
+        document.getElementById('abono_ahorro_btn').style.display = 'inline'
+        document.getElementById('abono_ahorro_venc_btn').style.display = 'inline'
+    }
 
 
     if(ingresos_radio.checked){
@@ -846,12 +988,24 @@ function categoria_radio(){
         //ponemos para que me ponga visible los siguientes campos
         $("#fecha_pago").removeAttr("disabled");
 
+
+        document.getElementById('abono_cartera_btn').style.display = 'none'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
+
         eliminarAtribu();
         
 
     }else if(cartera_actual_radio.checked){
         document.getElementById('valor').style.display = 'none'
         document.getElementById('valor_total').style.display = 'none'
+        
+
+        document.getElementById('abono_cartera_btn').style.display = 'none'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
 
         $('#fecha_pago').attr("disabled", 'disabled');
 
@@ -871,6 +1025,12 @@ function categoria_radio(){
 
         $('#fecha_pago').attr("disabled", 'disabled');
 
+
+        document.getElementById('abono_cartera_btn').style.display = 'none'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
+
     }else if(ahorros_radio.checked){
         document.getElementById('valor').style.display = 'flex'
         document.getElementById('valor_total').style.display = 'flex'
@@ -882,6 +1042,11 @@ function categoria_radio(){
 
         $("#fecha_pago").removeAttr("disabled");
 
+        document.getElementById('abono_cartera_btn').style.display = 'none'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
+
     }else if(multas_radio.checked){
         document.getElementById('valor').style.display = 'flex'
         document.getElementById('valor_total').style.display = 'flex'
@@ -892,6 +1057,11 @@ function categoria_radio(){
         $('#luz').attr("disabled", 'disabled');
 
         //$("#fecha_pago").removeAttr("disabled");
+
+        document.getElementById('abono_cartera_btn').style.display = 'none'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_venc_btn').style.display = 'none'
 
         $('#fecha_pago').attr("disabled", 'disabled');
     }

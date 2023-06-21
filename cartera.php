@@ -68,6 +68,7 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
+<th width="5%">Id</th>
 <th width="5%">Fecha Desde</th>
 <th width="5%">Fecha Hasta</th>
 <th width="5%">Fecha Ingreso</th>
@@ -87,6 +88,7 @@
 </thead>
 <tfoot>
 <tr>
+<th width="5%">Id</th>
 <th width="5%">Fecha Desde</th>
 <th width="5%">Fecha Hasta</th>
 <th width="5%">Fecha Ingreso</th>
@@ -382,7 +384,7 @@ $('#usersListTable').DataTable({
     },
 "processing": true,
 "serverSide": true,
-"order": [],
+"order": [[0,"desc"]],
 "ajax": "fetch_cartera.php"
 });
 });
