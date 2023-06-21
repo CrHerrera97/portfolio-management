@@ -145,11 +145,11 @@
 
             <div class="col-sm-6">
                 <!--<input class="btn btn-success" type="button" value="Abono a Cartera">-->
-                <a id="abono_ahorro_btn" href="javascript:void(0)" class="btn btn-success  add-model"> Abono a Ahorro </a>
+                <a id="abono_ahorro_btn" href="javascript:void(0)" class="btn btn-success  add-model3"> Abono a Ahorro </a>
             </div>
 
             <div class="col-sm-5">
-                <a id="abono_ahorro_venc_btn" href="javascript:void(0)" class="btn btn-success  add-model2"> Abono a Ahorro Vencido </a>
+                <a id="abono_ahorro_venc_btn" href="javascript:void(0)" class="btn btn-success  add-model4"> Abono a Ahorro Vencido </a>
             </div>
         </div>
         <br>
@@ -616,14 +616,14 @@
 <!---------------ABONOS A AHORRO---------------------------------------------->
 
 
-<div class="modal fade" id="add-modal" aria-hidden="true">
+<div class="modal fade" id="add-modal3" aria-hidden="true">
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
 <h4 class="modal-title" id="userCrudModal">Abono a Cartera</h4>
 </div>
 <div class="modal-body"></div>
-<table id="abono_cartera" class="display" style="width:100%">
+<table id="abono_ahorro" class="display" style="width:100%">
 
                 <thead>
                 <tr>
@@ -714,6 +714,35 @@
 
 /// SCRIPT PARA TRAER EL MODAL
 
+//abono ahorro
+$('#abono_ahorro').DataTable({
+    language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+    },
+"processing": true,
+"serverSide": true,
+"order": [],
+"ajax": "fetch_ahorros.php"
+});
+
+
 $('#abono_cartera').DataTable({
     language: {
         "decimal": "",
@@ -778,6 +807,16 @@ $('#add-modal').modal('show');
 $('.add-model2').click(function () {
 $('#add-modal2').modal('show');
 });
+//add model 3 hace referencia a abono a ahorro
+$('.add-model3').click(function () {
+$('#add-modal3').modal('show');
+});
+
+//add model 4 hace referencia a abono a ahorro vencido
+$('.add-model4').click(function () {
+$('#add-modal4').modal('show');
+});
+
 // add form submit
 $('#add-form').submit(function(e){
 e.preventDefault();
