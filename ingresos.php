@@ -962,8 +962,8 @@ $(document).ready(function() {
         mode: 'abonar_cartera'
       },
       success: function(result) {
-        var oTable = $('#abono_cartera').dataTable();
-        oTable.fnDraw(false);
+        //var oTable = $('#abono_cartera').dataTable();
+        //oTable.fnDraw(false);
         $('#abonar-modal').modal('hide');
         $('#update-form-abonos').trigger("reset");
       }
@@ -998,9 +998,9 @@ $(document).ready(function() {
         mode: 'abonar_ahorros'
       },
       success: function(result) {
-        var oTable = $('#abono_cartera').dataTable();
-        oTable.fnDraw(false);
         $('#abonar-modal').modal('hide');
+        //var oTable = $('#abono_cartera').dataTable();
+        //oTable.fnDraw(false);
         $('#update-form-abonos').trigger("reset");
       }
     });

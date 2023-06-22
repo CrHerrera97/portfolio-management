@@ -26,28 +26,50 @@ $parametro2 = $_POST['parametro2'];
 // generar el PDF con FPDF
 $pdf = new FPDF();
 $pdf->AddPage();
-$pdf->SetFont('Arial','B',16);
+$pdf->SetFont('Arial', 'B', 16);
+
 $pdf->SetY(5);
-$pdf->Cell(80,20,'Total Por Dias:');
-$pdf->SetY(5);
-$pdf->Cell(80,40,'Administracion: '.$admon);
-$pdf->SetY(5);
-$pdf->Cell(80,60,'Parqueadero: '.$parque);
-$pdf->SetY(5);
-$pdf->Cell(80,80,'Agua: '.$agua);
-$pdf->SetY(5);
-$pdf->Cell(80,100,'Luz: '.$luz);
-$pdf->SetY(5);
-$pdf->Cell(80,120,'Total Ingresos: '.$total_ingresos);
-$pdf->SetY(5);
-$pdf->Cell(80,140,'Total Cartera Actual: '.$total_cartera_actual);
-$pdf->SetY(5);
-$pdf->Cell(80,160,'Total Cartera Vencida: '.$total_cartera_vencida);
-$pdf->SetY(5);
-$pdf->Cell(80,180,'Total Multas: '.$total_multas);
-$pdf->SetY(5);
-$pdf->Cell(80,200,'Total Ahorros: '.$total_ahorros);
+$pdf->Cell(160, 20, utf8_decode ('Total Por Días:'), 1, 0, 'C');
+$pdf->Ln();
+
+$pdf->Cell(80, 20, utf8_decode ('Administración:'), 1, 0, 'L');
+$pdf->Cell(80, 20, $admon, 1, 0, 'R');
+$pdf->Ln();
+
+$pdf->Cell(80, 20, 'Parqueadero:', 1, 0, 'L');
+$pdf->Cell(80, 20, $parque, 1, 0, 'R');
+$pdf->Ln();
+
+$pdf->Cell(80, 20, 'Agua:', 1, 0, 'L');
+$pdf->Cell(80, 20, $agua, 1, 0, 'R');
+$pdf->Ln();
+
+$pdf->Cell(80, 20, 'Luz:', 1, 0, 'L');
+$pdf->Cell(80, 20, $luz, 1, 0, 'R');
+$pdf->Ln();
+
+$pdf->Cell(80, 20, 'Total Ingresos:', 1, 0, 'L');
+$pdf->Cell(80, 20, $total_ingresos, 1, 0, 'R');
+$pdf->Ln();
+
+$pdf->Cell(80, 20, 'Total Cartera Actual:', 1, 0, 'L');
+$pdf->Cell(80, 20, $total_cartera_actual, 1, 0, 'R');
+$pdf->Ln();
+
+$pdf->Cell(80, 20, 'Total Cartera Vencida:', 1, 0, 'L');
+$pdf->Cell(80, 20, $total_cartera_vencida, 1, 0, 'R');
+$pdf->Ln();
+
+$pdf->Cell(80, 20, 'Total Multas:', 1, 0, 'L');
+$pdf->Cell(80, 20, $total_multas, 1, 0, 'R');
+$pdf->Ln();
+
+$pdf->Cell(80, 20, 'Total Ahorros:', 1, 0, 'L');
+$pdf->Cell(80, 20, $total_ahorros, 1, 0, 'R');
+$pdf->Ln();
+
 $pdf->Output();
+
 
 /*
 
