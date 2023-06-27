@@ -547,6 +547,47 @@
 </div>
 
 
+<!---------------HACER ABONOS CON CARTERA VENCIDA---------------------------------->
+
+
+<!----AGREGAMOS MODAL PARA PODER HACER ABONOS A LA CARTERA---->
+
+
+<div class="modal fade" id="abonar-modal-vencida" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal"></h4>
+</div>
+<div class="modal-body">
+<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
+
+<!---DIVIDIR MODALES EN 2-->
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono-vencida" name="abono-vencida" placeholder="Escriba el valor" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-offset-2 col-sm-10">
+<button type="button" class="btn btn-primary" id="btn-save-abonar-vencida" value="create">Guardar Cambios
+</button>
+</div>
+</form>
+</div>
+
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
 <!--------------------------------------------->
 
 
@@ -694,14 +735,14 @@
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="abono-ahorro" name="abono-ahorro" placeholder="Escriba el valor" value="" maxlength="50" required="" disabled>
         </div>
     </div>
   </div>
 </div>
 
 <div class="col-sm-offset-2 col-sm-10">
-<button type="button" class="btn btn-primary" id="btn-save-abonar" value="create">Guardar Cambios
+<button type="button" class="btn btn-primary" id="btn-save-abonar-ahorro" value="create">Guardar Cambios
 </button>
 </div>
 </form>
@@ -810,10 +851,14 @@ $('.add-model').click(function () {
 $('#add-modal').modal('show');
 });
 //add. model 2 hace referencia a la cartera vencida
+
 $('.add-model2').click(function () {
 $('#add-modal2').modal('show');
 });
+
+
 //add model 3 hace referencia a abono a ahorro
+
 $('.add-model3').click(function () {
 $('#add-modal3').modal('show');
 });
@@ -962,8 +1007,50 @@ $(document).ready(function() {
         mode: 'abonar_cartera'
       },
       success: function(result) {
+        alert ("Abono Exitoso");
+
+        window.location.href = 'ingresos.php';
         //var oTable = $('#abono_cartera').dataTable();
         //oTable.fnDraw(false);
+        
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
+});
+
+
+///ABONO A CARTERA VENCIDA
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar-vencida', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#add-modal').modal('hide');
+    $('#add-modal2').modal('hide');
+    $('#btn-save-abonar').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar-vencida', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono-vencida").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_cartera'
+      },
+      success: function(result) {
+        alert ("Abono Exitoso");
+
+        window.location.href = 'ingresos.php';
+        //var oTable = $('#abono_cartera').dataTable();
+        //oTable.fnDraw(false);
+        
         $('#abonar-modal').modal('hide');
         $('#update-form-abonos').trigger("reset");
       }
@@ -976,6 +1063,8 @@ $(document).ready(function() {
 
 ///////////////////////ABONO DE AHORRO
 
+
+
 $(document).ready(function() {
   $('body').on('click', '.btn-abonar-ahorro', function() {
     var id = $(this).data('id');
@@ -985,9 +1074,9 @@ $(document).ready(function() {
     $('#btn-save-abonar').data('id', id);
   });
 
-  $('body').on('click', '#btn-save-abonar', function() {
+  $('body').on('click', '#btn-save-abonar-ahorro', function() {
     var id = $(this).data('id');
-    let abono = document.getElementById("abono").value;
+    let abono = document.getElementById("abono-ahorro").value;
 
     $.ajax({
       url: "add-edit-delete.php",
@@ -998,6 +1087,10 @@ $(document).ready(function() {
         mode: 'abonar_ahorros'
       },
       success: function(result) {
+
+        alert ("Abono Exitoso");
+
+        window.location.href = 'ingresos.php';
         $('#abonar-modal').modal('hide');
         //var oTable = $('#abono_cartera').dataTable();
         //oTable.fnDraw(false);
@@ -1006,6 +1099,8 @@ $(document).ready(function() {
     });
   });
 });
+
+
 
 
 //funcion para esconder o mostrar el valor
