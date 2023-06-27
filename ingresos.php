@@ -786,7 +786,7 @@ $('#abono_ahorro').DataTable({
 "processing": true,
 "serverSide": true,
 "order": [],
-"ajax": "fetch_ahorros.php"
+"ajax": "fetch_ahorros_abono.php"
 });
 
 
@@ -814,7 +814,7 @@ $('#abono_cartera').DataTable({
 "processing": true,
 "serverSide": true,
 "order": [],
-"ajax": "fetch_cartera.php"
+"ajax": "fetch_cartera_abono.php"
 });
 
 
@@ -842,7 +842,7 @@ $('#abono_cartera_vencida').DataTable({
 "processing": true,
 "serverSide": true,
 "order": [],
-"ajax": "fetch_cartera_vencida.php"
+"ajax": "fetch_cartera_vencida_abono.php"
 });
 
 
