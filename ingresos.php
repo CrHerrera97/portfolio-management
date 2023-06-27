@@ -330,7 +330,7 @@
             </div>
 
             <div class="col-sm-3">
-                <input type="text" class="form-control" id="agua" name="agua" placeholder="Ingrese el Valor" value="" required="">
+                <input type="text" class="form-control" id="otros" name="otros" placeholder="Ingrese el Valor" value="" >
             </div>
 
         </div>
