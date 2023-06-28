@@ -77,7 +77,6 @@
 <th width="3%">Recibo</th>
 <th width="4%">Categoria</th>
 <th width="4%">Sub Categoria</th>
-<th width="4%">Otros</th>
 <th width="4%">Valor</th>
 <th width="4%">Abono</th>
 <th width="4%">Saldo</th>
@@ -97,7 +96,6 @@
 <th width="3%">Recibo</th>
 <th width="4%">Categoria</th>
 <th width="4%">Sub Categoria</th>
-<th width="4%">Otros</th>
 <th width="4%">Valor</th>
 <th width="4%">Abono</th>
 <th width="4%">Saldo</th>
