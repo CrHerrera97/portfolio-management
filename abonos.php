@@ -8,6 +8,7 @@
   }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,13 +23,14 @@
         include 'nav.php';
         ?>
 
-<style>
+    <style>
         #lista {
             list-style:none;
         }
     </style>
 
-<h2 class="float-left">Cartera Vencida</h2>
+
+<h2 class="float-left">Abonos</h2>
 <!--<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Locales </a>-->
 </div>
 
@@ -47,7 +49,7 @@
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: -15px;
+    top: -18px;
     z-index: 9999;
     width: 206px;
     left: 270px;
@@ -67,42 +69,30 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="5%">Id</th>
-<th width="5%">Fecha Desde</th>
-<th width="5%">Fecha Hasta</th>
-<th width="5%">Fecha Ingreso</th>
-<th width="5%">Persona</th>
-<th width="5%">Puesto</th>
-<th width="3%">Recibo</th>
-<th width="4%">Categoria</th>
-<th width="4%">Sub Categoria</th>
-<th width="4%">Otros</th>
-<th width="4%">Valor</th>
-<th width="4%">Abono</th>
-<th width="4%">Saldo</th>
-<th width="1%">Pendiente</th>
-<th width="10%">Observaciones</th>
-<th width="36%">Acciones</th>
+<th width="7%">Id</th>    
+<th width="7%">Fecha</th>
+<th width="7%">Categoria</th>
+<th width="7%">Sub Categoria</th>
+<th width="10%">Persona</th>
+<th width="10%">Puesto</th>
+<th width="10%"># Recibo</th>
+<th width="6%">Valor</th>
+<th width="6%">Abono</th>
+<th width="19%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th width="5%">Id</th>
-<th width="5%">Fecha Desde</th>
-<th width="5%">Fecha Hasta</th>
-<th width="5%">Fecha Ingreso</th>
-<th width="5%">Persona</th>
-<th width="5%">Puesto</th>
-<th width="3%">Recibo</th>
-<th width="4%">Categoria</th>
-<th width="4%">Sub Categoria</th>
-<th width="4%">Otros</th>
-<th width="4%">Valor</th>
-<th width="4%">Abono</th>
-<th width="4%">Saldo</th>
-<th width="1%">Pendiente</th>
-<th width="10%">Observaciones</th>
-<th width="36%">Acciones</th>
+<th width="7%">Id</th>    
+<th width="7%">Fecha</th>
+<th width="7%">Categoria</th>
+<th width="7%">Sub Categoria</th>
+<th width="10%">Persona</th>
+<th width="10%">Puesto</th>
+<th width="10%"># Recibo</th>
+<th width="6%">Valor</th>
+<th width="6%">Abono</th>
+<th width="19%">Acciones</th>
 </tr>
 </tfoot>
 </table>
@@ -120,9 +110,10 @@
 <div class="modal-body">
 <form id="update-form" name="update-form" class="form-horizontal" autocomplete="off">
 <input type="hidden" name="id" id="id">
-<input type="hidden" class="form-control" id="mode" name="mode" value="update_cartera">
+<input type="hidden" class="form-control" id="mode" name="mode" value="update_ahorros">
 
-<!---
+
+<!--
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Fecha</label>
 <div class="col-sm-12">
@@ -133,36 +124,34 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Persona</label>
 <div class="col-sm-12">
-<div id="sugerencia"></div>
+<div id="suggestions"></div>
+<input type="text" class="form-control" id="persona" name="persona" placeholder="Escriba el nombre del Local" value="" required="">
 <input type="text" class="form-control" id="perteneces" name="perteneces" placeholder="Escriba el nombre del Local" value="" required="">
 <input type="hidden" class="form-control" id="perteneces_id" name="perteneces_id" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
 </div>
 </div>
 
 <div class="form-group">
-<label for="name" class="col-sm-2 control-label">Local</label>
-<div class="col-sm-12">
-<div id="suggestions"></div>
-<input type="text" class="form-control" id="pertenece" name="pertenece" placeholder="Escriba una descripción del Local" value="" maxlength="50" required="">
-<input type="hidden" class="form-control" id="pertenece_id" name="pertenece_id" placeholder="Escriba a quien Pertenecee" value="" maxlength="50" required="">
-</div>
-</div>
-
-<div class="form-group">
 <label for="name" class="col-sm-2 control-label">Valor</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="valor" name="valor" placeholder="Escriba los servicios del Local separado por comas" value="" maxlength="50" required="">
+<input type="hidden" class="form-control" id="valor" name="valor" placeholder="Escriba los servicios del Local separado por comas" value="" maxlength="50" required="">
 </div>
 </div>
 
 <div class="form-group">
-<label for="name" class="col-sm-2 control-label">Servicios</label>
+<label for="name" class="col-sm-2 control-label">Pendiente</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="servicio" name="servicio" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
+    
+<select class="form-select" name="pendiente" id="pendiente">
+            <option value=""></option>
+            <option value="si">si</option>
+            <option value="no">no</option>
+</select>
+
 </div>
 </div>
 
--->
+--->
 
 <!---DIVIDIR MODALES EN 2-->
 <div class="form-group">
@@ -197,7 +186,7 @@
         <div class="col-sm-12">
             <!--<input type="text" class="form-control" id="persona" name="persona" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
             <input type="text" class="form-control" id="perteneces" name="perteneces" placeholder="Escriba el nombre" value="" required="">
-            <input type="hidden" class="form-control" id="perteneces_id" name="perteneces_id" placeholder="Escriba el nombre" value="" maxlength="50" required="">
+            <input type="hidden" class="form-control" id="perteneces_id" name="perteneces_id" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
         </div>
         <div id="sugerencia"></div>
     </div>
@@ -213,7 +202,7 @@
         <div class="col-sm-12">
             <!--<input type="text" class="form-control" id="local" name="local" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
             <input type="text" class="form-control" id="pertenece" name="pertenece" placeholder="Escriba el # del Puesto" value="" maxlength="50" required="">
-            <input type="hidden" class="form-control" id="pertenece_id" name="pertenece_id" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
+            <input type="hidden" class="form-control" id="pertenece_id" name="pertenece_id" placeholder="Escriba a quien Pertenecee" value="" maxlength="50" required="">
         </div>
         <div id="suggestions"></div>    
     </div>
@@ -283,15 +272,12 @@
 </div>
 
 
-
-
 <div class="col-sm-offset-2 col-sm-10">
 <button type="submit" class="btn btn-primary" id="btn-save" value="create">Guardar Cambios
 </button>
 </div>
 </form>
 </div>
-
 <div class="modal-footer">
 </div>
 </div>
@@ -338,7 +324,7 @@
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Pertenece</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="" name="" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
+<input type="text" class="form-control" id="pertenece" name="pertenece" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
 </div>
 </div>
 
@@ -356,46 +342,6 @@
 </div>
 </div>
 </div>
-
-<!----AGREGAMOS MODAL PARA PODER HACER ABONOS A LA CARTERA---->
-
-
-<div class="modal fade" id="abonar-modal" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h4 class="modal-title" id="userCrudModal"></h4>
-</div>
-<div class="modal-body">
-<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
-
-<!---DIVIDIR MODALES EN 2-->
-<div class="form-group">
-  <div class="row">
-    <div class="col">
-        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor" value="" maxlength="50" required="">
-        </div>
-    </div>
-  </div>
-</div>
-
-<div class="col-sm-offset-2 col-sm-10">
-<button type="button" class="btn btn-primary" id="btn-save-abonar" value="create">Guardar Cambios
-</button>
-</div>
-</form>
-</div>
-
-<div class="modal-footer">
-</div>
-</div>
-</div>
-</div>
-
-
-
 <script>
 $(document).ready(function(){
 $('#usersListTable').DataTable({
@@ -422,7 +368,7 @@ $('#usersListTable').DataTable({
 "processing": true,
 "serverSide": true,
 "order": [[0,"desc"]],
-"ajax": "fetch_cartera_vencida.php"
+"ajax": "fetch_abonos.php"
 });
 });
 /*  add user model */
@@ -453,11 +399,11 @@ url:"add-edit-delete.php",
 type: "POST",
 data: {
 id: id,
-mode: 'edit_cartera' 
+mode: 'edit_ahorros' 
 },
 dataType : 'json',
 success: function(result){
-$('#id').val(result.id);
+    $('#id').val(result.id);
 $('#fecha_desde').val(result.fecha_desde);
 $('#fecha_hasta').val(result.fecha_hasta);
 $('#fecha_ing').val(result.fecha_ingreso);
@@ -517,6 +463,7 @@ oTable.fnDraw(false);
 } 
 return false;
 });
+
 /*HASTA AQUI EL BOTON DE ELIMINAR*/
 
 
@@ -528,7 +475,7 @@ url:"add-edit-delete.php",
 type: "POST",
 data: {
 id: id,
-mode: 'pagar_cartera' 
+mode: 'pagar_ahorro' 
 },
 dataType : 'json',
 success: function(result){
@@ -540,40 +487,56 @@ oTable.fnDraw(false);
 return false;
 });
 
-/*SE DEBE CREAR UN BOTON PARA HACER EL PAGO DE LA CARTERA*/
-
 $(document).ready(function() {
-  $('body').on('click', '.btn-abonar', function() {
-    var id = $(this).data('id');
-    $('#abonar-modal').modal('show');
-    $('#btn-save-abonar').data('id', id);
-  });
+    $('#perteneces').on('keyup', function() {
+        var key = $(this).val();		
+        var dataString = 'pertenece='+key;
+	$.ajax({
+            type: "POST",
+            url: "buscar_personas_ahorros.php",
+            data: dataString,
+            success: function(data) {
+                
+                //Escribimos las sugerencias que nos manda la consulta
+                $('#suggestions').fadeIn(1000).html(data);
+                //Al hacer click en alguna de las sugerencias
+                $('.suggest-element').on('click', function(){
+                        //Obtenemos la id unica de la sugerencia pulsada
+                        //var id = $(this).attr('id');
 
-  $('body').on('click', '#btn-save-abonar', function() {
-    var id = $(this).data('id');
-    let abono = document.getElementById("abono").value;
+                        var id = $(this).attr('nombreComp')
 
-    $.ajax({
-      url: "add-edit-delete.php",
-      type: "POST",
-      data: {
-        id: id,
-        abono: abono,
-        mode: 'abonar_cartera'
-      },
-      success: function(result) {
-        var oTable = $('#usersListTable').dataTable();
-        oTable.fnDraw(false);
-        $('#abonar-modal').modal('hide');
-        $('#update-form-abonos').trigger("reset");
-      }
+                        var id_fk = $(this).attr('id')
+
+                        
+
+                        $("#perteneces").val(id);
+
+                        $("#perteneces_id").val(id_fk);
+
+
+                        //Editamos el valor del input con data de la sugerencia pulsada
+                        //$('#key').val($('#'+id).attr('data'));
+                        //Hacemos desaparecer el resto de sugerencias
+                        $('#suggestions').fadeOut(500);
+                        //alert('Has seleccionado el '+id+' '+$('#'+id).attr('data'));
+                        return false;
+
+                        //ponemos en el input del local 
+                        
+
+                        
+                });
+
+                
+            }
+        });
     });
-  });
-});
+}); 
 
 
 //autocompletar el local en el editar
- $(document).ready(function() {
+$(document).ready(function() {
     $('#pertenece').on('keyup', function() {
         var key = $(this).val();		
         var dataString = 'perteneces='+key;
@@ -614,54 +577,7 @@ $(document).ready(function() {
     });
 }); 
 
- //autocompletar el nombre en el editar
 
-$(document).ready(function() {
-    $('#perteneces').on('keyup', function() {
-        var key = $(this).val();		
-        var dataString = 'pertenece='+key;
-	$.ajax({
-            type: "POST",
-            url: "buscar_personas_locales.php",
-            data: dataString,
-            success: function(data) {
-                
-                //Escribimos las sugerencias que nos manda la consulta
-                $('#suggestions').fadeIn(1000).html(data);
-                //Al hacer click en alguna de las sugerencias
-                $('.suggest-element').on('click', function(){
-                        //Obtenemos la id unica de la sugerencia pulsada
-                        //var id = $(this).attr('id');
-
-                        var id = $(this).attr('nombreComp')
-
-                        var id_fk = $(this).attr('id')
-
-                        
-
-                        $("#perteneces").val(id);
-
-                        $("#perteneces_id").val(id_fk);
-
-
-                        //Editamos el valor del input con data de la sugerencia pulsada
-                        //$('#key').val($('#'+id).attr('data'));
-                        //Hacemos desaparecer el resto de sugerencias
-                        $('#suggestions').fadeOut(500);
-                        //alert('Has seleccionado el '+id+' '+$('#'+id).attr('data'));
-                        return false;
-
-                        //ponemos en el input del local 
-                        
-
-                        
-                });
-
-                
-            }
-        });
-    });
-}); 
 
 </script>
 

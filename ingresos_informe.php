@@ -78,6 +78,7 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
+<!--<th width="7%">Id</th>-->
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>
 <th width="7%">Fecha Ingreso</th>
@@ -97,6 +98,7 @@
 </thead>
 <tfoot>
 <tr>
+<!--<th width="7%">Id</th>-->
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>
 <th width="7%">Fecha Ingreso</th>
@@ -368,7 +370,8 @@
 <script>
 $(document).ready(function(){
     var table = $('#usersListTable').DataTable({
-    dom: 'Bfrtip',
+    //dom: 'Bfrtip',
+    dom: 'Blfrtip',
     lengthMenu: [
             [10, 25, 50, 100, 500, -1],
             [10, 25, 50, 100, 500, 'Todo'],
@@ -403,16 +406,21 @@ $(document).ready(function(){
             return searchString.length? "Search: " + searchString : "Ingresos Informe"
             }
         },
+        /*
         {
-            extend: "pageLength",
+            //extend: "pageLength",
             //text: "Registros"
         }
+        */
             
     ],
     language: {
+        /*
         buttons: {
         pageLength: '%d'
-    },
+        }  
+    ,
+    */
         "decimal": "",
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
@@ -434,7 +442,7 @@ $(document).ready(function(){
     },
 "processing": true,
 "serverSide": true,
-"order": [],
+"order": [[0, "desc"]],
 "ajax": "fetch_ingresos_informe.php"
 });
 });

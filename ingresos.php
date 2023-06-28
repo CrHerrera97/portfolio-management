@@ -117,6 +117,9 @@
 
                 <input class="form-check-input" type="radio" name="categoria" id="multas_radio" value="multas_radio"onclick="categoria_radio()">
                 <label class="form-check-label" for="flexRadioDefault1">Multas</label><br>
+
+                <input class="form-check-input" type="radio" name="categoria" id="abono_radio" value="abono_radio"onclick="categoria_radio()">
+                <label class="form-check-label" for="flexRadioDefault1">Abonos</label><br>
             </div>       
         </div>
         <br>
@@ -126,11 +129,27 @@
 
             <div class="col-sm-6">
                 <!--<input class="btn btn-success" type="button" value="Abono a Cartera">-->
-                <a href="javascript:void(0)" class="btn btn-success  add-model"> Abono a Cartera </a>
+                <a id="abono_cartera_btn" href="javascript:void(0)" class="btn btn-success  add-model"> Abono a Cartera </a>
             </div>
 
             <div class="col-sm-5">
-                <a href="javascript:void(0)" class="btn btn-success  add-model2"> Abono a Cartera Vencida. </a>
+                <a id="abono_cartera_venc_btn" href="javascript:void(0)" class="btn btn-success  add-model2"> Abono a Cartera Vencida </a>
+            </div>
+        </div>
+
+
+        <br>
+        <!-----ABONOS A AHORRO Y AHORRO VENCIDO----->
+        <div class="row container">
+            <div class="col-sm-1"></div>
+
+            <div class="col-sm-6">
+                <!--<input class="btn btn-success" type="button" value="Abono a Cartera">-->
+                <a id="abono_ahorro_btn" href="javascript:void(0)" class="btn btn-success  add-model3"> Abono a Ahorro </a>
+            </div>
+
+            <div class="col-sm-5">
+                
             </div>
         </div>
         <br>
@@ -311,7 +330,7 @@
             </div>
 
             <div class="col-sm-3">
-                <input type="text" class="form-control" id="agua" name="agua" placeholder="Ingrese el Valor" required="">
+                <input type="text" class="form-control" id="otros" name="otros" placeholder="Ingrese el Valor" value="" >
             </div>
 
         </div>
@@ -441,7 +460,8 @@
 
                 <thead>
                 <tr>
-                <th width="5%">Fecha Desde</th>
+                    <th width="5%">Id</th>
+                    <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
                     <th width="5%">Persona</th>
@@ -460,6 +480,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                    <th width="5%">Id</th>
                     <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
@@ -526,6 +547,47 @@
 </div>
 
 
+<!---------------HACER ABONOS CON CARTERA VENCIDA---------------------------------->
+
+
+<!----AGREGAMOS MODAL PARA PODER HACER ABONOS A LA CARTERA---->
+
+
+<div class="modal fade" id="abonar-modal-vencida" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal"></h4>
+</div>
+<div class="modal-body">
+<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
+
+<!---DIVIDIR MODALES EN 2-->
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono-vencida" name="abono-vencida" placeholder="Escriba el valor" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-offset-2 col-sm-10">
+<button type="button" class="btn btn-primary" id="btn-save-abonar-vencida" value="create">Guardar Cambios
+</button>
+</div>
+</form>
+</div>
+
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
 <!--------------------------------------------->
 
 
@@ -544,6 +606,7 @@
 
                 <thead>
                 <tr>
+                    <th width="5%">Id</th>
                     <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
@@ -563,6 +626,7 @@
                     </thead>
                     <tfoot>
                     <tr>
+                    <th width="5%">Id</th>
                     <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
@@ -588,9 +652,143 @@
 </div>
 </div>
 
+
+
+<!---------------ABONOS A AHORRO---------------------------------------------->
+
+
+<div class="modal fade" id="add-modal3" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal">Abono a Ahorro</h4>
+</div>
+<div class="modal-body"></div>
+<table id="abono_ahorro" class="display" style="width:100%">
+
+                <thead>
+                <tr>
+                    <th width="7%">Id</th>    
+                    <th width="7%">Fecha Desde</th>
+                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Ingreso</th>
+                    <th width="10%">Persona</th>
+                    <th width="10%">Puesto</th>
+                    <th width="6%">Recibo</th>
+                    <th width="6%">Categoria</th>
+                    <th width="6%">Sub Categoria</th>
+                    <th width="6%">Otros</th>
+                    <th width="6%">Valor</th>
+                    <th width="6%">Abono</th>
+                    <th width="6%">Saldo</th>
+                    <th width="6%">Pendiente</th>
+                    <th width="5%">Observaciones</th>
+                    <th width="19%">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                <tr>
+                    <th width="7%">Id</th>    
+                    <th width="7%">Fecha Desde</th>
+                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Ingreso</th>
+                    <th width="10%">Persona</th>
+                    <th width="10%">Puesto</th>
+                    <th width="6%">Recibo</th>
+                    <th width="6%">Categoria</th>
+                    <th width="6%">Sub Categoria</th>
+                    <th width="6%">Otros</th>
+                    <th width="6%">Valor</th>
+                    <th width="6%">Abono</th>
+                    <th width="6%">Saldo</th>
+                    <th width="6%">Pendiente</th>
+                    <th width="5%">Observaciones</th>
+                    <th width="19%">Acciones</th>
+                </tr>
+                </tfoot>
+                </table>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
+<!-------HACER ABONOS CON MODAL------------------->
+
+<!----AGREGAMOS MODAL PARA PODER HACER ABONOS AL AHORRO---->
+
+
+<div class="modal fade" id="abonar-modal" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal"></h4>
+</div>
+<div class="modal-body">
+<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
+
+<!---DIVIDIR MODALES EN 2-->
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono-ahorro" name="abono-ahorro" placeholder="Escriba el valor" value="" maxlength="50" required="" disabled>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-offset-2 col-sm-10">
+<button type="button" class="btn btn-primary" id="btn-save-abonar-ahorro" value="create">Guardar Cambios
+</button>
+</div>
+</form>
+</div>
+
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
+<!--------------------------------------------->
+
 <script>
 
 /// SCRIPT PARA TRAER EL MODAL
+
+//abono ahorro
+$('#abono_ahorro').DataTable({
+    language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+    },
+"processing": true,
+"serverSide": true,
+"order": [],
+"ajax": "fetch_ahorros_abono.php"
+});
+
 
 $('#abono_cartera').DataTable({
     language: {
@@ -616,7 +814,7 @@ $('#abono_cartera').DataTable({
 "processing": true,
 "serverSide": true,
 "order": [],
-"ajax": "fetch_cartera.php"
+"ajax": "fetch_cartera_abono.php"
 });
 
 
@@ -644,7 +842,7 @@ $('#abono_cartera_vencida').DataTable({
 "processing": true,
 "serverSide": true,
 "order": [],
-"ajax": "fetch_cartera_vencida.php"
+"ajax": "fetch_cartera_vencida_abono.php"
 });
 
 
@@ -653,9 +851,19 @@ $('.add-model').click(function () {
 $('#add-modal').modal('show');
 });
 //add. model 2 hace referencia a la cartera vencida
+
 $('.add-model2').click(function () {
 $('#add-modal2').modal('show');
 });
+
+
+//add model 3 hace referencia a abono a ahorro
+
+$('.add-model3').click(function () {
+$('#add-modal3').modal('show');
+});
+
+
 // add form submit
 $('#add-form').submit(function(e){
 e.preventDefault();
@@ -799,8 +1007,50 @@ $(document).ready(function() {
         mode: 'abonar_cartera'
       },
       success: function(result) {
-        var oTable = $('#abono_cartera').dataTable();
-        oTable.fnDraw(false);
+        alert ("Abono Exitoso");
+
+        window.location.href = 'ingresos.php';
+        //var oTable = $('#abono_cartera').dataTable();
+        //oTable.fnDraw(false);
+        
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
+});
+
+
+///ABONO A CARTERA VENCIDA
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar-vencida', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#add-modal').modal('hide');
+    $('#add-modal2').modal('hide');
+    $('#btn-save-abonar').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar-vencida', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono-vencida").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_cartera'
+      },
+      success: function(result) {
+        alert ("Abono Exitoso");
+
+        window.location.href = 'ingresos.php';
+        //var oTable = $('#abono_cartera').dataTable();
+        //oTable.fnDraw(false);
+        
         $('#abonar-modal').modal('hide');
         $('#update-form-abonos').trigger("reset");
       }
@@ -811,9 +1061,61 @@ $(document).ready(function() {
 ///////////////////////hasta aqui
 
 
+///////////////////////ABONO DE AHORRO
+
+
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar-ahorro', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#add-modal3').modal('hide');
+    $('#add-modal2').modal('hide');
+    $('#btn-save-abonar').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar-ahorro', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono-ahorro").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_ahorros'
+      },
+      success: function(result) {
+
+        alert ("Abono Exitoso");
+
+        window.location.href = 'ingresos.php';
+        $('#abonar-modal').modal('hide');
+        //var oTable = $('#abono_cartera').dataTable();
+        //oTable.fnDraw(false);
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
+});
+
+
+
+
 //funcion para esconder o mostrar el valor
 
 //definimos el valor como invisible
+
+//definimos los botones de hacer abonos como invisibles tambien
+
+let abono_cartera_btn = document.getElementById('abono_cartera_btn').style.display = 'none'
+
+let abono_cartera_venc_btn = document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+
+
+let abono_ahorro_btn = document.getElementById('abono_ahorro_btn').style.display = 'none'
+
 
 let valor_1 = document.getElementById('valor').style.display = 'none'
 let valor_2 = document.getElementById('valor_total').style.display = 'none'
@@ -837,6 +1139,14 @@ function categoria_radio(){
     let cartera_vencida_radio = document.getElementById('cartera_vencida_radio')
     let ahorros_radio = document.getElementById('ahorro_radio')
     let multas_radio = document.getElementById('multas_radio')
+    let abono_radio = document.getElementById('abono_radio')
+
+    if(abono_radio.checked){
+        document.getElementById('abono_cartera_btn').style.display = 'inline'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'inline'
+
+        document.getElementById('abono_ahorro_btn').style.display = 'inline'
+    }
 
 
     if(ingresos_radio.checked){
@@ -846,12 +1156,22 @@ function categoria_radio(){
         //ponemos para que me ponga visible los siguientes campos
         $("#fecha_pago").removeAttr("disabled");
 
+
+        document.getElementById('abono_cartera_btn').style.display = 'none'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_btn').style.display = 'none'
+
         eliminarAtribu();
         
 
     }else if(cartera_actual_radio.checked){
         document.getElementById('valor').style.display = 'none'
         document.getElementById('valor_total').style.display = 'none'
+        
+
+        document.getElementById('abono_cartera_btn').style.display = 'none'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_btn').style.display = 'none'
 
         $('#fecha_pago').attr("disabled", 'disabled');
 
@@ -871,6 +1191,12 @@ function categoria_radio(){
 
         $('#fecha_pago').attr("disabled", 'disabled');
 
+
+        document.getElementById('abono_cartera_btn').style.display = 'none'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_btn').style.display = 'none'
+    
+
     }else if(ahorros_radio.checked){
         document.getElementById('valor').style.display = 'flex'
         document.getElementById('valor_total').style.display = 'flex'
@@ -882,6 +1208,11 @@ function categoria_radio(){
 
         $("#fecha_pago").removeAttr("disabled");
 
+        document.getElementById('abono_cartera_btn').style.display = 'none'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_btn').style.display = 'none'
+
+
     }else if(multas_radio.checked){
         document.getElementById('valor').style.display = 'flex'
         document.getElementById('valor_total').style.display = 'flex'
@@ -892,6 +1223,11 @@ function categoria_radio(){
         $('#luz').attr("disabled", 'disabled');
 
         //$("#fecha_pago").removeAttr("disabled");
+
+        document.getElementById('abono_cartera_btn').style.display = 'none'
+        document.getElementById('abono_cartera_venc_btn').style.display = 'none'
+        document.getElementById('abono_ahorro_btn').style.display = 'none'
+
 
         $('#fecha_pago').attr("disabled", 'disabled');
     }

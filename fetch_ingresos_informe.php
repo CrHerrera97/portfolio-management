@@ -28,6 +28,8 @@ $table = <<<EOT
   FROM ingresos i
   INNER JOIN locales l on i.local_fk = l.id
   INNER JOIN personas p on i.persona_fk = p.id
+  WHERE i.abono <> '0'
+  ORDER BY i.id DESC
  ) temp
 EOT;
 
@@ -37,6 +39,8 @@ $userData = array();
 $con = new mysqli("localhost","root","","sistema_pagos");
 
    $columns = array( 
+    //si pongo en en el id = 0 puedo tener el registro en orden descendente
+    array( 'db' => 'id', 'dt' => 0 ), 
     array( 'db' => 'fecha_desde', 'dt' => 0 ), 
     array( 'db' => 'fecha_hasta',  'dt' => 1 ), 
     array( 'db' => 'fecha_ingreso',  'dt' => 2 ),
@@ -44,8 +48,8 @@ $con = new mysqli("localhost","root","","sistema_pagos");
     array( 'db' => 'persona',  'dt' => 4 ), 
     array( 'db' => 'local',  'dt' => 5 ),
     array( 'db' => 'recibo',  'dt' => 6 ),
-    array( 'db' => 'categoria',  'dt' => 7 ),
-    array( 'db' => 'sub_categoria',  'dt' => 8 ),
+    array( 'db' => 'categoria',  'dt' => 7),
+    array( 'db' => 'sub_categoria',  'dt' => 8),
     array( 'db' => 'valor',  'dt' => 9 ),
     array( 'db' => 'abono',  'dt' => 10 ), 
     array( 'db' => 'saldo',  'dt' => 11 ), 
