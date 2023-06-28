@@ -52,6 +52,8 @@ $valor = $_POST["valor"];
 
 $categoria = $_POST["categoria"];
 
+$otros = $_POST["otros"];
+
 
 /*
 LO QUE HACE EL RADIO BUTTON ES AGRUPAR POR EL NAME A LOS RADIO, QUIERE DECIR QUE AQUÍ YO
@@ -89,6 +91,11 @@ if  (isset($_POST['categoria'])){
             mysqli_query($mysqli, $sql);
             echo "realizada";
         }
+        if ($otros != 0){
+            $sql = "INSERT INTO `ingresos` (`fecha_desde`, `fecha_hasta`, `fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `abono`, `saldo`, `pendiente`, `observaciones`) VALUES ('$fecha_desde', '$fecha_hasta', '$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'ingreso', 'otros', '$otros','$otros','0', 'no', '$observaciones')";
+            mysqli_query($mysqli, $sql);
+            echo "realizada";
+        }
 
     }else if($cartera_actual == "cartera_actual_radio"){
         if ($parqueadero != 0){
@@ -108,6 +115,12 @@ if  (isset($_POST['categoria'])){
             echo "realizada";
         }if ($luz != 0){
             $sql = "INSERT INTO `ingresos` (`fecha_desde`, `fecha_hasta`, `fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `pendiente`, `observaciones`) VALUES ('$fecha_desde', '$fecha_hasta', '$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'cartera', 'luz', '$luz', 'si', '$observaciones')";
+            mysqli_query($mysqli, $sql);
+            echo "realizada";
+        }
+
+        if ($otros != 0){
+            $sql = "INSERT INTO `ingresos` (`fecha_desde`, `fecha_hasta`, `fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `pendiente`, `observaciones`) VALUES ('$fecha_desde', '$fecha_hasta', '$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'cartera', 'otros', '$otros', 'si', '$observaciones')";
             mysqli_query($mysqli, $sql);
             echo "realizada";
         }
