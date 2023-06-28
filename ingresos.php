@@ -326,11 +326,12 @@
         <!---OTRA FILA...--->
         <br><br>
             <div class="col-sm-2">
-                <h4>Otros</h4>
+                <!---<h4>Otros</h4>-->
+                <input class="btn btn-success" type="button" value="Otros" id="otros-btn" name="otros-btn" onclick="pressButton();">
             </div>
 
             <div class="col-sm-3">
-                <input type="text" class="form-control" id="otros" name="otros" placeholder="Ingrese el Valor" value="" >
+                <input type="text" class="form-control" id="otros" name="otros" placeholder="Ingrese el Valor" value="" disabled>
             </div>
 
         </div>
@@ -469,7 +470,6 @@
                     <th width="3%">Recibo</th>
                     <th width="4%">Categoria</th>
                     <th width="4%">Sub Categoria</th>
-                    <th width="4%">Otros</th>
                     <th width="4%">Valor</th>
                     <th width="4%">Abono</th>
                     <th width="4%">Saldo</th>
@@ -489,7 +489,6 @@
                     <th width="3%">Recibo</th>
                     <th width="4%">Categoria</th>
                     <th width="4%">Sub Categoria</th>
-                    <th width="4%">Otros</th>
                     <th width="4%">Valor</th>
                     <th width="4%">Abono</th>
                     <th width="4%">Saldo</th>
@@ -615,7 +614,6 @@
                     <th width="3%">Recibo</th>
                     <th width="4%">Categoria</th>
                     <th width="4%">Sub Categoria</th>
-                    <th width="4%">Otros</th>
                     <th width="4%">Valor</th>
                     <th width="4%">Abono</th>
                     <th width="4%">Saldo</th>
@@ -635,7 +633,6 @@
                     <th width="3%">Recibo</th>
                     <th width="4%">Categoria</th>
                     <th width="4%">Sub Categoria</th>
-                    <th width="4%">Otros</th>
                     <th width="4%">Valor</th>
                     <th width="4%">Abono</th>
                     <th width="4%">Saldo</th>
@@ -1234,6 +1231,18 @@ function categoria_radio(){
 
 }
 
+
+//funcion para que si presionan el boton de otros me bloquee los campos de las categorias
+
+function pressButton(){
+    $('#otros').removeAttr('disabled');
+
+    $('#admon').attr('disabled', 'disabled');
+    $('#parque').attr('disabled', 'disabled');
+    $('#agua').attr('disabled', 'disabled');
+    $('#luz').attr('disabled', 'disabled');
+
+}
 
   //traemos los datos de los inputs para que el botón pueda asignar un 0
 
