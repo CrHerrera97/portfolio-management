@@ -56,6 +56,14 @@
                                         <a class="dropdown-item" href="ahorros_total.php">Registro de Ahorros</a>
                                     </div>
                     </li>
+
+                    <li class="nav-item dropdown" id="lista">
+                                    <a class="nav-link dropdown-toggle ahorros" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Abonos</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="abonos.php">Registro de Abonos</a>
+                                    </div>
+                    </li>
+
                     <!--<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Informes</a>-->
 
                     <li class="nav-item dropdown" id="lista">
