@@ -68,8 +68,7 @@
 
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
-<tr>
-<th width="7%">Id</th>    
+<tr> 
 <th width="7%">Fecha</th>
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
@@ -83,7 +82,6 @@
 </thead>
 <tfoot>
 <tr>
-<th width="7%">Id</th>    
 <th width="7%">Fecha</th>
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
