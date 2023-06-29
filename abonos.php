@@ -424,7 +424,7 @@ url:"add-edit-delete.php",
 type: "POST",
 data: {
 id: id,
-mode: 'delete_cartera' 
+mode: 'delete_abonos' 
 },
 dataType : 'json',
 success: function(result){

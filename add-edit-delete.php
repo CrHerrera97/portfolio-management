@@ -137,6 +137,12 @@ echo json_encode(true);
         echo json_encode(true);
     }  
 
+    if ($_POST['mode'] === 'delete_abonos') {
+        mysqli_query($conn, "DELETE FROM abonos WHERE id='" . $_POST["id"] . "'");
+        $registro_delete = mysqli_query($conn, "DELETE FROM abonos WHERE id='" . $_POST["id"] . "'");
+        echo json_encode(true);
+    }
+
 
     //abonar a cartera
 
