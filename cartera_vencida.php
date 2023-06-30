@@ -568,6 +568,45 @@ $(document).ready(function() {
 });
 
 
+//ABONAR A CARTERA VENCIDA
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar-vencida', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#add-modal').modal('hide');
+    $('#add-modal2').modal('hide');
+    $('#btn-save-abonar').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar-vencida', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono-vencida").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_cartera'
+      },
+      success: function(result) {
+        alert ("Abono Exitoso");
+
+        window.location.href = 'ingresos.php';
+        //var oTable = $('#abono_cartera').dataTable();
+        //oTable.fnDraw(false);
+        
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
+});
+
+
+
 //autocompletar el local en el editar
  $(document).ready(function() {
     $('#pertenece').on('keyup', function() {

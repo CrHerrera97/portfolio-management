@@ -235,8 +235,27 @@
   </div>
 </div>
 
-
 <!--SEXTA FILA-->
+
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba la sub categoria" value="" maxlength="50" required="">
+        </div>
+    </div>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Saldo</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="saldo" name="saldo" placeholder="Escriba el valor" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<!--SEPTIMA FILA-->
 
 <div class="form-group">
   <div class="row">
@@ -495,6 +514,10 @@ $('#recibo').val(result.recibo);
 $('#categoria').val(result.categoria);
 $('#sub_categ').val(result.sub_categoria);
 $('#valor').val(result.valor);
+
+
+$('#abono').val(result.abono);
+$('#saldo').val(result.saldo);
 //$('#persona').val(result.persona_fk);
 //$('#local').val(result.local_fk);
 //$('#abono').val(result.abono);

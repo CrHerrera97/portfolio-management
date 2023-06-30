@@ -350,6 +350,53 @@
 </div>
 </div>
 </div>
+
+
+<!-------HACER ABONOS CON MODAL------------------->
+
+<!----AGREGAMOS MODAL PARA PODER HACER ABONOS AL AHORRO---->
+
+
+<div class="modal fade" id="abonar-modal" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal"></h4>
+</div>
+<div class="modal-body">
+<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
+
+<!---DIVIDIR MODALES EN 2-->
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-offset-2 col-sm-10">
+<button type="button" class="btn btn-primary" id="btn-save-abonar-ahorro" value="create">Guardar Cambios
+</button>
+</div>
+</form>
+</div>
+
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
+<!--------------------------------------------->
+
+
+
+
 <script>
 $(document).ready(function(){
 $('#usersListTable').DataTable({
@@ -493,6 +540,41 @@ oTable.fnDraw(false);
 });
 } 
 return false;
+});
+
+
+///////////////////////ABONO DE AHORRO
+
+
+
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar-ahorro', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#btn-save-abonar-ahorro').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar-ahorro', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_ahorros'
+      },
+      success: function(result) {
+        var oTable = $('#usersListTable').dataTable();
+        oTable.fnDraw(false);
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
 });
 
 $(document).ready(function() {
