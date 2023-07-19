@@ -565,6 +565,41 @@ oTable.fnDraw(false);
 return false;
 });
 
+
+///////////////////////ABONO DE AHORRO
+
+
+
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar-ahorro', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#btn-save-abonar-ahorro').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar-ahorro', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_ahorros'
+      },
+      success: function(result) {
+        var oTable = $('#usersListTable').dataTable();
+        oTable.fnDraw(false);
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
+});
+
 $(document).ready(function() {
     $('#perteneces').on('keyup', function() {
         var key = $(this).val();		

@@ -120,6 +120,29 @@ echo json_encode(true);
         echo json_encode(true);
     }
 
+    //editar los abonos
+
+    if($_POST['mode'] === 'edit_abonos'){
+        $result = mysqli_query($conn,"SELECT a.id, a.fecha, a.ingresos_fk, i.categoria, i.sub_categoria, a.persona_fk, concat(p.nombre,' ',p.apellido) as nombre, a.local_fk, l.numero as num_local, i.recibo, a.valor FROM abonos a INNER JOIN ingresos i on i.id = a.ingresos_fk INNER JOIN locales l on a.local_fk = l.id INNER JOIN personas p on a.persona_fk = p.id WHERE a.id =  '". $_POST['id']."'");
+        //$result = mysqli_query($conn,"SELECT a.id, a.fecha, a.persona_fk, concat(p.nombre,' ',p.apellido) as nombre, a.valor, a.pendiente FROM ahorros a INNER JOIN personas p on a.persona_fk = p.id WHERE a.id='" . $_POST['id'] . "'");
+        $row= mysqli_fetch_array($result);
+        echo json_encode($row);
+    }
+
+    //update abonos
+
+    if ($_POST['mode'] === 'update_abonos') {
+        mysqli_query($conn,"UPDATE abonos set  fecha='" . $_POST['fecha_desde'] . "', persona_fk='" . $_POST['perteneces_id'] . "', local_fk='" . $_POST['pertenece_id'] . "', valor='" . $_POST['valor'] . "' WHERE id='" . $_POST['id'] . "'");
+        //mysqli_query($conn,"UPDATE ahorros set  fecha='" . $_POST['fecha'] . "', persona_fk='" . $_POST['perteneces_id'] . "', valor='" . $_POST['valor'] . "', pendiente='" . $_POST['pendiente'] ."' WHERE id='" . $_POST['id'] . "'");
+        echo json_encode(true);
+    }  
+
+    if ($_POST['mode'] === 'delete_abonos') {
+        mysqli_query($conn, "DELETE FROM abonos WHERE id='" . $_POST["id"] . "'");
+        $registro_delete = mysqli_query($conn, "DELETE FROM abonos WHERE id='" . $_POST["id"] . "'");
+        echo json_encode(true);
+    }
+
 
     //abonar a cartera
 
@@ -278,7 +301,7 @@ echo json_encode(true);
 
     if($_POST['mode'] === 'edit_ingresos_informe'){
         //$result = mysqli_query($conn,"SELECT i.id, i.fecha,i.persona_fk,concat(p.nombre,' ',p.apellido) as nombre, i.local_fk,l.numero as num_local, i.valor, i.servicio, i.pendiente from ingresos i INNER JOIN locales l on i.local_fk = l.id INNER JOIN personas p on i.persona_fk = p.id WHERE i.id='" . $_POST['id'] . "'");
-        $result = mysqli_query($conn,"SELECT i.id, i.fecha_desde, i.fecha_hasta, i.fecha_ingreso, i.fecha_pago,i.persona_fk, concat(p.nombre,' ',p.apellido) as nombre,i.local_fk,l.numero as num_local,i.recibo,i.categoria,i.sub_categoria,i.valor,i.abono,i.pendiente,i.observaciones
+        $result = mysqli_query($conn,"SELECT i.id, i.fecha_desde, i.fecha_hasta, i.fecha_ingreso, i.fecha_pago,i.persona_fk, concat(p.nombre,' ',p.apellido) as nombre,i.local_fk,l.numero as num_local,i.recibo,i.categoria,i.sub_categoria,i.valor,i.abono,i.saldo,i.pendiente,i.observaciones
         from ingresos i 
         INNER JOIN locales l on i.local_fk = l.id 
         INNER JOIN personas p on i.persona_fk = p.id WHERE i.id='" . $_POST['id'] . "'");
@@ -288,7 +311,7 @@ echo json_encode(true);
 
     if ($_POST['mode'] === 'update_ingresos_informe') {
         //mysqli_query($conn,"UPDATE ingresos set  fecha='" . $_POST['fecha'] . "', persona_fk='" . $_POST['perteneces_id'] . "', local_fk='" . $_POST['pertenece_id'] . "', valor='" . $_POST['valor'] . "', servicio='" . $_POST['servicio'] . "', pendiente='" . $_POST['pendiente'] ."' WHERE id='" . $_POST['id'] . "'");
-        mysqli_query($conn,"UPDATE ingresos set  fecha_desde='" . $_POST['fecha_desde'] . "', fecha_hasta='" . $_POST['fecha_hasta'] . "', fecha_ingreso='" . $_POST['fecha_ing'] . "', fecha_pago='" . $_POST['fecha_pago'] . "', persona_fk='" . $_POST['perteneces_id'] . "', local_fk='" . $_POST['pertenece_id'] . "', recibo='" . $_POST['recibo'] ."', categoria='" . $_POST['categoria'] . "', sub_categoria='" . $_POST['sub_categ'] . "', valor='" . $_POST['valor'] . "', abono='" . $_POST['abono'] . "', pendiente='" . $_POST['pendiente'] . "', observaciones='" . $_POST['obs'] . "' WHERE id='" . $_POST['id'] . "'");
+        mysqli_query($conn,"UPDATE ingresos set  fecha_desde='" . $_POST['fecha_desde'] . "', fecha_hasta='" . $_POST['fecha_hasta'] . "', fecha_ingreso='" . $_POST['fecha_ing'] . "', fecha_pago='" . $_POST['fecha_pago'] . "', persona_fk='" . $_POST['perteneces_id'] . "', local_fk='" . $_POST['pertenece_id'] . "', recibo='" . $_POST['recibo'] ."', categoria='" . $_POST['categoria'] . "', sub_categoria='" . $_POST['sub_categ'] . "', valor='" . $_POST['valor'] . "', abono='" . $_POST['abono'] . "' , saldo='" . $_POST['saldo'] . "', pendiente='" . $_POST['pendiente'] . "', observaciones='" . $_POST['obs'] . "' WHERE id='" . $_POST['id'] . "'");
         echo json_encode(true);
     } 
 

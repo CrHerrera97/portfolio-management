@@ -461,7 +461,6 @@
 
                 <thead>
                 <tr>
-                    <th width="5%">Id</th>
                     <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
@@ -480,7 +479,6 @@
                     </thead>
                     <tfoot>
                     <tr>
-                    <th width="5%">Id</th>
                     <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
@@ -605,7 +603,6 @@
 
                 <thead>
                 <tr>
-                    <th width="5%">Id</th>
                     <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
@@ -624,7 +621,6 @@
                     </thead>
                     <tfoot>
                     <tr>
-                    <th width="5%">Id</th>
                     <th width="5%">Fecha Desde</th>
                     <th width="5%">Fecha Hasta</th>
                     <th width="5%">Fecha Ingreso</th>
@@ -664,8 +660,7 @@
 <table id="abono_ahorro" class="display" style="width:100%">
 
                 <thead>
-                <tr>
-                    <th width="7%">Id</th>    
+                <tr>    
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>
                     <th width="7%">Fecha Ingreso</th>
@@ -684,7 +679,6 @@
                     </thead>
                     <tfoot>
                 <tr>
-                    <th width="7%">Id</th>    
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>
                     <th width="7%">Fecha Ingreso</th>
@@ -780,7 +774,7 @@ $('#abono_ahorro').DataTable({
     },
 "processing": true,
 "serverSide": true,
-"order": [],
+"order": [[0,"desc"]],
 "ajax": "fetch_ahorros_abono.php"
 });
 
@@ -808,7 +802,7 @@ $('#abono_cartera').DataTable({
     },
 "processing": true,
 "serverSide": true,
-"order": [],
+"order": [[0,"desc"]],
 "ajax": "fetch_cartera_abono.php"
 });
 
@@ -836,7 +830,7 @@ $('#abono_cartera_vencida').DataTable({
     },
 "processing": true,
 "serverSide": true,
-"order": [],
+"order": [[0,"desc"]],
 "ajax": "fetch_cartera_vencida_abono.php"
 });
 
