@@ -132,13 +132,13 @@ if  (isset($_POST['categoria'])){
         }
     }else if($ahorro == "ahorro_radio"){
         if ($valor != 0){
-            $sql = "INSERT INTO `ingresos` (`fecha_desde`, `fecha_hasta`, `fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `pendiente`, `observaciones`) VALUES ('$fecha_desde', '$fecha_hasta', '$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'ingreso', 'ahorro', '$valor', 'si', '$observaciones')";
+            $sql = "INSERT INTO `ingresos` (`fecha_desde`, `fecha_hasta`, `fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `abono`, `saldo`,`pendiente`, `observaciones`) VALUES ('$fecha_desde', '$fecha_hasta', '$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'ingreso', 'ahorro', '$valor', '0' , '$valor' , 'si', '$observaciones')";
             mysqli_query($mysqli, $sql);
             echo "realizada";
         }
     }else if($multas == "multas_radio"){
         if ($valor != 0){
-            $sql = "INSERT INTO `ingresos` (`fecha_desde`, `fecha_hasta`, `fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `pendiente`, `observaciones`) VALUES ('$fecha_desde', '$fecha_hasta', '$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'cartera', 'multas', '$valor', 'si', '$observaciones')";
+            $sql = "INSERT INTO `ingresos` (`fecha_desde`, `fecha_hasta`, `fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `abono`, `saldo`, `pendiente`, `observaciones`) VALUES ('$fecha_desde', '$fecha_hasta', '$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'cartera', 'multas', '$valor','0','$valor', 'si', '$observaciones')";
             mysqli_query($mysqli, $sql);
             echo "realizada";
         }

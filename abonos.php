@@ -77,7 +77,7 @@
 <th width="10%"># Recibo</th>
 <th width="6%">Valor</th>
 <th width="6%">Abono</th>
-<th width="19%">Acciones</th>
+<th width="10%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
@@ -90,7 +90,7 @@
 <th width="10%"># Recibo</th>
 <th width="6%">Valor</th>
 <th width="6%">Abono</th>
-<th width="19%">Acciones</th>
+<th width="10%">Acciones</th>
 </tr>
 </tfoot>
 </table>
@@ -236,7 +236,7 @@
 
 <!--QUINTA FILA-->
 
-
+<!--
 <div class="form-group">
   <div class="row">
     <div class="">
@@ -247,7 +247,7 @@
     </div>
   </div>
 </div>
-
+-->
 
 <div class="col-sm-offset-2 col-sm-10">
 <button type="submit" class="btn btn-primary" id="btn-save" value="create">Guardar Cambios
@@ -322,6 +322,10 @@
 <script>
 $(document).ready(function(){
 $('#usersListTable').DataTable({
+    lengthMenu: [
+            [10, 25, 50, 100, 500, -1],
+            [10, 25, 50, 100, 500, 'Todo'],
+        ],
     language: {
         "decimal": "",
         "emptyTable": "No hay información",

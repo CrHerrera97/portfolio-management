@@ -327,7 +327,7 @@
         <br><br>
             <div class="col-sm-2">
                 <!---<h4>Otros</h4>-->
-                <input class="btn btn-success" type="button" value="Otros" id="otros-btn" name="otros-btn" onclick="pressButton();">
+                <input class="btn btn-success"  type="button" value="Otros" disabled id="otros-btn" name="otros-btn" onclick="pressButton();">
             </div>
 
             <div class="col-sm-3">
@@ -461,38 +461,38 @@
 
                 <thead>
                 <tr>
-                    <th width="5%">Fecha Desde</th>
-                    <th width="5%">Fecha Hasta</th>
-                    <th width="5%">Fecha Ingreso</th>
-                    <th width="5%">Persona</th>
-                    <th width="5%">Puesto</th>
-                    <th width="3%">Recibo</th>
-                    <th width="4%">Categoria</th>
-                    <th width="4%">Sub Categoria</th>
-                    <th width="4%">Valor</th>
-                    <th width="4%">Abono</th>
-                    <th width="4%">Saldo</th>
-                    <th width="1%">Pendiente</th>
-                    <th width="10%">Observaciones</th>
-                    <th width="36%">Acciones</th>
+                    <th width="7%">Fecha Desde</th>
+                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Ingreso</th>
+                    <th width="7%">Persona</th>
+                    <th width="7%">Puesto</th>
+                    <th width="7%">Recibo</th>
+                    <th width="7%">Categoria</th>
+                    <th width="7%">Sub Categoria</th>
+                    <th width="7%">Valor</th>
+                    <th width="7%">Abono</th>
+                    <th width="7%">Saldo</th>
+                    <th width="7%">Pendiente</th>
+                    <th width="7%">Observaciones</th>
+                    <th width="7%">Acciones</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                    <th width="5%">Fecha Desde</th>
-                    <th width="5%">Fecha Hasta</th>
-                    <th width="5%">Fecha Ingreso</th>
-                    <th width="5%">Persona</th>
-                    <th width="5%">Puesto</th>
-                    <th width="3%">Recibo</th>
-                    <th width="4%">Categoria</th>
-                    <th width="4%">Sub Categoria</th>
-                    <th width="4%">Valor</th>
-                    <th width="4%">Abono</th>
-                    <th width="4%">Saldo</th>
-                    <th width="1%">Pendiente</th>
-                    <th width="10%">Observaciones</th>
-                    <th width="36%">Acciones</th>
+                    <th width="7%">Fecha Desde</th>
+                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Ingreso</th>
+                    <th width="7%">Persona</th>
+                    <th width="7%">Puesto</th>
+                    <th width="7%">Recibo</th>
+                    <th width="7%">Categoria</th>
+                    <th width="7%">Sub Categoria</th>
+                    <th width="7%">Valor</th>
+                    <th width="7%">Abono</th>
+                    <th width="7%">Saldo</th>
+                    <th width="7%">Pendiente</th>
+                    <th width="7%">Observaciones</th>
+                    <th width="7%">Acciones</th>
                 </tr>
                 </tfoot>
                 </table>
@@ -603,38 +603,38 @@
 
                 <thead>
                 <tr>
-                    <th width="5%">Fecha Desde</th>
-                    <th width="5%">Fecha Hasta</th>
-                    <th width="5%">Fecha Ingreso</th>
-                    <th width="5%">Persona</th>
-                    <th width="5%">Puesto</th>
-                    <th width="3%">Recibo</th>
-                    <th width="4%">Categoria</th>
-                    <th width="4%">Sub Categoria</th>
-                    <th width="4%">Valor</th>
-                    <th width="4%">Abono</th>
-                    <th width="4%">Saldo</th>
-                    <th width="1%">Pendiente</th>
-                    <th width="10%">Observaciones</th>
-                    <th width="36%">Acciones</th>
+                    <th width="7%">Fecha Desde</th>
+                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Ingreso</th>
+                    <th width="7%">Persona</th>
+                    <th width="7%">Puesto</th>
+                    <th width="5%">Recibo</th>
+                    <th width="6%">Categoria</th>
+                    <th width="6%">Sub Categoria</th>
+                    <th width="6%">Valor</th>
+                    <th width="6%">Abono</th>
+                    <th width="6%">Saldo</th>
+                    <th width="2%">Pendiente</th>
+                    <th width="15%">Observaciones</th>
+                    <th width="20%">Acciones</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                    <th width="5%">Fecha Desde</th>
-                    <th width="5%">Fecha Hasta</th>
-                    <th width="5%">Fecha Ingreso</th>
-                    <th width="5%">Persona</th>
-                    <th width="5%">Puesto</th>
-                    <th width="3%">Recibo</th>
-                    <th width="4%">Categoria</th>
-                    <th width="4%">Sub Categoria</th>
-                    <th width="4%">Valor</th>
-                    <th width="4%">Abono</th>
-                    <th width="4%">Saldo</th>
-                    <th width="1%">Pendiente</th>
-                    <th width="10%">Observaciones</th>
-                    <th width="36%">Acciones</th>
+                    <th width="7%">Fecha Desde</th>
+                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Ingreso</th>
+                    <th width="7%">Persona</th>
+                    <th width="7%">Puesto</th>
+                    <th width="5%">Recibo</th>
+                    <th width="6%">Categoria</th>
+                    <th width="6%">Sub Categoria</th>
+                    <th width="6%">Valor</th>
+                    <th width="6%">Abono</th>
+                    <th width="6%">Saldo</th>
+                    <th width="2%">Pendiente</th>
+                    <th width="15%">Observaciones</th>
+                    <th width="20%">Acciones</th>
                 </tr>
                 </tfoot>
                 </table>
@@ -1135,6 +1135,7 @@ function categoria_radio(){
         document.getElementById('abono_cartera_venc_btn').style.display = 'inline'
 
         document.getElementById('abono_ahorro_btn').style.display = 'inline'
+        $('#otros-btn').attr("disabled", 'disabled');
     }
 
 
@@ -1150,6 +1151,8 @@ function categoria_radio(){
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
 
+        document.getElementById('otros-btn').removeAttribute('disabled');
+
         eliminarAtribu();
         
 
@@ -1164,6 +1167,7 @@ function categoria_radio(){
 
         $('#fecha_pago').attr("disabled", 'disabled');
 
+        document.getElementById('otros-btn').removeAttribute('disabled');
 
         eliminarAtribu();
 
@@ -1179,6 +1183,8 @@ function categoria_radio(){
         $('#luz').attr("disabled", 'disabled');
 
         $('#fecha_pago').attr("disabled", 'disabled');
+
+        $('#otros-btn').attr("disabled", 'disabled');
 
 
         document.getElementById('abono_cartera_btn').style.display = 'none'
@@ -1197,6 +1203,8 @@ function categoria_radio(){
 
         $("#fecha_pago").removeAttr("disabled");
 
+        $('#otros-btn').attr("disabled", 'disabled');
+
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
@@ -1212,6 +1220,8 @@ function categoria_radio(){
         $('#luz').attr("disabled", 'disabled');
 
         //$("#fecha_pago").removeAttr("disabled");
+
+        $('#otros-btn').attr("disabled", 'disabled');
 
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
@@ -1263,6 +1273,8 @@ function myFunction() {
   $("#obs").val('');
 
   $("#valor").val('');
+
+  $("#otros").val('');
 
   //borrar tambien el local y la persona
 }

@@ -30,7 +30,7 @@
     </style>
 
 
-<h2 class="float-left">Ahorros</h2>
+<h2 class="float-left">Ahorros Pendientes por Pagar</h2>
 <!--<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Locales </a>-->
 </div>
 
@@ -72,17 +72,17 @@
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>
 <th width="7%">Fecha Ingreso</th>
-<th width="10%">Persona</th>
-<th width="10%">Puesto</th>
-<th width="6%">Recibo</th>
-<th width="6%">Categoria</th>
-<th width="6%">Sub Categoria</th>
-<th width="6%">Valor</th>
-<th width="6%">Abono</th>
-<th width="6%">Saldo</th>
-<th width="6%">Pendiente</th>
-<th width="5%">Observaciones</th>
-<th width="19%">Acciones</th>
+<th width="6%">Persona</th>
+<th width="6%">Puesto</th>
+<th width="4%">Recibo</th>
+<th width="4%">Categoria</th>
+<th width="4%">Sub Categoria</th>
+<th width="4%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
+<th width="1%">Pendiente</th>
+<th width="10%">Observaciones</th>
+<th width="18%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
@@ -90,17 +90,17 @@
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>
 <th width="7%">Fecha Ingreso</th>
-<th width="10%">Persona</th>
-<th width="10%">Puesto</th>
-<th width="6%">Recibo</th>
-<th width="6%">Categoria</th>
-<th width="6%">Sub Categoria</th>
-<th width="6%">Valor</th>
-<th width="6%">Abono</th>
-<th width="6%">Saldo</th>
-<th width="6%">Pendiente</th>
-<th width="5%">Observaciones</th>
-<th width="19%">Acciones</th>
+<th width="6%">Persona</th>
+<th width="6%">Puesto</th>
+<th width="4%">Recibo</th>
+<th width="4%">Categoria</th>
+<th width="4%">Sub Categoria</th>
+<th width="4%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
+<th width="1%">Pendiente</th>
+<th width="10%">Observaciones</th>
+<th width="18%">Acciones</th>
 </tr>
 </tfoot>
 </table>
@@ -423,6 +423,10 @@ $(document).ready(function() {
 
 $(document).ready(function(){
 $('#usersListTable').DataTable({
+  lengthMenu: [
+            [10, 25, 50, 100, 500, -1],
+            [10, 25, 50, 100, 500, 'Todo'],
+        ],
     language: {
         "decimal": "",
         "emptyTable": "No hay información",

@@ -67,12 +67,12 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="5%">Fecha Desde</th>
-<th width="5%">Fecha Hasta</th>
-<th width="5%">Fecha Ingreso</th>
-<th width="5%">Persona</th>
-<th width="5%">Puesto</th>
-<th width="3%">Recibo</th>
+<th width="7%">Fecha Desde</th>
+<th width="7%">Fecha Hasta</th>
+<th width="7%">Fecha Ingreso</th>
+<th width="6%">Persona</th>
+<th width="6%">Puesto</th>
+<th width="4%">Recibo</th>
 <th width="4%">Categoria</th>
 <th width="4%">Sub Categoria</th>
 <th width="4%">Valor</th>
@@ -80,17 +80,17 @@
 <th width="4%">Saldo</th>
 <th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
-<th width="36%">Acciones</th>
+<th width="18%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th width="5%">Fecha Desde</th>
-<th width="5%">Fecha Hasta</th>
-<th width="5%">Fecha Ingreso</th>
-<th width="5%">Persona</th>
-<th width="5%">Puesto</th>
-<th width="3%">Recibo</th>
+<th width="7%">Fecha Desde</th>
+<th width="7%">Fecha Hasta</th>
+<th width="7%">Fecha Ingreso</th>
+<th width="6%">Persona</th>
+<th width="6%">Puesto</th>
+<th width="4%">Recibo</th>
 <th width="4%">Categoria</th>
 <th width="4%">Sub Categoria</th>
 <th width="4%">Valor</th>
@@ -98,7 +98,7 @@
 <th width="4%">Saldo</th>
 <th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
-<th width="36%">Acciones</th>
+<th width="18%">Acciones</th>
 </tr>
 </tfoot>
 </table>
@@ -395,6 +395,10 @@
 <script>
 $(document).ready(function(){
 $('#usersListTable').DataTable({
+  lengthMenu: [
+            [10, 25, 50, 100, 500, -1],
+            [10, 25, 50, 100, 500, 'Todo'],
+        ],
     language: {
         "decimal": "",
         "emptyTable": "No hay información",

@@ -162,6 +162,9 @@ echo json_encode(true);
 
         $abono = $_POST["abono"];
 
+        date_default_timezone_set("America/Bogota");
+        $fecha_hoy = date("Y/m/d");
+
         if ($abono_actual === $valor_total) {
             //hacemos para que el valor de pendiente esté en "si"
             mysqli_query($conn,"UPDATE ingresos set pendiente='no' WHERE id='" . $_POST['id'] . "'");
@@ -174,12 +177,11 @@ echo json_encode(true);
     
                 //$abono_nuevo = $filas->abono;
     
-            mysqli_query($conn, "UPDATE ingresos set abono = '".$abono_total."',saldo = '".$saldo."' WHERE id='" . $_POST["id"] . "'");
+            mysqli_query($conn, "UPDATE ingresos set fecha_pago='$fecha_hoy', abono = '".$abono_total."',saldo = '".$saldo."' WHERE id='" . $_POST["id"] . "'");
             //echo json_encode(true);
 
             //extraemos la fecha actual
-            date_default_timezone_set("America/Bogota");
-            $fecha_hoy = date("Y/m/d");
+            
 
             //hacemos la inserccion para que se vea en la tabla de abonos
             //INSERT INTO `abonos` (`id`, `fecha`, `ingresos_fk`, `persona_fk`, `local_fk`, `valor`) VALUES (NULL, '2023-05-30', '1', '1', '1', '5000');
