@@ -6,7 +6,7 @@ $dbDetails = array(
 'pass' => '', 
 'db'   => 'sistema_pagos'
 ); 
-
+//en el where del i.abono <> '0' se quitó para que se puedan ver los ingresos que se hacen cuando es un ahorro
 $table = <<<EOT
  (
     SELECT
@@ -28,7 +28,7 @@ $table = <<<EOT
   FROM ingresos i
   INNER JOIN locales l on i.local_fk = l.id
   INNER JOIN personas p on i.persona_fk = p.id
-  WHERE i.abono <> '0'
+  #WHERE i.abono <> '0'
   ORDER BY i.id DESC
  ) temp
 EOT;

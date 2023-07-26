@@ -237,6 +237,7 @@
 
 <!--SEXTA FILA-->
 
+<!---- ABONO Y SALDO VAN PARA AFUERA YA QUE NO SE PUEDEN EDITAR
 <div class="form-group">
   <div class="row">
     <div class="col">
@@ -253,7 +254,7 @@
     </div>
   </div>
 </div>
-
+--->
 
 <!--SEPTIMA FILA-->
 
@@ -401,7 +402,7 @@ $(document).ready(function(){
             titleAttr: 'Exportar a Excel',
             className: 'btn btn-success',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11,12,13]
                 }
         },
         {
@@ -410,7 +411,7 @@ $(document).ready(function(){
             titleAttr: 'Exportar a Pdf',
             className: 'btn btn-danger',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11,12,13]
                 },
                 "customize": function (doc) {
                 doc.defaultStyle.fontSize = 11; // Cambiar tamaño de fuente predeterminado

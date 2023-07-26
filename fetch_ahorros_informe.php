@@ -17,7 +17,7 @@ $table = <<<EOT
     concat(p.nombre,' ',p.apellido) as nombre,
     i.persona_fk as persona, 
     l.numero as nom_local,
-    SUM(valor) as total
+    SUM(saldo) as total
     FROM ingresos i
     INNER JOIN locales l on i.local_fk = l.id
     INNER JOIN personas p on i.persona_fk = p.id
@@ -45,7 +45,10 @@ $primaryKey = 'id';
           //return '<a href="javascript:void(0)" class="btn btn-primary btn-edit ml-2" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete ml-2" data-id="'.$row['id'].'"> Eliminar </a> <a href="javascript:void(0)" class="btn btn-success btn-pagar ml-2" data-persona="'.$row['persona'].'"> Pagar </a>'; 
 
           //se va a quitar el editar y el eliminar pues se trata de una consulta que toma una suma es decir es una agrupación
-          return '<a href="javascript:void(0)" class="btn btn-success btn-pagar ml-2" data-persona="'.$row['persona'].'"> Pagar </a>'; 
+          //return '<a href="javascript:void(0)" class="btn btn-success btn-pagar ml-2" data-persona="'.$row['persona'].'"> Pagar </a>'; 
+
+          //se va a quitar el boton de pagar
+          //return '<a href="javascript:void(0)" class="btn btn-success btn-pagar ml-2" data-persona="'.$row['persona'].'"> Pagar </a>'; 
 
       } 
       ) 
