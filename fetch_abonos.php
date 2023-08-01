@@ -30,21 +30,21 @@ EOT;
 $primaryKey = 'id'; 
 
     $columns = array( 
-        array( 'db' => 'id', 'dt' => 0 ),
-        array( 'db' => 'fecha', 'dt' => 1 ),
-        array( 'db' => 'categoria', 'dt' => 2 ),
-        array( 'db' => 'sub_categoria', 'dt' => 3 ),
-        array( 'db' => 'nombre', 'dt' => 4 ),
-        array( 'db' => 'nom_local', 'dt' => 5 ),
-        array( 'db' => 'recibo',  'dt' => 6), 
-        array( 'db' => 'valor',  'dt' => 7), 
-        array( 'db' => 'abono',  'dt' => 8), 
+        array( 'db' => 'id', 'dt' => "" ),
+        array( 'db' => 'fecha', 'dt' => 0 ),
+        array( 'db' => 'categoria', 'dt' => 1 ),
+        array( 'db' => 'sub_categoria', 'dt' => 2 ),
+        array( 'db' => 'nombre', 'dt' => 3 ),
+        array( 'db' => 'nom_local', 'dt' => 4 ),
+        array( 'db' => 'recibo',  'dt' => 5), 
+        array( 'db' => 'valor',  'dt' => 6), 
+        array( 'db' => 'abono',  'dt' => 7), 
         array( 
         'db'        => 'id',
-        'dt'        => 9, 
+        'dt'        => 8, 
         'formatter' => function( $d, $row ) { 
           //return '<a href="javascript:void(0)" class="btn btn-primary btn-edit" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete ml-2" data-id="'.$row['id'].'"> Eliminar </a>'; 
-          return '<a href="javascript:void(0)" class="btn btn-primary btn-edit ml-2" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete ml-2" data-id="'.$row['id'].'"> Eliminar </a> <a href="javascript:void(0)" class="btn btn-warning btn-abonar-ahorro ml-2" data-id="'.$row['id'].'"> Abonar </a> <a href="javascript:void(0)" class="btn btn-success btn-pagar ml-2" data-id="'.$row['id'].'"> Pagar </a>'; 
+          return '<a href="javascript:void(0)" class="btn btn-primary btn-edit ml-2" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete ml-2" data-id="'.$row['id'].'"> Eliminar </a>'; 
         } 
       ) 
       ); 

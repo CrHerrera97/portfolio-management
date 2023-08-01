@@ -67,42 +67,38 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="5%">Id</th>
-<th width="5%">Fecha Desde</th>
-<th width="5%">Fecha Hasta</th>
-<th width="5%">Fecha Ingreso</th>
-<th width="5%">Persona</th>
-<th width="5%">Puesto</th>
-<th width="3%">Recibo</th>
+<th width="7%">Fecha Desde</th>
+<th width="7%">Fecha Hasta</th>
+<th width="7%">Fecha Ingreso</th>
+<th width="6%">Persona</th>
+<th width="6%">Puesto</th>
+<th width="4%">Recibo</th>
 <th width="4%">Categoria</th>
 <th width="4%">Sub Categoria</th>
-<th width="4%">Otros</th>
 <th width="4%">Valor</th>
 <th width="4%">Abono</th>
 <th width="4%">Saldo</th>
 <th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
-<th width="36%">Acciones</th>
+<th width="18%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th width="5%">Id</th>
-<th width="5%">Fecha Desde</th>
-<th width="5%">Fecha Hasta</th>
-<th width="5%">Fecha Ingreso</th>
-<th width="5%">Persona</th>
-<th width="5%">Puesto</th>
-<th width="3%">Recibo</th>
+<th width="7%">Fecha Desde</th>
+<th width="7%">Fecha Hasta</th>
+<th width="7%">Fecha Ingreso</th>
+<th width="6%">Persona</th>
+<th width="6%">Puesto</th>
+<th width="4%">Recibo</th>
 <th width="4%">Categoria</th>
 <th width="4%">Sub Categoria</th>
-<th width="4%">Otros</th>
 <th width="4%">Valor</th>
 <th width="4%">Abono</th>
 <th width="4%">Saldo</th>
 <th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
-<th width="36%">Acciones</th>
+<th width="18%">Acciones</th>
 </tr>
 </tfoot>
 </table>
@@ -399,6 +395,10 @@
 <script>
 $(document).ready(function(){
 $('#usersListTable').DataTable({
+  lengthMenu: [
+            [10, 25, 50, 100, 500, -1],
+            [10, 25, 50, 100, 500, 'Todo'],
+        ],
     language: {
         "decimal": "",
         "emptyTable": "No hay información",
@@ -570,6 +570,45 @@ $(document).ready(function() {
     });
   });
 });
+
+
+//ABONAR A CARTERA VENCIDA
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar-vencida', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#add-modal').modal('hide');
+    $('#add-modal2').modal('hide');
+    $('#btn-save-abonar').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar-vencida', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono-vencida").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_cartera'
+      },
+      success: function(result) {
+        alert ("Abono Exitoso");
+
+        window.location.href = 'ingresos.php';
+        //var oTable = $('#abono_cartera').dataTable();
+        //oTable.fnDraw(false);
+        
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
+});
+
 
 
 //autocompletar el local en el editar

@@ -68,7 +68,6 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="7%">Id</th>
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>
 <th width="7%">Fecha Ingreso</th>
@@ -79,6 +78,8 @@
 <th width="6%">Categoria</th>
 <th width="6%">Sub Categoria</th>
 <th width="6%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
 <th width="6%">Pendiente</th>
 <th width="10%">Observaciones</th>
 <th width="19%">Acciones</th>
@@ -86,7 +87,6 @@
 </thead>
 <tfoot>
 <tr>
-<th width="7%">Id</th>
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>
 <th width="7%">Fecha Ingreso</th>
@@ -97,6 +97,8 @@
 <th width="6%">Categoria</th>
 <th width="6%">Sub Categoria</th>
 <th width="6%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
 <th width="6%">Pendiente</th>
 <th width="10%">Observaciones</th>
 <th width="19%">Acciones</th>
@@ -415,7 +417,7 @@ $(document).ready(function(){
             titleAttr: 'Exportar a Excel',
             className: 'btn btn-success',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11,12,13]
                 }
         },
         {
@@ -424,7 +426,7 @@ $(document).ready(function(){
             orientation: 'landscape',
             className: 'btn btn-danger',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11,12,13]
                 },
                 "customize": function (doc) {
                 doc.defaultStyle.fontSize = 11; // Cambiar tamaño de fuente predeterminado

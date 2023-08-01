@@ -211,6 +211,10 @@
 <script>
 $(document).ready(function(){
 $('#usersListTable').DataTable({
+    lengthMenu: [
+            [10, 25, 50, 100, 500, -1],
+            [10, 25, 50, 100, 500, 'Todo'],
+        ],
     language: {
         "decimal": "",
         "emptyTable": "No hay información",

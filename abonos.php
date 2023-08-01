@@ -68,8 +68,7 @@
 
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
-<tr>
-<th width="7%">Id</th>    
+<tr> 
 <th width="7%">Fecha</th>
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
@@ -78,12 +77,11 @@
 <th width="10%"># Recibo</th>
 <th width="6%">Valor</th>
 <th width="6%">Abono</th>
-<th width="19%">Acciones</th>
+<th width="10%">Acciones</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th width="7%">Id</th>    
 <th width="7%">Fecha</th>
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
@@ -92,7 +90,7 @@
 <th width="10%"># Recibo</th>
 <th width="6%">Valor</th>
 <th width="6%">Abono</th>
-<th width="19%">Acciones</th>
+<th width="10%">Acciones</th>
 </tr>
 </tfoot>
 </table>
@@ -110,7 +108,7 @@
 <div class="modal-body">
 <form id="update-form" name="update-form" class="form-horizontal" autocomplete="off">
 <input type="hidden" name="id" id="id">
-<input type="hidden" class="form-control" id="mode" name="mode" value="update_ahorros">
+<input type="hidden" class="form-control" id="mode" name="mode" value="update_abonos">
 
 
 <!--
@@ -163,25 +161,6 @@
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Hasta</label>
-        <div class="col-sm-12">
-            <input type="date" class="form-control" id="fecha_hasta" name="fecha_hasta" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
-        </div>
-    </div>
-  </div>
-</div>
-
-<!--SEGUNDA FILA-->
-
-<div class="form-group">
-  <div class="row">
-    <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Ingreso</label>
-        <div class="col-sm-12">
-            <input type="date" class="form-control" id="fecha_ing" name="fecha_ing" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
-        </div>
-    </div>
-    <div class="col">
         <label for="name" class="col-sm-12 control-label">Persona</label>
         <div class="col-sm-12">
             <!--<input type="text" class="form-control" id="persona" name="persona" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
@@ -193,7 +172,9 @@
   </div>
 </div>
 
-<!--TERCERA FILA-->
+<!--SEGUNDA FILA-->
+
+
 
 <div class="form-group">
   <div class="row">
@@ -215,7 +196,9 @@
   </div>
 </div>
 
-<!--CUARTA FILA-->
+<!--TERCERA FILA-->
+
+
 
 <div class="form-group">
   <div class="row">
@@ -234,7 +217,8 @@
   </div>
 </div>
 
-<!--QUINTA FILA-->
+<!--CUARTA FILA-->
+
 
 <div class="form-group">
   <div class="row">
@@ -245,21 +229,14 @@
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Pendiente</label>
-        <div class="col-sm-12">
-        <select class="form-select" name="pendiente" id="pendiente">
-            <option value=""></option>
-            <option value="si">si</option>
-            <option value="no">no</option>
-        </select>
-        </div>
+
     </div>
   </div>
 </div>
 
+<!--QUINTA FILA-->
 
-<!--SEXTA FILA-->
-
+<!--
 <div class="form-group">
   <div class="row">
     <div class="">
@@ -270,7 +247,7 @@
     </div>
   </div>
 </div>
-
+-->
 
 <div class="col-sm-offset-2 col-sm-10">
 <button type="submit" class="btn btn-primary" id="btn-save" value="create">Guardar Cambios
@@ -345,6 +322,10 @@
 <script>
 $(document).ready(function(){
 $('#usersListTable').DataTable({
+    lengthMenu: [
+            [10, 25, 50, 100, 500, -1],
+            [10, 25, 50, 100, 500, 'Todo'],
+        ],
     language: {
         "decimal": "",
         "emptyTable": "No hay información",
@@ -399,15 +380,12 @@ url:"add-edit-delete.php",
 type: "POST",
 data: {
 id: id,
-mode: 'edit_ahorros' 
+mode: 'edit_abonos' 
 },
 dataType : 'json',
 success: function(result){
-    $('#id').val(result.id);
-$('#fecha_desde').val(result.fecha_desde);
-$('#fecha_hasta').val(result.fecha_hasta);
-$('#fecha_ing').val(result.fecha_ingreso);
-$('#fecha_pago').val(result.fecha_pago);
+$('#id').val(result.id);
+$('#fecha_desde').val(result.fecha);
 $('#perteneces').val(result.nombre);
 $('#perteneces_id').val(result.persona_fk);
 $('#pertenece').val(result.num_local);
@@ -420,8 +398,6 @@ $('#sub_categ').val(result.sub_categoria);
 $('#valor').val(result.valor);
 //$('#persona').val(result.persona_fk);
 //$('#local').val(result.local_fk);
-$('#abono').val(result.abono);
-$('#pendiente').val(result.pendiente);
 $('#obs').val(result.observaciones);
 $('#edit-modal').modal('show');
 }
@@ -452,7 +428,7 @@ url:"add-edit-delete.php",
 type: "POST",
 data: {
 id: id,
-mode: 'delete_cartera' 
+mode: 'delete_abonos' 
 },
 dataType : 'json',
 success: function(result){

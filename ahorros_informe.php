@@ -68,24 +68,22 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="20%">Id</th>
 <th width="20%">Fecha Desde</th>
 <th width="20%">Fechas Hasta</th>
 <th width="20%">Nombre</th>
 <th width="20%">Puesto</th>
 <th width="20%">Valor</th>
-<th width="20%">Acciones</th>
+<!--<th width="20%">Acciones</th>-->
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th width="20%">Id</th>
 <th width="20%">Fecha Desde</th>
 <th width="20%">Fechas Hasta</th>
 <th width="20%">Nombre</th>
 <th width="20%">Puesto</th>
 <th width="20%">Valor</th>
-<th width="20%">Acciones</th>
+<!--<th width="20%">Acciones</th>-->
 </tr>
 </tfoot>
 </table>
