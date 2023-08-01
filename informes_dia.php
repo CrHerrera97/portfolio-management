@@ -413,6 +413,17 @@ function myFunction() {
 
   $('#fecha').val('');
 
+
+  $('#fecha_ini').val('');
+  $('#fecha_fin').val('');
+
+
+
+  $('#total_ingresos').val('0');
+  $('#total_cartera_actual').val('0');
+  $('#total_cartera_vencida').val('0');
+  $('#total_multas').val('0');
+  $('#total_ahorros').val('0');
   //borrar tambien el local y la persona
 }
 

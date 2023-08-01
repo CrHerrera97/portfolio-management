@@ -303,7 +303,7 @@ echo json_encode(true);
 
     if($_POST['mode'] === 'edit_ingresos_informe'){
         //$result = mysqli_query($conn,"SELECT i.id, i.fecha,i.persona_fk,concat(p.nombre,' ',p.apellido) as nombre, i.local_fk,l.numero as num_local, i.valor, i.servicio, i.pendiente from ingresos i INNER JOIN locales l on i.local_fk = l.id INNER JOIN personas p on i.persona_fk = p.id WHERE i.id='" . $_POST['id'] . "'");
-        $result = mysqli_query($conn,"SELECT i.id, i.fecha_desde, i.fecha_hasta, i.fecha_ingreso, i.fecha_pago,i.persona_fk, concat(p.nombre,' ',p.apellido) as nombre,i.local_fk,l.numero as num_local,i.recibo,i.categoria,i.sub_categoria,i.valor,i.abono,i.saldo,i.pendiente,i.observaciones
+        $result = mysqli_query($conn,"SELECT i.id, i.fecha_desde, i.fecha_hasta, i.fecha_ingreso, i.fecha_pago,i.persona_fk, concat(p.nombre,' ',p.apellido) as nombre,i.local_fk,l.numero as num_local,i.recibo,i.categoria,i.sub_categoria,i.valor,i.pendiente,i.observaciones
         from ingresos i 
         INNER JOIN locales l on i.local_fk = l.id 
         INNER JOIN personas p on i.persona_fk = p.id WHERE i.id='" . $_POST['id'] . "'");
