@@ -1,15 +1,7 @@
 <?php
   // Conexión a la base de datos
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "sistema_pagos";
-  $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-  // Verificar la conexión
-  if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-  }
+  include 'database.php';
 
   // Obtener los datos del formulario de inicio de sesión
   $username = $_POST["username"];

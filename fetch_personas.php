@@ -1,11 +1,16 @@
 <?php 
 // Database connection info 
+
+include 'database.php';
+
 $dbDetails = array( 
 'host' => 'localhost', 
 'user' => 'root', 
 'pass' => '', 
 'db'   => 'sistema_pagos'
 ); 
+
+$dbDetails = $database;
 // mysql db table to use 
 $table = 'personas'; 
 // Table's primary key 

@@ -1,5 +1,8 @@
 <?php 
 // Database connection info 
+
+include 'database.php';
+
 $dbDetails = array( 
 'host' => 'localhost', 
 'user' => 'root', 
@@ -8,6 +11,8 @@ $dbDetails = array(
 ); 
 // mysql db table to use 
 
+
+$dbDetails = $database;
 $table = <<<EOT
  (
     SELECT
