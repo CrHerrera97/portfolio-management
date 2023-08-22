@@ -19,14 +19,14 @@ $local = $_POST["key"];
 
 
 $result = $mysqli->query(
-    'select id, numero, nombre as locales 
+    'select id, numero
     FROM locales where numero LIKE "%'.strip_tags($local).'%"
-    or nombre LIKE "%'.strip_tags($local).'%" limit 5'
+    limit 5'
 );
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {                
-        $html .= '<div><a class="suggest-element" data="'.utf8_encode($row['id']).'" id="'.$row['id'].''.utf8_encode($row['numero']).'" numero="'.$row['numero'].'">'.utf8_encode($row['locales']).'</a></div>';
+        $html .= '<div><a class="suggest-element" data="'.utf8_encode($row['id']).'" id="'.$row['id'].''.utf8_encode($row['numero']).'" numero="'.$row['numero'].'">'.utf8_encode($row['numero']).'</a></div>';
     }
 }
 echo $html;

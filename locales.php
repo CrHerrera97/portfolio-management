@@ -63,8 +63,6 @@
 <thead>
 <tr>
 <th width="16%">Numero</th>
-<th width="16%">Nombre</th>
-<th width="16%">Descripcion</th>
 <th width="16%">Servicios</th>
 <th width="16%">Pertenece</th>
 <th width="20%">Acciones</th>
@@ -73,8 +71,6 @@
 <tfoot>
 <tr>
 <th width="16%">Numero</th>
-<th width="16%">Nombre</th>
-<th width="16%">Descripcion</th>
 <th width="16%">Servicios</th>
 <th width="16%">Pertenece</th>
 <th width="20%">Acciones</th>
@@ -104,6 +100,7 @@
 </div>
 </div>
 
+<!---
 <div class="form-group">
 <label class="col-sm-2 control-label">Nombre</label>
 <div class="col-sm-12">
@@ -117,11 +114,11 @@
 <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Escriba una descripción del Puesto" value="" maxlength="50" required="">
 </div>
 </div>
-
+-->
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Servicios</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Puesto separado por comas" value="" maxlength="50" required="">
+<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Puesto separado por comas" value="" maxlength="50" >
 </div>
 </div>
 
@@ -163,6 +160,7 @@
 </div>
 </div>
 
+<!--
 <div class="form-group">
 <label class="col-sm-2 control-label">Nombre</label>
 <div class="col-sm-12">
@@ -176,11 +174,12 @@
 <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Escriba una descripción del Puesto" value="" maxlength="50" required="">
 </div>
 </div>
+-->
 
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Servicios</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Puesto separado por comas" value="" maxlength="50" required="">
+<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Puesto separado por comas" value="" maxlength="50" >
 </div>
 </div>
 
@@ -275,7 +274,7 @@ dataType : 'json',
 success: function(result){
 $('#id').val(result.id);
 $('#numero').val(result.numero);
-$('#nombre').val(result.nombre);
+//$('#nombre').val(result.nombre);
 $('#descripcion').val(result.descripcion);
 $('#servicios').val(result.servicios);
 $('#pertenece').val(result.nombre_c);
