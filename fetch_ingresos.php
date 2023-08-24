@@ -65,8 +65,34 @@ GRUPO DE LOS RADIOS SE PRECIONO
 $ingresos = $_POST["categoria"];
 $cartera_actual = $_POST["categoria"];
 $cartera_vencida = $_POST["categoria"];
-$ahorro = $_POST["categoria"];
+$ahorro = $_POST["categoria_2"];
 $multas = $_POST["categoria"];
+
+
+if(isset($_POST['categoria']) && isset($_POST['categoria_2'])){
+
+    //si marca la opcion de ingreso y ahorro
+
+    if($ahorro == "ahorro_radio"){
+        if ($valor != 0){
+            $sql = "INSERT INTO `ingresos` (`fecha_desde`, `fecha_hasta`, `fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `abono`, `saldo`,`pendiente`, `observaciones`) VALUES ('$fecha_desde', '$fecha_hasta', '$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'ingreso', 'ahorro', '$valor', '0' , '$valor' , 'si', '$observaciones')";
+            mysqli_query($mysqli, $sql);
+            echo "realizada";
+        }
+    }
+
+    //si marca la opcion de cartera actual y ahorro
+
+    if($cartera_actual == "cartera_actual_radio"){
+        if($valor !=0){
+            $sql = "INSERT INTO `ingresos` (`fecha_desde`, `fecha_hasta`, `fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `abono`, `saldo`, `pendiente`, `observaciones`) VALUES ('$fecha_desde', '$fecha_hasta', '$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'cartera', 'ahorro', '$valor', '0' , '$valor' ,'si', '$observaciones')";
+            mysqli_query($mysqli, $sql);
+            echo "realizada";
+        }
+    }
+}
+
+
 
 if  (isset($_POST['categoria'])){
     //hacemos el condicional para que cuando sean ingresos me haga la inserccion solo para ingresos
@@ -127,12 +153,6 @@ if  (isset($_POST['categoria'])){
     }else if($cartera_vencida == "cartera_vencida_radio"){
         if ($valor != 0){
             $sql = "INSERT INTO `ingresos` (`fecha_desde`, `fecha_hasta`, `fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `abono`, `saldo`,`pendiente`, `observaciones`) VALUES ('$fecha_desde', '$fecha_hasta', '$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'cartera', 'vencida', '$valor', '0' , '$valor' , 'si', '$observaciones')";
-            mysqli_query($mysqli, $sql);
-            echo "realizada";
-        }
-    }else if($ahorro == "ahorro_radio"){
-        if ($valor != 0){
-            $sql = "INSERT INTO `ingresos` (`fecha_desde`, `fecha_hasta`, `fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `abono`, `saldo`,`pendiente`, `observaciones`) VALUES ('$fecha_desde', '$fecha_hasta', '$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'ingreso', 'ahorro', '$valor', '0' , '$valor' , 'si', '$observaciones')";
             mysqli_query($mysqli, $sql);
             echo "realizada";
         }
