@@ -1165,6 +1165,9 @@ function categoria_radio(){
         
         document.getElementById('otros-btn').removeAttribute('disabled');
 
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
+
         if (ahorros_radio.checked){
             document.getElementById('valor').style.display = 'flex';
             document.getElementById('valor_total').style.display = 'flex';
@@ -1190,6 +1193,9 @@ function categoria_radio(){
         $('#fecha_pago').attr("disabled", 'disabled');
 
         document.getElementById('otros-btn').removeAttribute('disabled');
+
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
 
         if (ahorros_radio.checked){
             document.getElementById('valor').style.display = 'flex';
@@ -1219,6 +1225,8 @@ function categoria_radio(){
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
+
+        $('#valor_total').text("Valor:");
     
 
     }else if(ahorros_radio.checked){
@@ -1263,6 +1271,9 @@ function categoria_radio(){
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
+
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
 
 
         $('#fecha_pago').attr("disabled", 'disabled');
