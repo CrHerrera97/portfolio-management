@@ -112,7 +112,9 @@
             </div>
             <div class="col-sm-5 form-check">
 
-                <input class="form-check-input" type="radio" name="categoria" id="ahorro_radio" value="ahorro_radio"onclick="categoria_radio()">
+                <!--- EL AHORRO TIENE OTRA CATEGORIA YA QUE PUEDE HABER UN INGRESO DE AHORRO O UNA CARTERA DE AHORRO -->
+
+                <input class="form-check-input" type="radio" name="categoria_2" id="ahorro_radio" value="ahorro_radio"onclick="categoria_radio()">
                 <label class="form-check-label" for="flexRadioDefault1">Ahorro</label><br>
 
                 <input class="form-check-input" type="radio" name="categoria" id="multas_radio" value="multas_radio"onclick="categoria_radio()">
@@ -312,8 +314,8 @@
 
         --->
 
-        <div class="col-sm-2" id="valor_total">
-          <h4>Valor:</h4>
+        <div class="col-sm-2" id="">
+          <h4 id="valor_total">Valor:</h4>
         </div>
         <div class="col-sm-3">
         <input type="text" class="form-control" id="valor" name="valor" placeholder="Ingrese el Valor" value="">
@@ -1140,8 +1142,11 @@ function categoria_radio(){
 
 
     if(ingresos_radio.checked){
-        document.getElementById('valor').style.display = 'none'
-        document.getElementById('valor_total').style.display = 'none'
+
+        // el valor de otros no debería quitarse
+
+        //document.getElementById('valor').style.display = 'none'
+        //document.getElementById('valor_total').style.display = 'none'
 
         //ponemos para que me ponga visible los siguientes campos
         $("#fecha_pago").removeAttr("disabled");
@@ -1151,14 +1156,25 @@ function categoria_radio(){
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
 
+        
         document.getElementById('otros-btn').removeAttribute('disabled');
+
+        if (ahorros_radio.checked){
+            document.getElementById('valor').style.display = 'flex';
+            document.getElementById('valor_total').style.display = 'flex';
+
+            $('#valor_total').text("Ahorro");
+        }
+        
 
         eliminarAtribu();
         
 
     }else if(cartera_actual_radio.checked){
-        document.getElementById('valor').style.display = 'none'
-        document.getElementById('valor_total').style.display = 'none'
+
+        // el valor de otros no debería quitarse
+        //document.getElementById('valor').style.display = 'none'
+        //document.getElementById('valor_total').style.display = 'none'
         
 
         document.getElementById('abono_cartera_btn').style.display = 'none'
@@ -1168,6 +1184,13 @@ function categoria_radio(){
         $('#fecha_pago').attr("disabled", 'disabled');
 
         document.getElementById('otros-btn').removeAttribute('disabled');
+
+        if (ahorros_radio.checked){
+            document.getElementById('valor').style.display = 'flex';
+            document.getElementById('valor_total').style.display = 'flex';
+
+            $('#valor_total').text("Ahorro");
+        }
 
         eliminarAtribu();
 
@@ -1193,14 +1216,22 @@ function categoria_radio(){
     
 
     }else if(ahorros_radio.checked){
-        document.getElementById('valor').style.display = 'flex'
-        document.getElementById('valor_total').style.display = 'flex'
+        let valor = document.getElementById('valor').style.display = 'flex'
+        let valor_total = document.getElementById('valor_total').style.display = 'flex'
 
+        $('#valor_total').text("Ahorro");
+
+
+
+        //las categorias cuando es ahorro no deberían bloquearse
+
+        /*
         $('#admon').attr("disabled", 'disabled');
         $('#parque').attr("disabled", 'disabled');
         $('#agua').attr("disabled", 'disabled');
         $('#luz').attr("disabled", 'disabled');
 
+        */
         $("#fecha_pago").removeAttr("disabled");
 
         $('#otros-btn').attr("disabled", 'disabled');
