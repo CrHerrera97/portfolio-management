@@ -1138,6 +1138,12 @@ function categoria_radio(){
 
         document.getElementById('abono_ahorro_btn').style.display = 'inline'
         $('#otros-btn').attr("disabled", 'disabled');
+
+        $('#ahorro_radio').prop('checked', false);
+
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
+
     }
 
 
