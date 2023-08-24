@@ -169,7 +169,7 @@
     
 </script>            
 
-        <!---FECHAS-->
+        <!---FECHAS SE VAN A QUITAR YA QUE DIANA NO REQUIERE LAS FECHA DE INICIO Y FECHA FINAL
 
         <div class="row">
         <div class="col-sm-1"></div>
@@ -189,7 +189,9 @@
             </div>
 
         </div>
-        <br>
+
+        -->
+        
 
         <!----FECHA DE PAGO Y PERSONA--->
 
@@ -894,8 +896,8 @@ mode: 'edit_cartera'
 dataType : 'json',
 success: function(result){
 $('#id').val(result.id);
-$('#fecha_desde').val(result.fecha_desde);
-$('#fecha_hasta').val(result.fecha_hasta);
+//$('#fecha_desde').val(result.fecha_desde);
+//$('#fecha_hasta').val(result.fecha_hasta);
 $('#fecha_ing').val(result.fecha_ingreso);
 $('#fecha_pago').val(result.fecha_pago);
 $('#perteneces').val(result.nombre);
@@ -1314,8 +1316,8 @@ function myFunction() {
 
   $("#recibo").val('');
 
-  $("#fecha_desde").val('');
-  $("#fecha_hasta").val('');
+  //$("#fecha_desde").val('');
+  //$("#fecha_hasta").val('');
   $("#fecha_pago").val('');
 
   $("#obs").val('');
