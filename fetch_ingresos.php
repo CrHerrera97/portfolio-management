@@ -75,7 +75,7 @@ if(isset($_POST['categoria']) && isset($_POST['categoria_2'])){
 
     if($ahorro == "ahorro_radio" && $ingresos == "ingresos_radio"){
         if ($valor != 0){
-            $sql = "INSERT INTO `ingresos` (`fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `abono`, `saldo`,`pendiente`, `observaciones`) VALUES ('$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'ingreso', 'ahorro', '$valor', '0' , '$valor' , 'si', '$observaciones')";
+            $sql = "INSERT INTO `ingresos` (`fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `abono`, `saldo`,`pendiente`, `observaciones`) VALUES ('$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'ingreso', 'ahorro', '$valor', '$valor' , '0' , 'si', '$observaciones')";
             mysqli_query($mysqli, $sql);
             echo "realizada";
         }
