@@ -465,8 +465,9 @@
 
                 <thead>
                 <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -483,8 +484,9 @@
                     </thead>
                     <tfoot>
                     <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -607,8 +609,9 @@
 
                 <thead>
                 <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -625,8 +628,9 @@
                     </thead>
                     <tfoot>
                     <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -665,8 +669,9 @@
 
                 <thead>
                 <tr>    
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="10%">Persona</th>
                     <th width="10%">Puesto</th>
@@ -683,8 +688,9 @@
                     </thead>
                     <tfoot>
                 <tr>
+                    <<!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="10%">Persona</th>
                     <th width="10%">Puesto</th>
