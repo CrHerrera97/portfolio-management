@@ -169,7 +169,7 @@
     
 </script>            
 
-        <!---FECHAS-->
+        <!---FECHAS SE VAN A QUITAR YA QUE DIANA NO REQUIERE LAS FECHA DE INICIO Y FECHA FINAL
 
         <div class="row">
         <div class="col-sm-1"></div>
@@ -189,7 +189,9 @@
             </div>
 
         </div>
-        <br>
+
+        -->
+        
 
         <!----FECHA DE PAGO Y PERSONA--->
 
@@ -463,8 +465,9 @@
 
                 <thead>
                 <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -481,8 +484,9 @@
                     </thead>
                     <tfoot>
                     <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -605,8 +609,9 @@
 
                 <thead>
                 <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -623,8 +628,9 @@
                     </thead>
                     <tfoot>
                     <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -663,8 +669,9 @@
 
                 <thead>
                 <tr>    
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="10%">Persona</th>
                     <th width="10%">Puesto</th>
@@ -681,8 +688,9 @@
                     </thead>
                     <tfoot>
                 <tr>
+                    <<!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="10%">Persona</th>
                     <th width="10%">Puesto</th>
@@ -894,8 +902,8 @@ mode: 'edit_cartera'
 dataType : 'json',
 success: function(result){
 $('#id').val(result.id);
-$('#fecha_desde').val(result.fecha_desde);
-$('#fecha_hasta').val(result.fecha_hasta);
+//$('#fecha_desde').val(result.fecha_desde);
+//$('#fecha_hasta').val(result.fecha_hasta);
 $('#fecha_ing').val(result.fecha_ingreso);
 $('#fecha_pago').val(result.fecha_pago);
 $('#perteneces').val(result.nombre);
@@ -1138,6 +1146,12 @@ function categoria_radio(){
 
         document.getElementById('abono_ahorro_btn').style.display = 'inline'
         $('#otros-btn').attr("disabled", 'disabled');
+
+        $('#ahorro_radio').prop('checked', false);
+
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
+
     }
 
 
@@ -1158,6 +1172,9 @@ function categoria_radio(){
 
         
         document.getElementById('otros-btn').removeAttribute('disabled');
+
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
 
         if (ahorros_radio.checked){
             document.getElementById('valor').style.display = 'flex';
@@ -1184,6 +1201,9 @@ function categoria_radio(){
         $('#fecha_pago').attr("disabled", 'disabled');
 
         document.getElementById('otros-btn').removeAttribute('disabled');
+
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
 
         if (ahorros_radio.checked){
             document.getElementById('valor').style.display = 'flex';
@@ -1213,6 +1233,8 @@ function categoria_radio(){
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
+
+        $('#valor_total').text("Valor:");
     
 
     }else if(ahorros_radio.checked){
@@ -1258,6 +1280,9 @@ function categoria_radio(){
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
 
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
+
 
         $('#fecha_pago').attr("disabled", 'disabled');
     }
@@ -1297,8 +1322,8 @@ function myFunction() {
 
   $("#recibo").val('');
 
-  $("#fecha_desde").val('');
-  $("#fecha_hasta").val('');
+  //$("#fecha_desde").val('');
+  //$("#fecha_hasta").val('');
   $("#fecha_pago").val('');
 
   $("#obs").val('');
