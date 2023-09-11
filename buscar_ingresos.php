@@ -1,8 +1,15 @@
 <?php
 
+
 include 'database.php';
 
 $mysqli = $conn;
+
+// Check connection
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
 
 // Check connection
 if ($mysqli -> connect_errno) {

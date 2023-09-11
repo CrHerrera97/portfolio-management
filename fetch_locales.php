@@ -9,9 +9,7 @@ $dbDetails = array(
 'pass' => '', 
 'db'   => 'sistema_pagos'
 ); 
-
-$dbDetails = $database;
-
+// mysql db table to use 
 $table = <<<EOT
  (
     SELECT 
@@ -29,18 +27,18 @@ $primaryKey = 'id';
 $userData = array();
 $con = new mysqli("localhost","root","","sistema_pagos");
 
-$columns = array( 
-  array( 'db' => 'numero', 'dt' => 0 ), 
-  array( 'db' => 'servicios',  'dt' => 1 ), 
-  array( 'db' => 'pertenece',  'dt' => 2 ), 
-  array( 
-  'db'        => 'id',
-  'dt'        => 3, 
-  'formatter' => function( $d, $row ) { 
-      return '<a href="javascript:void(0)" class="btn btn-primary btn-edit" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete" data-id="'.$row['id'].'"> Eliminar </a>'; 
-  } 
-  ) 
-  ); 
+   $columns = array( 
+    array( 'db' => 'numero', 'dt' => 0 ), 
+    array( 'db' => 'servicios',  'dt' => 1 ), 
+    array( 'db' => 'pertenece',  'dt' => 2 ), 
+    array( 
+    'db'        => 'id',
+    'dt'        => 3, 
+    'formatter' => function( $d, $row ) { 
+        return '<a href="javascript:void(0)" class="btn btn-primary btn-edit" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete" data-id="'.$row['id'].'"> Eliminar </a>'; 
+    } 
+    ) 
+    ); 
 // Include SQL query processing class 
 require 'ssp.class.php'; 
 // Output data as json format 

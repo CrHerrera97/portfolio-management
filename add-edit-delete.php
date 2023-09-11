@@ -2,6 +2,14 @@
 // Database connection info 
 include 'database.php';
 
+$mysqli = $conn;
+
+// Check connection
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+
 //PRIMERO EL CRUD DE PERSONAS
 
 if ($_POST['mode'] === 'add_personas') {
@@ -34,7 +42,7 @@ echo json_encode(true);
 
 //CRUD DE LOCALES
 
-if ($_POST['mode'] === 'add_locales') {
+    if ($_POST['mode'] === 'add_locales') {
     $numero = $_POST['numero'];
     //$nombre = $_POST['nombre'];
     //$descripcion = $_POST['descripcion'];
