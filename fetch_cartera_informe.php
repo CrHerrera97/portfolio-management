@@ -10,6 +10,8 @@ $dbDetails = array(
 'db'   => 'sistema_pagos'
 ); 
 // mysql db table to use 
+
+$dbDetails = $database;
 $table = <<<EOT
  (
     SELECT

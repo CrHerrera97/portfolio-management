@@ -11,6 +11,8 @@ $dbDetails = array(
 ); 
 // mysql db table to use 
 
+$dbDetails = $database;
+
 $table = <<<EOT
  (
     SELECT
