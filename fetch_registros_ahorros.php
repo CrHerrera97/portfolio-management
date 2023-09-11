@@ -13,6 +13,7 @@ $dbDetails = array(
 
 $dbDetails = $database;
 
+
 $table = <<<EOT
  (
     SELECT

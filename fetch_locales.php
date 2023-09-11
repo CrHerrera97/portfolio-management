@@ -9,9 +9,10 @@ $dbDetails = array(
 'pass' => '', 
 'db'   => 'sistema_pagos'
 ); 
+// mysql db table to use 
 
 $dbDetails = $database;
-// mysql db table to use 
+
 $table = <<<EOT
  (
     SELECT 

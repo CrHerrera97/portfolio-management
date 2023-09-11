@@ -1,6 +1,5 @@
 <?php 
 
-
 include 'database.php';
 
 $mysqli = $conn;
@@ -10,6 +9,8 @@ if ($mysqli -> connect_errno) {
   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
   exit();
 }
+
+
 
 //tomamos los valores 
 //local toma el valor de key id que es el que hace referencia al id del local

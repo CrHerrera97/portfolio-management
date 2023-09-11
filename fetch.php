@@ -12,6 +12,8 @@ $dbDetails = array(
 // mysql db table to use 
 
 $dbDetails = $database;
+
+// mysql db table to use 
 $table = 'users'; 
 // Table's primary key 
 $primaryKey = 'id'; 

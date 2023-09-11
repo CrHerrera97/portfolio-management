@@ -1,7 +1,20 @@
 <?php
-  // Conexión a la base de datos
+include 'database.php';
 
-  include 'database.php';
+$mysqli = $conn;
+
+// Check connection
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+
+
+
+  // Verificar la conexión
+  if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+  }
 
   // Obtener los datos del formulario de inicio de sesión
   $username = $_POST["username"];

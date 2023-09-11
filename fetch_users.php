@@ -1,7 +1,7 @@
 <?php 
 // Database connection info 
-include 'database.php';
 
+include 'database.php';
 
 $dbDetails = array( 
 'host' => 'localhost', 

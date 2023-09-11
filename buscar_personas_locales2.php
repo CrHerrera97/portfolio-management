@@ -10,6 +10,7 @@ if ($mysqli -> connect_errno) {
   exit();
 }
 
+
 //tomamos los valores 
 $html = '';
 $personas = $_POST["perteneces"];
