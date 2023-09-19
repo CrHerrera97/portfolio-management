@@ -68,8 +68,8 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
+<!--<th width="7%">Fecha Desde</th>
+<th width="7%">Fecha Hasta</th>-->
 <th width="7%">Fecha Ingreso</th>
 <th width="7%">Fecha Pago</th>
 <th width="10%">Persona</th>
@@ -87,8 +87,8 @@
 </thead>
 <tfoot>
 <tr>
-<th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
+<!--<th width="7%">Fecha Desde</th>
+<th width="7%">Fecha Hasta</th>-->
 <th width="7%">Fecha Ingreso</th>
 <th width="7%">Fecha Pago</th>
 <th width="10%">Persona</th>
@@ -183,7 +183,10 @@
 
 -->
 
-<!---DIVIDIR MODALES EN 2-->
+<!---DIVIDIR MODALES EN 2
+
+SE VAN A QUITAR FECHA DESDE Y FECHA HASTA
+
 <div class="form-group">
   <div class="row">
     <div class="col">
@@ -201,6 +204,7 @@
   </div>
 </div>
 
+-->
 <!--SEGUNDA FILA-->
 
 <div class="form-group">
@@ -502,8 +506,8 @@ mode: 'edit_cartera_inf'
 dataType : 'json',
 success: function(result){
     $('#id').val(result.id);
-$('#fecha_desde').val(result.fecha_desde);
-$('#fecha_hasta').val(result.fecha_hasta);
+//$('#fecha_desde').val(result.fecha_desde);
+//$('#fecha_hasta').val(result.fecha_hasta);
 $('#fecha_ing').val(result.fecha_ingreso);
 $('#fecha_pago').val(result.fecha_pago);
 $('#perteneces').val(result.nombre);

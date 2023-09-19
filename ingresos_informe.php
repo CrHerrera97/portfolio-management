@@ -78,9 +78,9 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<!--<th width="7%">Id</th>-->
+<!--<th width="7%">Id</th>
 <th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
+<th width="7%">Fecha Hasta</th>-->
 <th width="7%">Fecha Ingreso</th>
 <th width="7%">Fecha Pago</th>
 <th width="7%">Persona</th>
@@ -98,9 +98,9 @@
 </thead>
 <tfoot>
 <tr>
-<!--<th width="7%">Id</th>-->
+<!--<th width="7%">Id</th
 <th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
+<th width="7%">Fecha Hasta</th>-->
 <th width="7%">Fecha Ingreso</th>
 <th width="7%">Fecha Pago</th>
 <th width="7%">Persona</th>
@@ -136,6 +136,8 @@
 <input type="hidden" class="form-control" id="mode" name="mode" value="update_ingresos_informe">
 
 <!---DIVIDIR MODALES EN 2-->
+
+<!--
 <div class="form-group">
   <div class="row">
     <div class="col">
@@ -152,6 +154,8 @@
     </div>
   </div>
 </div>
+
+-->
 
 <!--SEGUNDA FILA-->
 
@@ -229,7 +233,7 @@
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Valor</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="valor" name="valor" placeholder="Escriba el valor" value="" maxlength="50" required="" disabled>
+            <input type="text" class="form-control" id="valor" name="valor" placeholder="Escriba el valor" value="" maxlength="50" required="">
         </div>
     </div>
   </div>
@@ -501,8 +505,8 @@ success: function(result){
 
 //nombre y num_local
 $('#id').val(result.id);
-$('#fecha_desde').val(result.fecha_desde);
-$('#fecha_hasta').val(result.fecha_hasta);
+//$('#fecha_desde').val(result.fecha_desde);
+//$('#fecha_hasta').val(result.fecha_hasta);
 $('#fecha_ing').val(result.fecha_ingreso);
 $('#fecha_pago').val(result.fecha_pago);
 $('#perteneces').val(result.nombre);

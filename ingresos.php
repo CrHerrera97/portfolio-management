@@ -112,7 +112,9 @@
             </div>
             <div class="col-sm-5 form-check">
 
-                <input class="form-check-input" type="radio" name="categoria" id="ahorro_radio" value="ahorro_radio"onclick="categoria_radio()">
+                <!--- EL AHORRO TIENE OTRA CATEGORIA YA QUE PUEDE HABER UN INGRESO DE AHORRO O UNA CARTERA DE AHORRO -->
+
+                <input class="form-check-input" type="radio" name="categoria_2" id="ahorro_radio" value="ahorro_radio"onclick="categoria_radio()">
                 <label class="form-check-label" for="flexRadioDefault1">Ahorro</label><br>
 
                 <input class="form-check-input" type="radio" name="categoria" id="multas_radio" value="multas_radio"onclick="categoria_radio()">
@@ -167,7 +169,7 @@
     
 </script>            
 
-        <!---FECHAS-->
+        <!---FECHAS SE VAN A QUITAR YA QUE DIANA NO REQUIERE LAS FECHA DE INICIO Y FECHA FINAL
 
         <div class="row">
         <div class="col-sm-1"></div>
@@ -187,7 +189,9 @@
             </div>
 
         </div>
-        <br>
+
+        -->
+        
 
         <!----FECHA DE PAGO Y PERSONA--->
 
@@ -312,8 +316,8 @@
 
         --->
 
-        <div class="col-sm-2" id="valor_total">
-          <h4>Valor:</h4>
+        <div class="col-sm-2" id="">
+          <h4 id="valor_total">Valor:</h4>
         </div>
         <div class="col-sm-3">
         <input type="text" class="form-control" id="valor" name="valor" placeholder="Ingrese el Valor" value="">
@@ -461,8 +465,9 @@
 
                 <thead>
                 <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -479,8 +484,9 @@
                     </thead>
                     <tfoot>
                     <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -603,8 +609,9 @@
 
                 <thead>
                 <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -621,8 +628,9 @@
                     </thead>
                     <tfoot>
                     <tr>
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
@@ -661,8 +669,9 @@
 
                 <thead>
                 <tr>    
+                    <!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="10%">Persona</th>
                     <th width="10%">Puesto</th>
@@ -679,8 +688,9 @@
                     </thead>
                     <tfoot>
                 <tr>
+                    <<!--
                     <th width="7%">Fecha Desde</th>
-                    <th width="7%">Fecha Hasta</th>
+                    <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ingreso</th>
                     <th width="10%">Persona</th>
                     <th width="10%">Puesto</th>
@@ -892,8 +902,8 @@ mode: 'edit_cartera'
 dataType : 'json',
 success: function(result){
 $('#id').val(result.id);
-$('#fecha_desde').val(result.fecha_desde);
-$('#fecha_hasta').val(result.fecha_hasta);
+//$('#fecha_desde').val(result.fecha_desde);
+//$('#fecha_hasta').val(result.fecha_hasta);
 $('#fecha_ing').val(result.fecha_ingreso);
 $('#fecha_pago').val(result.fecha_pago);
 $('#perteneces').val(result.nombre);
@@ -1136,12 +1146,21 @@ function categoria_radio(){
 
         document.getElementById('abono_ahorro_btn').style.display = 'inline'
         $('#otros-btn').attr("disabled", 'disabled');
+
+        $('#ahorro_radio').prop('checked', false);
+
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
+
     }
 
 
     if(ingresos_radio.checked){
-        document.getElementById('valor').style.display = 'none'
-        document.getElementById('valor_total').style.display = 'none'
+
+        // el valor de otros no debería quitarse
+
+        //document.getElementById('valor').style.display = 'none'
+        //document.getElementById('valor_total').style.display = 'none'
 
         //ponemos para que me ponga visible los siguientes campos
         $("#fecha_pago").removeAttr("disabled");
@@ -1151,14 +1170,28 @@ function categoria_radio(){
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
 
+        
         document.getElementById('otros-btn').removeAttribute('disabled');
+
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
+
+        if (ahorros_radio.checked){
+            document.getElementById('valor').style.display = 'flex';
+            document.getElementById('valor_total').style.display = 'flex';
+
+            $('#valor_total').text("Ahorro");
+        }
+        
 
         eliminarAtribu();
         
 
     }else if(cartera_actual_radio.checked){
-        document.getElementById('valor').style.display = 'none'
-        document.getElementById('valor_total').style.display = 'none'
+
+        // el valor de otros no debería quitarse
+        //document.getElementById('valor').style.display = 'none'
+        //document.getElementById('valor_total').style.display = 'none'
         
 
         document.getElementById('abono_cartera_btn').style.display = 'none'
@@ -1168,6 +1201,16 @@ function categoria_radio(){
         $('#fecha_pago').attr("disabled", 'disabled');
 
         document.getElementById('otros-btn').removeAttribute('disabled');
+
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
+
+        if (ahorros_radio.checked){
+            document.getElementById('valor').style.display = 'flex';
+            document.getElementById('valor_total').style.display = 'flex';
+
+            $('#valor_total').text("Ahorro");
+        }
 
         eliminarAtribu();
 
@@ -1190,17 +1233,27 @@ function categoria_radio(){
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
+
+        $('#valor_total').text("Valor:");
     
 
     }else if(ahorros_radio.checked){
-        document.getElementById('valor').style.display = 'flex'
-        document.getElementById('valor_total').style.display = 'flex'
+        let valor = document.getElementById('valor').style.display = 'flex'
+        let valor_total = document.getElementById('valor_total').style.display = 'flex'
 
+        $('#valor_total').text("Ahorro");
+
+
+
+        //las categorias cuando es ahorro no deberían bloquearse
+
+        /*
         $('#admon').attr("disabled", 'disabled');
         $('#parque').attr("disabled", 'disabled');
         $('#agua').attr("disabled", 'disabled');
         $('#luz').attr("disabled", 'disabled');
 
+        */
         $("#fecha_pago").removeAttr("disabled");
 
         $('#otros-btn').attr("disabled", 'disabled');
@@ -1226,6 +1279,9 @@ function categoria_radio(){
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
+
+        let valor_1 = document.getElementById('valor').style.display = 'none'
+        let valor_2 = document.getElementById('valor_total').style.display = 'none'
 
 
         $('#fecha_pago').attr("disabled", 'disabled');
@@ -1266,8 +1322,8 @@ function myFunction() {
 
   $("#recibo").val('');
 
-  $("#fecha_desde").val('');
-  $("#fecha_hasta").val('');
+  //$("#fecha_desde").val('');
+  //$("#fecha_hasta").val('');
   $("#fecha_pago").val('');
 
   $("#obs").val('');

@@ -12,8 +12,6 @@ $table = <<<EOT
  (
     SELECT
     i.id,
-    i.fecha_desde,
-    i.fecha_hasta,
     concat(p.nombre,' ',p.apellido) as nombre,
     i.persona_fk as persona, 
     l.numero as nom_local,
@@ -31,15 +29,13 @@ $primaryKey = 'id';
 
     $columns = array(       
         array( 'db' => 'id', 'dt' => "" ),
-        array( 'db' => 'fecha_desde', 'dt' => 0 ),
-        array( 'db' => 'fecha_hasta', 'dt' => 1 ),
-        array( 'db' => 'nombre', 'dt' => 2 ),
+        array( 'db' => 'nombre', 'dt' => 0 ),
         array( 'db' => 'persona', 'dt' =>  ""),
-        array( 'db' => 'nom_local', 'dt' => 3 ),
-        array( 'db' => 'total',  'dt' => 4 ), 
+        array( 'db' => 'nom_local', 'dt' => 1 ),
+        array( 'db' => 'total',  'dt' => 2 ), 
       array( 
       'db'        => 'id',
-      'dt'        => 5, 
+      'dt'        => 3, 
       'formatter' => function( $d, $row ) { 
           //return '<a href="javascript:void(0)" class="btn btn-primary btn-edit" data-id="'.$row['id'].'"> Pagar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete ml-2" data-id="'.$row['id'].'"> Eliminar </a>'; 
           //return '<a href="javascript:void(0)" class="btn btn-primary btn-edit ml-2" data-id="'.$row['id'].'"> Editar </a> <a href="javascript:void(0)" class="btn btn-danger btn-delete ml-2" data-id="'.$row['id'].'"> Eliminar </a> <a href="javascript:void(0)" class="btn btn-success btn-pagar ml-2" data-persona="'.$row['persona'].'"> Pagar </a>'; 

@@ -40,22 +40,22 @@ echo json_encode(true);
 
     if ($_POST['mode'] === 'add_locales') {
     $numero = $_POST['numero'];
-    $nombre = $_POST['nombre'];
-    $descripcion = $_POST['descripcion'];
+    //$nombre = $_POST['nombre'];
+    //$descripcion = $_POST['descripcion'];
     $servicios = $_POST['servicios'];
     $pertenece = $_POST['perteneces_id'];
-    mysqli_query($conn, "INSERT INTO locales (numero,nombre,descripcion,servicios,personas_fk)
-    VALUES ('$numero','$nombre','$descripcion','$servicios','$pertenece')");
+    mysqli_query($conn, "INSERT INTO locales (numero,servicios,personas_fk)
+    VALUES ('$numero','$servicios','$pertenece')");
     echo json_encode(true);
     }  
     if ($_POST['mode'] === 'edit_locales') {
     //$result = mysqli_query($conn,"SELECT * FROM locales WHERE id='" . $_POST['id'] . "'");
-    $result = mysqli_query($conn,"SELECT l.id, l.numero, l.nombre, l.descripcion,l.servicios, personas_fk, concat(p.nombre,' ',p.apellido) as nombre_c from locales l INNER JOIN personas p on l.personas_fk = p.id WHERE l.id = '". $_POST['id']."'");
+    $result = mysqli_query($conn,"SELECT l.id, l.numero, l.servicios, personas_fk, concat(p.nombre,' ',p.apellido) as nombre_c from locales l INNER JOIN personas p on l.personas_fk = p.id WHERE l.id = '". $_POST['id']."'");
     $row= mysqli_fetch_array($result);
     echo json_encode($row);
     }   
     if ($_POST['mode'] === 'update_locales') {
-    mysqli_query($conn,"UPDATE locales set  numero='" . $_POST['numero'] . "', nombre='" . $_POST['nombre'] . "', descripcion='" . $_POST['descripcion'] . "', servicios='" . $_POST['servicios'] . "', personas_fk='" . $_POST['pertenece_id'] . "' WHERE id='" . $_POST['id'] . "'");
+    mysqli_query($conn,"UPDATE locales set  numero='" . $_POST['numero'] . "', servicios='" . $_POST['servicios'] . "', personas_fk='" . $_POST['pertenece_id'] . "' WHERE id='" . $_POST['id'] . "'");
     echo json_encode(true);
     }  
     if ($_POST['mode'] === 'delete_locales') {

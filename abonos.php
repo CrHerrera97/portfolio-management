@@ -155,7 +155,7 @@
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Desde</label>
+        <label for="name" class="col-sm-12 control-label">Fecha</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_desde" name="fecha_desde" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
         </div>
