@@ -100,7 +100,7 @@ if  (isset($_POST['categoria'])){
             echo "realizada";
         }
         if ($valor != 0){
-            $sql = "INSERT INTO `ingresos` (`fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `abono`, `saldo`,`pendiente`, `observaciones`) VALUES ('$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'ingreso', 'ahorro', '$valor', '$valor' , '0' , 'si', '$observaciones')";
+            $sql = "INSERT INTO `ingresos` (`fecha_ingreso`, `fecha_pago`, `persona_fk`, `local_fk`, `recibo`, `categoria`, `sub_categoria`, `valor`, `abono`, `saldo`,`pendiente`, `observaciones`) VALUES ('$fecha_hoy', '$fecha_pago', '$persona', '$local', '$recibo', 'ingreso', 'ahorro', '$valor', '$valor' , '0' , 'no', '$observaciones')";
             mysqli_query($mysqli, $sql);
             echo "realizada";
         }
