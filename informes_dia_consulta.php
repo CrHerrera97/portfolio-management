@@ -47,25 +47,28 @@ $fecha_fin = $_POST["fecha_fin"];
     
 
     //total ingresos
-    $sql_total_ingresos = mysqli_query($mysqli,"SELECT sum(abono) FROM ingresos WHERE fecha_pago BETWEEN '$fecha_ini' AND '$fecha_fin' AND sub_categoria <> 'ahorro'");
+    //$sql_total_ingresos = mysqli_query($mysqli,"SELECT sum(abono) FROM ingresos WHERE fecha_pago BETWEEN '$fecha_ini' AND '$fecha_fin' AND sub_categoria <> 'ahorro'");
+
+    //el diferente de ahorro se quitará porque los ingresos totales van con el ahorro
+    $sql_total_ingresos = mysqli_query($mysqli,"SELECT sum(abono) FROM ingresos WHERE fecha_pago BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $total_ingresos = mysqli_fetch_row($sql_total_ingresos);
 
 
     //total cartera actual
 
-    $sql_total_cartera_actual = mysqli_query($mysqli,"SELECT sum(saldo) FROM ingresos WHERE categoria = 'cartera' AND pendiente = 'si' AND sub_categoria <> 'vencida' AND sub_categoria <> 'multas' AND fecha_pago BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $sql_total_cartera_actual = mysqli_query($mysqli,"SELECT sum(saldo) FROM ingresos WHERE categoria = 'cartera' AND pendiente = 'si' AND sub_categoria <> 'vencida' AND sub_categoria <> 'multas' AND fecha_ingreso BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $total_cartera_actual = mysqli_fetch_row($sql_total_cartera_actual);
 
     //total cartera vencida
-    $sql_total_cartera_vencida = mysqli_query($mysqli,"SELECT sum(saldo) FROM ingresos WHERE categoria = 'cartera' AND sub_categoria = 'vencida' AND pendiente = 'si' AND fecha_pago BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $sql_total_cartera_vencida = mysqli_query($mysqli,"SELECT sum(saldo) FROM ingresos WHERE categoria = 'cartera' AND sub_categoria = 'vencida' AND pendiente = 'si' AND fecha_ingreso BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $total_cartera_vencida = mysqli_fetch_row($sql_total_cartera_vencida);
 
     //total multas
-    $sql_total_multas = mysqli_query($mysqli,"SELECT sum(saldo) FROM ingresos WHERE categoria = 'cartera' AND sub_categoria = 'multas' AND pendiente = 'si' AND fecha_pago BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $sql_total_multas = mysqli_query($mysqli,"SELECT sum(saldo) FROM ingresos WHERE categoria = 'cartera' AND sub_categoria = 'multas' AND pendiente = 'si' AND fecha_ingreso BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $total_multas = mysqli_fetch_row($sql_total_multas);    
 
     //total ahorros
-    $sql_total_ahorros = mysqli_query($mysqli,"SELECT sum(saldo) FROM ingresos WHERE categoria = 'ingreso' AND sub_categoria = 'ahorro' AND pendiente = 'si' AND fecha_pago BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $sql_total_ahorros = mysqli_query($mysqli,"SELECT sum(saldo) FROM ingresos WHERE categoria = 'cartera' AND sub_categoria = 'ahorro' AND pendiente = 'si' AND fecha_ingreso BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $total_ahorros = mysqli_fetch_row($sql_total_ahorros);    
 
 $response = array('administracion' => $administracion,
