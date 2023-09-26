@@ -1,10 +1,14 @@
 <?php
 // Database connection info 
-$host='localhost';
-$username='root';
-$password='';
-$dbname = "sistema_pagos";
-$conn=mysqli_connect($host,$username,$password,"$dbname");
+include 'database.php';
+
+$mysqli = $conn;
+
+// Check connection
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
 
 //PRIMERO EL CRUD DE PERSONAS
 

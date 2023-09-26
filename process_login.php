@@ -1,10 +1,15 @@
 <?php
-  // Conexión a la base de datos
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "sistema_pagos";
-  $conn = mysqli_connect($servername, $username, $password, $dbname);
+include 'database.php';
+
+$mysqli = $conn;
+
+// Check connection
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+
+
 
   // Verificar la conexión
   if (!$conn) {
