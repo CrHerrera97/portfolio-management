@@ -290,7 +290,7 @@ var table = $('#usersListTable').DataTable({
             titleAttr: 'Exportar a Excel',
             className: 'btn btn-success',
             exportOptions: {
-                    columns: [ 0,1,2,3,4]
+                    columns: [ 0,1,2]
                 }
         },
         {
@@ -298,10 +298,10 @@ var table = $('#usersListTable').DataTable({
             titleAttr: 'Exportar a Pdf',
             className: 'btn btn-danger',
             exportOptions: {
-                    columns: [ 0,1,2,3,4]
+                    columns: [ 0,1,2]
                 },
             filename: function() {
-            return "MyPDF"      
+            return "Total Ahorro"      
             },      
             title: function() {
             var searchString = table.search();        

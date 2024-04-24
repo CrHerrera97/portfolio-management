@@ -406,7 +406,7 @@ $(document).ready(function(){
             titleAttr: 'Exportar a Excel',
             className: 'btn btn-success',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
                 }
         },
         {
@@ -415,7 +415,7 @@ $(document).ready(function(){
             titleAttr: 'Exportar a Pdf',
             className: 'btn btn-danger',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
                 },
                 "customize": function (doc) {
                 doc.defaultStyle.fontSize = 11; // Cambiar tamaño de fuente predeterminado
