@@ -1126,6 +1126,7 @@ function eliminarAtribu(){
     $('#parque').removeAttr("disabled");
     $('#agua').removeAttr("disabled");
     $('#luz').removeAttr("disabled");
+    $('#valor').removeAttr("disabled");
 }
 
 
@@ -1148,6 +1149,12 @@ function categoria_radio(){
 
         document.getElementById('abono_ahorro_btn').style.display = 'inline'
         $('#otros-btn').attr("disabled", 'disabled');
+
+        $('#obs').attr("disabled", 'disabled');
+        $('#admon').attr("disabled", 'disabled');
+        $('#parque').attr("disabled", 'disabled');
+        $('#agua').attr("disabled", 'disabled');
+        $('#luz').attr("disabled", 'disabled');
 
         $('#ahorro_radio').prop('checked', false);
 
@@ -1174,6 +1181,9 @@ function categoria_radio(){
 
         
         document.getElementById('otros-btn').removeAttribute('disabled');
+        $('#otros').attr("disabled", 'disabled');
+
+        $("#obs").removeAttr("disabled");
 
         let valor_1 = document.getElementById('valor').style.display = 'none'
         let valor_2 = document.getElementById('valor_total').style.display = 'none'
@@ -1199,6 +1209,10 @@ function categoria_radio(){
         document.getElementById('abono_ahorro_btn').style.display = 'none'
 
         $('#fecha_pago').attr("disabled", 'disabled');
+
+        $('#otros').attr("disabled", 'disabled');
+
+        $("#obs").removeAttr("disabled");
 
         document.getElementById('otros-btn').removeAttribute('disabled');
 
@@ -1227,6 +1241,11 @@ function categoria_radio(){
 
         $('#otros-btn').attr("disabled", 'disabled');
 
+        $('#otros').attr("disabled", 'disabled');
+
+        $("#valor").removeAttr("disabled");
+
+        $("#obs").removeAttr("disabled");
 
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
@@ -1247,6 +1266,12 @@ function categoria_radio(){
         //$("#fecha_pago").removeAttr("disabled");
 
         $('#otros-btn').attr("disabled", 'disabled');
+
+        $('#otros').attr("disabled", 'disabled');
+
+        $("#valor").removeAttr("disabled");
+
+        $("#obs").removeAttr("disabled");
 
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
@@ -1272,6 +1297,7 @@ function pressButton(){
     $('#parque').attr('disabled', 'disabled');
     $('#agua').attr('disabled', 'disabled');
     $('#luz').attr('disabled', 'disabled');
+    $('#valor').attr('disabled', 'disabled');
 
 }
 
@@ -1301,7 +1327,7 @@ function myFunction() {
 
   $("#obs").val('');
 
-  $("#valor").val('');
+  $("#valor").val('0');
 
   $("#otros").val('');
 
