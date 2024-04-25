@@ -336,6 +336,10 @@
                 <input class="btn btn-success"  type="button" value="Otros" disabled id="otros-btn" name="otros-btn" onclick="pressButton();">
             </div>
 
+            <div class="col-sm-1">
+                <h4 id="valor_txt" name="valor_txt" style="display: none;">Valor:</h4>
+            </div>
+    
             <div class="col-sm-3">
                 <input type="text" class="form-control" id="otros" name="otros" placeholder="Ingrese el Valor" value="" disabled>
             </div>
@@ -1158,6 +1162,8 @@ function categoria_radio(){
 
         $('#ahorro_radio').prop('checked', false);
 
+        $('#valor_txt').css('display', 'none');
+
         let valor_1 = document.getElementById('valor').style.display = 'none'
         let valor_2 = document.getElementById('valor_total').style.display = 'none'
 
@@ -1184,6 +1190,8 @@ function categoria_radio(){
         $('#otros').attr("disabled", 'disabled');
 
         $("#obs").removeAttr("disabled");
+
+        $('#valor_txt').css('display', 'none');
 
         let valor_1 = document.getElementById('valor').style.display = 'none'
         let valor_2 = document.getElementById('valor_total').style.display = 'none'
@@ -1213,6 +1221,8 @@ function categoria_radio(){
         $('#otros').attr("disabled", 'disabled');
 
         $("#obs").removeAttr("disabled");
+
+        $('#valor_txt').css('display', 'none');
 
         document.getElementById('otros-btn').removeAttribute('disabled');
 
@@ -1247,6 +1257,8 @@ function categoria_radio(){
 
         $("#obs").removeAttr("disabled");
 
+        $('#valor_txt').css('display', 'none');
+
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
@@ -1273,6 +1285,8 @@ function categoria_radio(){
 
         $("#obs").removeAttr("disabled");
 
+        $('#valor_txt').css('display', 'none');
+
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
@@ -1298,6 +1312,11 @@ function pressButton(){
     $('#agua').attr('disabled', 'disabled');
     $('#luz').attr('disabled', 'disabled');
     $('#valor').attr('disabled', 'disabled');
+
+    $('#valor_txt').css('display', 'block');
+    
+
+    
 
 }
 
