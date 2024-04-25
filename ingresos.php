@@ -114,8 +114,10 @@
 
                 <!--- EL AHORRO TIENE OTRA CATEGORIA YA QUE PUEDE HABER UN INGRESO DE AHORRO O UNA CARTERA DE AHORRO -->
 
-                <input class="form-check-input" type="radio" name="categoria_2" id="ahorro_radio" value="ahorro_radio"onclick="categoria_radio()">
+                <!---
+                <input class="form-check-input" type="radio" name="categoria" id="ahorro_radio" value="ahorro_radio"onclick="categoria_radio()">
                 <label class="form-check-label" for="flexRadioDefault1">Ahorro</label><br>
+                -->
 
                 <input class="form-check-input" type="radio" name="categoria" id="multas_radio" value="multas_radio"onclick="categoria_radio()">
                 <label class="form-check-label" for="flexRadioDefault1">Multas</label><br>
@@ -246,43 +248,43 @@
         <h4><label class="control-label">Concepto</label></h4>
     
             <div class="row">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <h4>Administracion</h4>
                 </div>
 
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="admon" name="admon" placeholder="Ingrese el Valor" value="0" required="">
                 </div>
 
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                 <h4>Parqueadero</h4>
                 </div>
                 
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="parque" name="parque" placeholder="Ingrese el Valor" value="0" required="">
                 </div>
 
                 <div class="col-sm-2">
                     
-                </div>
+            </div>
 
                 <br>
 
         <!---OTRA FILA...--->
         <br><br>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <h4>Agua</h4>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <input type="text" class="form-control" id="agua" name="agua" placeholder="Ingrese el Valor" value="0" required="">
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <h4>Luz</h4>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <input type="text" class="form-control" id="luz" name="luz" placeholder="Ingrese el Valor" value="0" required="">
             </div>
 
@@ -293,10 +295,10 @@
         <!---OTRA FILA...--->
 
         <br><br><br>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <h4>Observaciones</h4>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
         <input type="text" class="form-control" id="obs" name="obs" placeholder="Ingrese las observaciones" value="" >
         </div>
 
@@ -316,11 +318,11 @@
 
         --->
 
-        <div class="col-sm-2" id="">
+        <div class="col-sm-3" id="">
           <h4 id="valor_total">Valor:</h4>
         </div>
-        <div class="col-sm-3">
-        <input type="text" class="form-control" id="valor" name="valor" placeholder="Ingrese el Valor" value="">
+        <div class="col-sm-2">
+        <input type="text" class="form-control" id="valor" name="valor" placeholder="Ingrese el Valor" value="0">
         </div>
 
         <br><br><br>
@@ -1176,12 +1178,10 @@ function categoria_radio(){
         let valor_1 = document.getElementById('valor').style.display = 'none'
         let valor_2 = document.getElementById('valor_total').style.display = 'none'
 
-        if (ahorros_radio.checked){
-            document.getElementById('valor').style.display = 'flex';
-            document.getElementById('valor_total').style.display = 'flex';
+        document.getElementById('valor').style.display = 'flex';
+        document.getElementById('valor_total').style.display = 'flex';
 
             $('#valor_total').text("Ahorro");
-        }
         
 
         eliminarAtribu();
@@ -1205,12 +1205,10 @@ function categoria_radio(){
         let valor_1 = document.getElementById('valor').style.display = 'none'
         let valor_2 = document.getElementById('valor_total').style.display = 'none'
 
-        if (ahorros_radio.checked){
-            document.getElementById('valor').style.display = 'flex';
-            document.getElementById('valor_total').style.display = 'flex';
+        document.getElementById('valor').style.display = 'flex';
+        document.getElementById('valor_total').style.display = 'flex';
 
             $('#valor_total').text("Ahorro");
-        }
 
         eliminarAtribu();
 
@@ -1237,32 +1235,6 @@ function categoria_radio(){
         $('#valor_total').text("Valor:");
     
 
-    }else if(ahorros_radio.checked){
-        let valor = document.getElementById('valor').style.display = 'flex'
-        let valor_total = document.getElementById('valor_total').style.display = 'flex'
-
-        $('#valor_total').text("Ahorro");
-
-
-
-        //las categorias cuando es ahorro no deberían bloquearse
-
-        /*
-        $('#admon').attr("disabled", 'disabled');
-        $('#parque').attr("disabled", 'disabled');
-        $('#agua').attr("disabled", 'disabled');
-        $('#luz').attr("disabled", 'disabled');
-
-        */
-        $("#fecha_pago").removeAttr("disabled");
-
-        $('#otros-btn').attr("disabled", 'disabled');
-
-        document.getElementById('abono_cartera_btn').style.display = 'none'
-        document.getElementById('abono_cartera_venc_btn').style.display = 'none'
-        document.getElementById('abono_ahorro_btn').style.display = 'none'
-
-
     }else if(multas_radio.checked){
         document.getElementById('valor').style.display = 'flex'
         document.getElementById('valor_total').style.display = 'flex'
@@ -1280,9 +1252,10 @@ function categoria_radio(){
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
 
-        let valor_1 = document.getElementById('valor').style.display = 'none'
-        let valor_2 = document.getElementById('valor_total').style.display = 'none'
+        //let valor_1 = document.getElementById('valor').style.display = 'none'
+        //let valor_2 = document.getElementById('valor_total').style.display = 'none'
 
+        $('#valor_total').text("Valor:");
 
         $('#fecha_pago').attr("disabled", 'disabled');
     }
