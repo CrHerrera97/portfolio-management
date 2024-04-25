@@ -201,7 +201,7 @@
             <div class="col-sm-1"></div>
                 
                 <div class="col-sm-5">
-                    <h4><label class="col-sm-12 control-label">Fecha Pago</label></h4>
+                    <h4><label class="col-sm-12 control-label">Fecha Factura</label></h4>
                     <div class="col-sm-12">
                     <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="" value="" required="" autocomplete="off">
                     </div>     
