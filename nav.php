@@ -44,6 +44,8 @@
                                     <a class="dropdown-item" href="cartera.php">Cartera Actual</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="cartera_vencida.php">Cartera Vencida</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="cartera_x_persona.php">Cartera X Persona</a>
                                     </div>
                     </li>
                     <!--<a class="list-group-item list-group-item-action list-group-item-light p-3" href="cartera.php">Cartera</a>-->
