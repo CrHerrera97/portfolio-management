@@ -12,7 +12,7 @@ $table = <<<EOT
 (
     SELECT
     l.numero AS local_numero,
-    p.nombre AS persona_nombre,
+    concat(p.nombre,' ',p.apellido) as persona_nombre,
     SUM(i.valor) AS sumatoria_total
 FROM
     ingresos i
