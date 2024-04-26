@@ -15,13 +15,15 @@ $table = <<<EOT
     concat(p.nombre,' ',p.apellido) as nombre,
     i.persona_fk as persona, 
     l.numero as nom_local,
-    SUM(saldo) as total
+    SUM(abono) as total
     FROM ingresos i
     INNER JOIN locales l on i.local_fk = l.id
     INNER JOIN personas p on i.persona_fk = p.id
     WHERE i.sub_categoria = 'ahorro'
-    AND pendiente = 'si'
-    GROUP BY nombre
+    GROUP BY 
+    p.id,
+    p.nombre,
+    l.numero
  ) temp
 EOT;
 
@@ -29,9 +31,9 @@ $primaryKey = 'id';
 
     $columns = array(       
         array( 'db' => 'id', 'dt' => "" ),
-        array( 'db' => 'nombre', 'dt' => 0 ),
+        array( 'db' => 'nom_local', 'dt' => 0 ),
         array( 'db' => 'persona', 'dt' =>  ""),
-        array( 'db' => 'nom_local', 'dt' => 1 ),
+        array( 'db' => 'nombre', 'dt' => 1 ),
         array( 'db' => 'total',  'dt' => 2 ), 
       array( 
       'db'        => 'id',

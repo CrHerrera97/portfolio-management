@@ -71,8 +71,8 @@
 <!--    
 <th width="20%">Fecha Desde</th>
 <th width="20%">Fechas Hasta</th>-->
-<th width="20%">Nombre</th>
 <th width="20%">Puesto</th>
+<th width="20%">Nombre</th>
 <th width="20%">Valor</th>
 <!--<th width="20%">Acciones</th>-->
 </tr>
@@ -82,8 +82,8 @@
 <!--    
 <th width="20%">Fecha Desde</th>
 <th width="20%">Fechas Hasta</th>-->
-<th width="20%">Nombre</th>
 <th width="20%">Puesto</th>
+<th width="20%">Nombre</th>
 <th width="20%">Valor</th>
 <!--<th width="20%">Acciones</th>-->
 </tr>
