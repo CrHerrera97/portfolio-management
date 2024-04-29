@@ -1216,7 +1216,7 @@ function categoria_radio(){
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
 
-        $('#fecha_pago').attr("disabled", 'disabled');
+        //$('#fecha_pago').attr("disabled", 'disabled');
 
         $('#otros').attr("disabled", 'disabled');
 
@@ -1247,7 +1247,7 @@ function categoria_radio(){
         $('#agua').attr("disabled", 'disabled');
         $('#luz').attr("disabled", 'disabled');
 
-        $('#fecha_pago').attr("disabled", 'disabled');
+        //$('#fecha_pago').attr("disabled", 'disabled');
 
         $('#otros-btn').attr("disabled", 'disabled');
 
@@ -1296,7 +1296,7 @@ function categoria_radio(){
 
         $('#valor_total').text("Valor:");
 
-        $('#fecha_pago').attr("disabled", 'disabled');
+        //$('#fecha_pago').attr("disabled", 'disabled');
     }
 
 }

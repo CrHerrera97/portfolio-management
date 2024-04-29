@@ -13,7 +13,7 @@ $table = <<<EOT
     SELECT
     l.numero AS local_numero,
     concat(p.nombre,' ',p.apellido) as persona_nombre,
-    SUM(i.valor) AS sumatoria_total
+    SUM(i.saldo) AS sumatoria_total
 FROM
     ingresos i
     INNER JOIN locales l ON i.local_fk = l.id
