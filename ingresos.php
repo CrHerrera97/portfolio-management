@@ -253,7 +253,7 @@
                 </div>
 
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="admon" name="admon" placeholder="Ingrese el Valor" value="0" required="">
+                    <input type="text" class="form-control myInput" id="admon" name="admon" placeholder="Ingrese el Valor" value="0" required="">
                 </div>
 
                 <div class="col-sm-3">
@@ -261,7 +261,7 @@
                 </div>
                 
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="parque" name="parque" placeholder="Ingrese el Valor" value="0" required="">
+                    <input type="text" class="form-control myInput" id="parque" name="parque" placeholder="Ingrese el Valor" value="0" required="">
                 </div>
 
                 <div class="col-sm-2">
@@ -277,7 +277,7 @@
             </div>
 
             <div class="col-sm-2">
-                <input type="text" class="form-control" id="agua" name="agua" placeholder="Ingrese el Valor" value="0" required="">
+                <input type="text" class="form-control myInput" id="agua" name="agua" placeholder="Ingrese el Valor" value="0" required="">
             </div>
 
             <div class="col-sm-3">
@@ -285,7 +285,7 @@
             </div>
 
             <div class="col-sm-2">
-                <input type="text" class="form-control" id="luz" name="luz" placeholder="Ingrese el Valor" value="0" required="">
+                <input type="text" class="form-control myInput" id="luz" name="luz" placeholder="Ingrese el Valor" value="0" required="">
             </div>
 
             <div class="col-sm-2">
@@ -322,7 +322,7 @@
           <h4 id="valor_total">Valor:</h4>
         </div>
         <div class="col-sm-2">
-        <input type="text" class="form-control" id="valor" name="valor" placeholder="Ingrese el Valor" value="0">
+        <input type="text" class="form-control myInput" id="valor" name="valor" placeholder="Ingrese el Valor" value="0">
         </div>
 
         <br><br><br>
@@ -1489,6 +1489,42 @@ $(document).ready(function() {
         });
     });
 }); 
+
+
+// vamos a validar que cuando la persona salga del cuadro de un item si no está lleno se ponga en valor "0"
+function validaCampoLleno(){
+    //utilizamos el .myInput para obtener todos los inputs que tienen la clase "myInput"
+    $('.myInput').blur(function(){
+        //tomamos los valores de los inputs
+
+        $valorAdmon = $('#admon').val();
+        $valorParque = $('#parque').val();
+        $valorLuz = $('#luz').val();
+        $valorAgua = $('#agua').val();
+        $valor = $('#valor').val();
+
+        if($valorAdmon == ""){
+            $valorAdmon = $('#admon').val('0');
+        }
+        if($valorParque == ""){
+            $valorParque = $('#parque').val('0');
+        }
+        if($valorLuz == ""){
+            $valorLuz = $('#luz').val('0');
+        }
+        if($valorAgua == ""){
+            $valorAgua = $('#agua').val('0');
+        }
+        if($valor == ""){
+            $valor = $('#valor').val('0');
+        }
+    }
+)
+}
+
+validaCampoLleno()
+
+
 
 </script>
 
