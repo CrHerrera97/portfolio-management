@@ -33,27 +33,36 @@
 </div>
 
 <style>
-    #sugerencia{
+    #suggestions, #sugerencia_persona {
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: 160px;
+    top: 70px;
     z-index: 9999;
-    width: 206px;
-    right: 260px;
+    width: 192px;
+    left: -220px;
 }
 
-#suggestions{
+#sugerencia {
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: -15px;
+    top: 70px;
     z-index: 9999;
-    width: 206px;
+    width: 192px;
     left: 270px;
 }
+ 
+#suggestions  .suggest-element {
+    background-color: #EEEEEE;
+    border-top: 1px solid #d6d4d4;
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    float: left;
+}
 
-#suggestions  .suggest-element , .sugerencia  , .suggest-element2{
+#sugerencia .suggest-element2{
     background-color: #EEEEEE;
     border-top: 1px solid #d6d4d4;
     cursor: pointer;
@@ -70,7 +79,8 @@
 <!--
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>-->
-<th width="7%">Fecha Ingreso</th>
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
 <th width="6%">Persona</th>
 <th width="6%">Puesto</th>
 <th width="4%">Recibo</th>
@@ -89,7 +99,8 @@
 <!--
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>-->
-<th width="7%">Fecha Ingreso</th>
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
 <th width="6%">Persona</th>
 <th width="6%">Puesto</th>
 <th width="4%">Recibo</th>
@@ -191,19 +202,16 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Ingreso</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Ing. al Sistema</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_ing" name="fecha_ing" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Persona</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Factura</label>
         <div class="col-sm-12">
-            <!--<input type="text" class="form-control" id="persona" name="persona" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
-            <input type="text" class="form-control" id="perteneces" name="perteneces" placeholder="Escriba el nombre" value="" required="">
-            <input type="hidden" class="form-control" id="perteneces_id" name="perteneces_id" placeholder="Escriba el nombre" value="" maxlength="50" required="">
+            <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="Escriba el # del Local" value="" maxlength="50" >
         </div>
-        <div id="sugerencia"></div>
     </div>
   </div>
 </div>
@@ -212,20 +220,23 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
 
 <div class="form-group">
   <div class="row">
-  <div class="col">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Persona</label>
+        <div class="col-sm-12">
+            <!--<input type="text" class="form-control" id="persona" name="persona" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
+            <input type="text" class="form-control" id="perteneces" name="perteneces" placeholder="Escriba el nombre" value="" required="">
+            <input type="hidden" class="form-control" id="perteneces_id" name="perteneces_id" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
+        </div>
+        <div id="sugerencia"></div>
+    </div>
+    <div class="col">
         <label for="name" class="col-sm-12 control-label">Puesto</label>
         <div class="col-sm-12">
             <!--<input type="text" class="form-control" id="local" name="local" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
             <input type="text" class="form-control" id="pertenece" name="pertenece" placeholder="Escriba el # del Puesto" value="" maxlength="50" required="">
-            <input type="hidden" class="form-control" id="pertenece_id" name="pertenece_id" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
+            <input type="hidden" class="form-control" id="pertenece_id" name="pertenece_id" placeholder="Escriba a quien Pertenecee" value="" maxlength="50" required="">
         </div>
         <div id="suggestions"></div>    
-    </div>
-    <div class="col">
-        <label for="name" class="col-sm-12 control-label">Recibo</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="recibo" name="recibo" placeholder="Escriba el # del Recibo" value="" maxlength="50" required="">
-        </div>
     </div>
   </div>
 </div>
@@ -234,16 +245,16 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
 
 <div class="form-group">
   <div class="row">
-  <div class="col">
-        <label for="name" class="col-sm-12 control-label">Categoria</label>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Recibo</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="" readonly>
+            <input type="text" class="form-control" id="recibo" name="recibo" placeholder="Escriba el # del Recibo" value="" maxlength="50" required="">
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
+        <label for="name" class="col-sm-12 control-label">Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" readonly>
+            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
   </div>
@@ -254,26 +265,63 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
 <div class="form-group">
   <div class="row">
     <div class="col">
+        <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" readonly>
+        </div>
+    </div>
+    <div class="col">
         <label for="name" class="col-sm-12 control-label">Valor</label>
         <div class="col-sm-12">
             <input type="text" class="form-control" id="valor" name="valor" placeholder="Escriba el valor" value="" maxlength="50" required="">
         </div>
     </div>
+  </div>
+</div>
+
+<!--SEXTA FILA-->
+
+<!---- ABONO Y SALDO VAN PARA AFUERA YA QUE NO SE PUEDEN EDITAR
+<div class="form-group">
+  <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Pendiente</label>
+        <label for="name" class="col-sm-12 control-label">Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" disabled>
+        </div>
+    </div>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Saldo</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="saldo" name="saldo" placeholder="Escriba el valor" value="" maxlength="50" required="" disabled>
+        </div>
+    </div>
+  </div>
+</div>
+--->
+
+<!--SEPTIMA FILA-->
+
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+    <label for="name" class="col-sm-12 control-label">Pendiente</label>
         <div class="col-sm-12">
         <select class="form-select" name="pendiente" id="pendiente">
             <option value=""></option>
             <option value="si">si</option>
             <option value="no">no</option>
         </select>
+        </div>  
+    </div>
+    <div class="col">
+        <div class="col-sm-12">
         </div>
     </div>
   </div>
 </div>
 
-
-<!--SEXTA FILA-->
+<!--SEPTIMA FILA-->
 
 <div class="form-group">
   <div class="row">
@@ -282,6 +330,14 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
         <div class="col-sm-12">
             <input type="text" class="form-control" id="obs" name="obs" placeholder="Escriba las observaciones" value="" maxlength="50" >
         </div>
+    </div>
+    <div class="col">
+        <!--
+        <label for="name" class="col-sm-2 control-label">Fecha</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
+        </div>
+        -->
     </div>
   </div>
 </div>
@@ -518,8 +574,12 @@ mode: 'delete_cartera'
 },
 dataType : 'json',
 success: function(result){
-var oTable = $('#usersListTable').dataTable(); 
-oTable.fnDraw(false);
+    if(result === true){
+    var oTable = $('#usersListTable').dataTable(); 
+    oTable.fnDraw(false);
+    }else{
+    alert(result)
+}
 }
 });
 } 

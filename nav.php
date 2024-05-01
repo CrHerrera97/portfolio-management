@@ -54,8 +54,8 @@
                                     <a class="nav-link dropdown-toggle ahorros" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ahorros</a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="ahorros.php">Pendientes por Pagar</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="ahorros_total.php">Registro de Ahorros</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="ahorros_total.php">Registro de Ahorros</a>
                                     </div>
                     </li>
 
