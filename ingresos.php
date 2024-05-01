@@ -201,7 +201,7 @@
             <div class="col-sm-1"></div>
                 
                 <div class="col-sm-5">
-                    <h4><label class="col-sm-12 control-label">Fecha Pago</label></h4>
+                    <h4><label class="col-sm-12 control-label">Fecha Factura</label></h4>
                     <div class="col-sm-12">
                     <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="" value="" required="" autocomplete="off">
                     </div>     
@@ -248,43 +248,43 @@
         <h4><label class="control-label">Concepto</label></h4>
     
             <div class="row">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <h4>Administracion</h4>
                 </div>
 
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="admon" name="admon" placeholder="Ingrese el Valor" value="0" required="">
                 </div>
 
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                 <h4>Parqueadero</h4>
                 </div>
                 
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <input type="text" class="form-control" id="parque" name="parque" placeholder="Ingrese el Valor" value="0" required="">
                 </div>
 
                 <div class="col-sm-2">
                     
-                </div>
+            </div>
 
                 <br>
 
         <!---OTRA FILA...--->
         <br><br>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <h4>Agua</h4>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <input type="text" class="form-control" id="agua" name="agua" placeholder="Ingrese el Valor" value="0" required="">
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <h4>Luz</h4>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <input type="text" class="form-control" id="luz" name="luz" placeholder="Ingrese el Valor" value="0" required="">
             </div>
 
@@ -295,10 +295,10 @@
         <!---OTRA FILA...--->
 
         <br><br><br>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <h4>Observaciones</h4>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
         <input type="text" class="form-control" id="obs" name="obs" placeholder="Ingrese las observaciones" value="" >
         </div>
 
@@ -318,10 +318,14 @@
 
         --->
 
-        <div class="col-sm-2" id="">
+        <div class="col-sm-3" id="">
           <h4 id="valor_total">Valor:</h4>
         </div>
+<<<<<<< HEAD
         <div class="col-sm-3">
+=======
+        <div class="col-sm-2">
+>>>>>>> rama_5
         <input type="text" class="form-control" id="valor" name="valor" placeholder="Ingrese el Valor" value="0">
         </div>
 
@@ -336,6 +340,10 @@
                 <input class="btn btn-success"  type="button" value="Otros" disabled id="otros-btn" name="otros-btn" onclick="pressButton();">
             </div>
 
+            <div class="col-sm-1">
+                <h4 id="valor_txt" name="valor_txt" style="display: none;">Valor:</h4>
+            </div>
+    
             <div class="col-sm-3">
                 <input type="text" class="form-control" id="otros" name="otros" placeholder="Ingrese el Valor" value="" disabled>
             </div>
@@ -1126,6 +1134,7 @@ function eliminarAtribu(){
     $('#parque').removeAttr("disabled");
     $('#agua').removeAttr("disabled");
     $('#luz').removeAttr("disabled");
+    $('#valor').removeAttr("disabled");
 }
 
 
@@ -1149,7 +1158,15 @@ function categoria_radio(){
         document.getElementById('abono_ahorro_btn').style.display = 'inline'
         $('#otros-btn').attr("disabled", 'disabled');
 
+        $('#obs').attr("disabled", 'disabled');
+        $('#admon').attr("disabled", 'disabled');
+        $('#parque').attr("disabled", 'disabled');
+        $('#agua').attr("disabled", 'disabled');
+        $('#luz').attr("disabled", 'disabled');
+
         $('#ahorro_radio').prop('checked', false);
+
+        $('#valor_txt').css('display', 'none');
 
         let valor_1 = document.getElementById('valor').style.display = 'none'
         let valor_2 = document.getElementById('valor_total').style.display = 'none'
@@ -1174,6 +1191,11 @@ function categoria_radio(){
 
         
         document.getElementById('otros-btn').removeAttribute('disabled');
+        $('#otros').attr("disabled", 'disabled');
+
+        $("#obs").removeAttr("disabled");
+
+        $('#valor_txt').css('display', 'none');
 
         let valor_1 = document.getElementById('valor').style.display = 'none'
         let valor_2 = document.getElementById('valor_total').style.display = 'none'
@@ -1198,7 +1220,13 @@ function categoria_radio(){
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
 
-        $('#fecha_pago').attr("disabled", 'disabled');
+        //$('#fecha_pago').attr("disabled", 'disabled');
+
+        $('#otros').attr("disabled", 'disabled');
+
+        $("#obs").removeAttr("disabled");
+
+        $('#valor_txt').css('display', 'none');
 
         document.getElementById('otros-btn').removeAttribute('disabled');
 
@@ -1223,10 +1251,17 @@ function categoria_radio(){
         $('#agua').attr("disabled", 'disabled');
         $('#luz').attr("disabled", 'disabled');
 
-        $('#fecha_pago').attr("disabled", 'disabled');
+        //$('#fecha_pago').attr("disabled", 'disabled');
 
         $('#otros-btn').attr("disabled", 'disabled');
 
+        $('#otros').attr("disabled", 'disabled');
+
+        $("#valor").removeAttr("disabled");
+
+        $("#obs").removeAttr("disabled");
+
+        $('#valor_txt').css('display', 'none');
 
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
@@ -1248,6 +1283,14 @@ function categoria_radio(){
 
         $('#otros-btn').attr("disabled", 'disabled');
 
+        $('#otros').attr("disabled", 'disabled');
+
+        $("#valor").removeAttr("disabled");
+
+        $("#obs").removeAttr("disabled");
+
+        $('#valor_txt').css('display', 'none');
+
         document.getElementById('abono_cartera_btn').style.display = 'none'
         document.getElementById('abono_cartera_venc_btn').style.display = 'none'
         document.getElementById('abono_ahorro_btn').style.display = 'none'
@@ -1257,7 +1300,7 @@ function categoria_radio(){
 
         $('#valor_total').text("Valor:");
 
-        $('#fecha_pago').attr("disabled", 'disabled');
+        //$('#fecha_pago').attr("disabled", 'disabled');
     }
 
 }
@@ -1272,6 +1315,12 @@ function pressButton(){
     $('#parque').attr('disabled', 'disabled');
     $('#agua').attr('disabled', 'disabled');
     $('#luz').attr('disabled', 'disabled');
+    $('#valor').attr('disabled', 'disabled');
+
+    $('#valor_txt').css('display', 'block');
+    
+
+    
 
 }
 
@@ -1301,7 +1350,7 @@ function myFunction() {
 
   $("#obs").val('');
 
-  $("#valor").val('');
+  $("#valor").val('0');
 
   $("#otros").val('');
 

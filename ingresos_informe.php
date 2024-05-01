@@ -81,8 +81,8 @@
 <!--<th width="7%">Id</th>
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>-->
-<th width="7%">Fecha Ingreso</th>
-<th width="7%">Fecha Pago</th>
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
 <th width="7%">Persona</th>
 <th width="7%">Puesto</th>
 <th width="7%">Recibo</th>
@@ -91,7 +91,7 @@
 <th width="7%">Valor</th>
 <th width="7%">Abono</th>
 <th width="7%">Saldo</th>
-<th width="1%">Pendiente</th>
+<th width="1%">Pendiente X Pagar</th>
 <th width="7%">Observaciones</th>
 <th width="12%">Acciones</th>
 </tr>
@@ -101,8 +101,8 @@
 <!--<th width="7%">Id</th
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>-->
-<th width="7%">Fecha Ingreso</th>
-<th width="7%">Fecha Pago</th>
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
 <th width="7%">Persona</th>
 <th width="7%">Puesto</th>
 <th width="7%">Recibo</th>
@@ -111,7 +111,7 @@
 <th width="7%">Valor</th>
 <th width="7%">Abono</th>
 <th width="7%">Saldo</th>
-<th width="1%">Pendiente</th>
+<th width="1%">Pendiente X Pagar</th>
 <th width="7%">Observaciones</th>
 <th width="12%">Acciones</th>
 </tr>
@@ -162,13 +162,13 @@
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Ingreso</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Ing. al Sistema</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_ing" name="fecha_ing" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Pago</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Factura</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="Escriba el # del Local" value="" maxlength="50" >
         </div>
@@ -214,7 +214,7 @@
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
   </div>
@@ -227,7 +227,7 @@
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
     <div class="col">
@@ -406,7 +406,7 @@ $(document).ready(function(){
             titleAttr: 'Exportar a Excel',
             className: 'btn btn-success',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
                 }
         },
         {
@@ -415,7 +415,7 @@ $(document).ready(function(){
             titleAttr: 'Exportar a Pdf',
             className: 'btn btn-danger',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
                 },
                 "customize": function (doc) {
                 doc.defaultStyle.fontSize = 11; // Cambiar tamaño de fuente predeterminado
@@ -561,8 +561,12 @@ mode: 'delete_ingresos_informe'
 },
 dataType : 'json',
 success: function(result){
-var oTable = $('#usersListTable').dataTable(); 
-oTable.fnDraw(false);
+if(result === true){
+    var oTable = $('#usersListTable').dataTable(); 
+    oTable.fnDraw(false);
+}else{
+    alert(result)
+}
 }
 });
 } 

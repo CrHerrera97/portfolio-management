@@ -181,7 +181,7 @@ echo json_encode(true);
     
                 //$abono_nuevo = $filas->abono;
     
-            mysqli_query($conn, "UPDATE ingresos set fecha_pago='$fecha_hoy', abono = '".$abono_total."',saldo = '".$saldo."' WHERE id='" . $_POST["id"] . "'");
+            mysqli_query($conn, "UPDATE ingresos set abono = '".$abono_total."',saldo = '".$saldo."' WHERE id='" . $_POST["id"] . "'");
             //echo json_encode(true);
 
             //extraemos la fecha actual
@@ -323,9 +323,18 @@ echo json_encode(true);
     } 
 
     if ($_POST['mode'] === 'delete_ingresos_informe') {
-        mysqli_query($conn, "DELETE FROM ingresos WHERE id='" . $_POST["id"] . "'");
-        $registro_delete = mysqli_query($conn, "DELETE FROM ingresos WHERE id='" . $_POST["id"] . "'");
-        echo json_encode(true);
+        //debemos mirar si ese ingreso contiene un abono para que si lo contiene el usuario primero debe borrar dicho abono
+
+        $sql = "select ingresos_fk from abonos where ingresos_fk = '".$_POST["id"]."'";
+        $res = mysqli_query($conn,$sql);
+
+        if(mysqli_num_rows($res) == 0){
+            mysqli_query($conn, "DELETE FROM ingresos WHERE id='" . $_POST["id"] . "'");
+            $registro_delete = mysqli_query($conn, "DELETE FROM ingresos WHERE id='" . $_POST["id"] . "'");
+            echo json_encode(true);
+        }else{
+            echo json_encode("Este item contiene un abono, debe borrar primero el abono para borrar este registro");
+        }
     }
 
     //CRUD INFORME DE AHORROS

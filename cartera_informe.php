@@ -262,7 +262,7 @@ SE VAN A QUITAR FECHA DESDE Y FECHA HASTA
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
   </div>
@@ -275,7 +275,7 @@ SE VAN A QUITAR FECHA DESDE Y FECHA HASTA
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
     <div class="col">
@@ -421,7 +421,7 @@ $(document).ready(function(){
             titleAttr: 'Exportar a Excel',
             className: 'btn btn-success',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
                 }
         },
         {
@@ -430,7 +430,7 @@ $(document).ready(function(){
             orientation: 'landscape',
             className: 'btn btn-danger',
             exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11]
                 },
                 "customize": function (doc) {
                 doc.defaultStyle.fontSize = 11; // Cambiar tamaño de fuente predeterminado
