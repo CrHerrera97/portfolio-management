@@ -70,8 +70,8 @@
 <tr>
 <!--<th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>-->
-<th width="7%">Fecha Ingreso</th>
-<th width="7%">Fecha Pago</th>
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
 <th width="10%">Persona</th>
 <th width="10%">Puesto</th>
 <th width="6%">Recibo</th>
@@ -89,8 +89,8 @@
 <tr>
 <!--<th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>-->
-<th width="7%">Fecha Ingreso</th>
-<th width="7%">Fecha Pago</th>
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
 <th width="10%">Persona</th>
 <th width="10%">Puesto</th>
 <th width="6%">Recibo</th>
@@ -210,13 +210,13 @@ SE VAN A QUITAR FECHA DESDE Y FECHA HASTA
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Ingreso</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Ing. al Sistema</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_ing" name="fecha_ing" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Pago</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Factura</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="Escriba el # del Local" value="" maxlength="50" >
         </div>
