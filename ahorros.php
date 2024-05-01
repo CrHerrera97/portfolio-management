@@ -599,8 +599,12 @@ mode: 'delete_cartera'
 },
 dataType : 'json',
 success: function(result){
-var oTable = $('#usersListTable').dataTable(); 
-oTable.fnDraw(false);
+    if(result === true){
+    var oTable = $('#usersListTable').dataTable(); 
+    oTable.fnDraw(false);
+    }else{
+    alert(result)
+}
 }
 });
 } 
