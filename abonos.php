@@ -69,7 +69,8 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr> 
-<th width="7%">Fecha</th>
+<th width="7%">Fecha Factura</th>
+<th width="7%">Fecha de Pago</th>
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
 <th width="10%">Persona</th>
@@ -82,7 +83,8 @@
 </thead>
 <tfoot>
 <tr>
-<th width="7%">Fecha</th>
+<th width="7%">Fecha Factura</th>
+<th width="7%">Fecha de Pago</th>
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
 <th width="10%">Persona</th>
