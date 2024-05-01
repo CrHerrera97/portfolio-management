@@ -157,7 +157,7 @@
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha</label>
+        <label for="name" class="col-sm-12 control-label">Fecha de Pago</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_desde" name="fecha_desde" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
         </div>
@@ -207,13 +207,13 @@
   <div class="col">
         <label for="name" class="col-sm-12 control-label">Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
   </div>
