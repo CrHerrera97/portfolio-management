@@ -74,6 +74,7 @@
 <th width="20%">Puesto</th>
 <th width="20%">Nombre</th>
 <th width="20%">Valor</th>
+<th width="20%">Acciones</th>
 <!--<th width="20%">Acciones</th>-->
 </tr>
 </thead>
@@ -85,6 +86,7 @@
 <th width="20%">Puesto</th>
 <th width="20%">Nombre</th>
 <th width="20%">Valor</th>
+<th width="20%">Acciones</th>
 <!--<th width="20%">Acciones</th>-->
 </tr>
 </tfoot>

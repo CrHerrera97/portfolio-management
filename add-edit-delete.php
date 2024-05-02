@@ -303,7 +303,7 @@ echo json_encode(true);
         //$registro_delete = mysqli_query($conn, "DELETE FROM cartera WHERE id='" . $_POST["id"] . "'");
         //mysqli_query($conn, "UPDATE ingresos set pendiente = 'no', fecha_pago = '".$fecha_hoy."' where pendiente = 'si' and persona_fk='" . $_POST["id"] . "' and sub_categoria = 'ahorro'");
         //UPDATE ingresos set pendiente = 'no', fecha_pago = '2023-05-04' WHERE pendiente = 'si' and persona_fk = 1 AND sub_categoria = 'ahorro'
-        $registro_delete = mysqli_query($conn, "UPDATE ingresos set pendiente = 'no', fecha_pago = '".$fecha_hoy."' where pendiente = 'si' and persona_fk='" . $_POST["persona"] . "' and sub_categoria = 'ahorro'");
+        $registro_delete = mysqli_query($conn, "UPDATE ingresos set pendiente = 'ahorro cancelado' where pendiente = 'no' and local_fk='" . $_POST["persona"] . "' and sub_categoria = 'ahorro'");
         //$registro_delete = mysqli_query($conn, "UPDATE ingresos set fecha_pago = '".$fecha_hoy."', pendiente = 'no' WHERE id='" . $_POST["id"] . "'");
         echo json_encode(true);
     }

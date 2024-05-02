@@ -309,6 +309,7 @@ SE VAN A ELIMINAR LAS FECHAS DESDE Y HASTA
             <option value=""></option>
             <option value="si">si</option>
             <option value="no">no</option>
+            <option value="ahorro cancelado">ahorro cancelado</option>
         </select>
         </div>  
     </div>

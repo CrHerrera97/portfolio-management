@@ -20,6 +20,8 @@ $table = <<<EOT
     INNER JOIN locales l on i.local_fk = l.id
     INNER JOIN personas p on i.persona_fk = p.id
     WHERE i.sub_categoria = 'ahorro'
+    and i.pendiente <> 'ahorro cancelado' 
+    and i.pendiente <> 'si'
     GROUP BY 
     p.id,
     p.nombre,
@@ -46,7 +48,7 @@ $primaryKey = 'id';
           //return '<a href="javascript:void(0)" class="btn btn-success btn-pagar ml-2" data-persona="'.$row['persona'].'"> Pagar </a>'; 
 
           //se va a quitar el boton de pagar
-          //return '<a href="javascript:void(0)" class="btn btn-success btn-pagar ml-2" data-persona="'.$row['persona'].'"> Pagar </a>'; 
+          return '<a href="javascript:void(0)" class="btn btn-success btn-pagar ml-2" data-persona="'.$row['nom_local'].'"> Devolver Dinero </a>'; 
 
       } 
       ) 

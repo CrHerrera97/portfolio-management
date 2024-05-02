@@ -27,6 +27,7 @@ $table = <<<EOT
   INNER JOIN locales l on i.local_fk = l.id
   INNER JOIN personas p on i.persona_fk = p.id
   WHERE categoria = 'cartera'
+  and pendiente <> 'ahorro cancelado'
   ORDER BY i.id DESC
  ) temp
 EOT;
