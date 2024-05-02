@@ -18,6 +18,9 @@ $total_cartera_vencida =$_POST["total_cartera_vencida"];
 $total_multas =$_POST["total_multas"];
 $total_ahorros =$_POST["total_ahorros"];
 
+$fechaInicio = $_POST["fechaInicio"];
+$fechaFin = $_POST["fechaFin"];
+
 /*
 $parametro1 = $_POST['parametro1'];
 $parametro2 = $_POST['parametro2'];
@@ -30,6 +33,10 @@ $pdf->SetFont('Arial', 'B', 16);
 
 $pdf->SetY(5);
 $pdf->Cell(160, 20, utf8_decode ('Total Por Días:'), 1, 0, 'C');
+$pdf->Ln();
+
+$pdf->Cell(80, 20, utf8_decode('Fecha Inicio: ' . $fechaInicio), 1, 0, 'L');
+$pdf->Cell(80, 20, utf8_decode('Fecha Fin: ' . $fechaFin), 1, 0, 'R');
 $pdf->Ln();
 
 $pdf->Cell(80, 20, utf8_decode ('Administración:'), 1, 0, 'L');

@@ -33,7 +33,7 @@ $fecha_fin = $_POST["fecha_fin"];
     $sql_luz = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'ingreso' AND sub_categoria = 'luz' AND fecha_pago >= '$fecha_ini' AND fecha_pago <= '$fecha_fin'");
     $luz = mysqli_fetch_row($sql_luz);
 
-    $sql_ahorro = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE sub_categoria = 'ahorro' and fecha_pago >= '$fecha_ini' AND fecha_pago <= '$fecha_fin'");
+    $sql_ahorro = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE sub_categoria = 'ahorro' AND fecha_pago >= '$fecha_ini' AND fecha_pago <= '$fecha_fin'");
     $ahorro = mysqli_fetch_row($sql_ahorro);
 
     $sql_multas = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE sub_categoria = 'multas' AND fecha_pago >= '$fecha_ini' AND fecha_pago <= '$fecha_fin'");
@@ -62,7 +62,7 @@ $fecha_fin = $_POST["fecha_fin"];
     $total_multas = mysqli_fetch_row($sql_total_multas);    
 
     //total ahorros
-    $sql_total_ahorros = mysqli_query($mysqli,"SELECT sum(saldo) FROM ingresos WHERE categoria = 'ingreso' AND sub_categoria = 'ahorro' AND pendiente = 'si' AND fecha_pago BETWEEN '$fecha_ini' AND '$fecha_fin'");
+    $sql_total_ahorros = mysqli_query($mysqli,"SELECT sum(valor) FROM ingresos WHERE categoria = 'ingreso' AND sub_categoria = 'ahorro' AND pendiente = 'no' AND fecha_pago BETWEEN '$fecha_ini' AND '$fecha_fin'");
     $total_ahorros = mysqli_fetch_row($sql_total_ahorros);    
 
 $response = array('administracion' => $administracion,
