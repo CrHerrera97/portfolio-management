@@ -474,7 +474,8 @@
                     <!--
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
-                    <th width="7%">Fecha Ingreso</th>
+                    <th width="7%">Fecha Ing. al Sistema</th>
+                    <th width="7%">Fecha Factura</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
                     <th width="7%">Recibo</th>
@@ -493,7 +494,8 @@
                     <!--
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
-                    <th width="7%">Fecha Ingreso</th>
+                    <th width="7%">Fecha Ing. al Sistema</th>
+                    <th width="7%">Fecha Factura</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
                     <th width="7%">Recibo</th>
@@ -618,7 +620,8 @@
                     <!--
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
-                    <th width="7%">Fecha Ingreso</th>
+                    <th width="7%">Fecha Ing. al Sistema</th>
+                    <th width="7%">Fecha Factura</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
                     <th width="5%">Recibo</th>
@@ -637,7 +640,8 @@
                     <!--
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
-                    <th width="7%">Fecha Ingreso</th>
+                    <th width="7%">Fecha Ing. al Sistema</th>
+                    <th width="7%">Fecha Factura</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
                     <th width="5%">Recibo</th>
@@ -678,7 +682,8 @@
                     <!--
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
-                    <th width="7%">Fecha Ingreso</th>
+                    <th width="7%">Fecha Ing. al Sistema</th>
+                    <th width="7%">Fecha Factura</th>
                     <th width="10%">Persona</th>
                     <th width="10%">Puesto</th>
                     <th width="6%">Recibo</th>
@@ -697,7 +702,8 @@
                     <<!--
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
-                    <th width="7%">Fecha Ingreso</th>
+                    <th width="7%">Fecha Ing. al Sistema</th>
+                    <th width="7%">Fecha Factura</th>
                     <th width="10%">Persona</th>
                     <th width="10%">Puesto</th>
                     <th width="6%">Recibo</th>

@@ -12,6 +12,7 @@ $table = <<<EOT
     SELECT
     i.id, 
     i.fecha_ingreso,
+    i.fecha_pago,
     concat(p.nombre,' ',p.apellido) as nombre,
     l.numero as nom_local,
     i.recibo,
@@ -40,19 +41,20 @@ $primaryKey = 'id';
    $columns = array( 
     array( 'db' => 'id', 'dt' => "" ),
     array( 'db' => 'fecha_ingreso', 'dt' => 0 ),
-    array( 'db' => 'nombre', 'dt' => 1 ),
-    array( 'db' => 'nom_local', 'dt' => 2 ),
-    array( 'db' => 'recibo', 'dt' => 3 ), 
-    array( 'db' => 'categoria',  'dt' => 4 ), 
-    array( 'db' => 'sub_categoria',  'dt' => 5 ), 
-    array( 'db' => 'valor',  'dt' => 6 ), 
-    array( 'db' => 'abono',  'dt' => 7 ), 
-    array( 'db' => 'saldo',  'dt' => 8 ), 
-    array( 'db' => 'pendiente',  'dt' => 9 ), 
-    array( 'db' => 'observaciones',  'dt' => 10 ),
+    array( 'db' => 'fecha_pago', 'dt' => 1 ),
+    array( 'db' => 'nombre', 'dt' => 2 ),
+    array( 'db' => 'nom_local', 'dt' => 3 ),
+    array( 'db' => 'recibo', 'dt' => 4 ), 
+    array( 'db' => 'categoria',  'dt' => 5 ), 
+    array( 'db' => 'sub_categoria',  'dt' => 6 ), 
+    array( 'db' => 'valor',  'dt' => 7 ), 
+    array( 'db' => 'abono',  'dt' => 8 ), 
+    array( 'db' => 'saldo',  'dt' => 9 ), 
+    array( 'db' => 'pendiente',  'dt' => 10 ), 
+    array( 'db' => 'observaciones',  'dt' => 11 ),
     array( 
     'db'        => 'id',
-    'dt'        => 11, 
+    'dt'        => 12, 
     'formatter' => function( $d, $row ) { 
         return '<a href="javascript:void(0)" class="btn btn-warning btn-abonar-vencida ml-2" data-id="'.$row['id'].'"> Abonar </a>';
     } 

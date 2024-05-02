@@ -28,7 +28,7 @@
         }
     </style>
 
-<h2 class="float-left">Cartera Actual</h2>
+<h2 class="float-left">Cartera X Persona</h2>
 <!---<input type="text" name="abono" id="abono">--->
 <!--<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Locales </a>-->
 </div>
