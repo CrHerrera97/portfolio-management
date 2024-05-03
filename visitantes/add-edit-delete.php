@@ -1,10 +1,7 @@
 <?php
 // Database connection info 
-$host='localhost';
-$username='root';
-$password='';
-$dbname = "sistema_pagos";
-$conn=mysqli_connect($host,$username,$password,"$dbname");
+
+include('database.php');
 
 //PRIMERO EL CRUD DE PERSONAS
 
