@@ -68,32 +68,36 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
-<th width="7%">Fecha Ingreso</th>
-<th width="7%">Fecha Pago</th>
+<!--<th width="7%">Fecha Desde</th>
+<th width="7%">Fecha Hasta</th>-->
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
 <th width="10%">Persona</th>
 <th width="10%">Puesto</th>
 <th width="6%">Recibo</th>
 <th width="6%">Categoria</th>
 <th width="6%">Sub Categoria</th>
 <th width="6%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
 <th width="6%">Pendiente</th>
 <th width="10%">Observaciones</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
-<th width="7%">Fecha Ingreso</th>
-<th width="7%">Fecha Pago</th>
+<!--<th width="7%">Fecha Desde</th>
+<th width="7%">Fecha Hasta</th>-->
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
 <th width="10%">Persona</th>
 <th width="10%">Puesto</th>
 <th width="6%">Recibo</th>
 <th width="6%">Categoria</th>
 <th width="6%">Sub Categoria</th>
 <th width="6%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
 <th width="6%">Pendiente</th>
 <th width="10%">Observaciones</th>
 </tr>
@@ -177,7 +181,10 @@
 
 -->
 
-<!---DIVIDIR MODALES EN 2-->
+<!---DIVIDIR MODALES EN 2
+
+SE VAN A QUITAR FECHA DESDE Y FECHA HASTA
+
 <div class="form-group">
   <div class="row">
     <div class="col">
@@ -195,18 +202,19 @@
   </div>
 </div>
 
+-->
 <!--SEGUNDA FILA-->
 
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Ingreso</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Ing. al Sistema</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_ing" name="fecha_ing" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Pago</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Factura</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="Escriba el # del Local" value="" maxlength="50" >
         </div>
@@ -252,7 +260,7 @@
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
   </div>
@@ -265,7 +273,7 @@
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
     <div class="col">
@@ -459,7 +467,7 @@ $(document).ready(function(){
     },
 "processing": true,
 "serverSide": true,
-"order": [],
+"order": [[0,"desc"]],
 "ajax": "fetch_cartera_informe.php"
 });
 });
@@ -496,8 +504,8 @@ mode: 'edit_cartera_inf'
 dataType : 'json',
 success: function(result){
     $('#id').val(result.id);
-$('#fecha_desde').val(result.fecha_desde);
-$('#fecha_hasta').val(result.fecha_hasta);
+//$('#fecha_desde').val(result.fecha_desde);
+//$('#fecha_hasta').val(result.fecha_hasta);
 $('#fecha_ing').val(result.fecha_ingreso);
 $('#fecha_pago').val(result.fecha_pago);
 $('#perteneces').val(result.nombre);

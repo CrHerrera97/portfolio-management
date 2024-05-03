@@ -28,41 +28,33 @@
         }
     </style>
 
-<h2 class="float-left">Cartera Vencida</h2>
+<h2 class="float-left">Cartera X Persona</h2>
+<!---<input type="text" name="abono" id="abono">--->
 <!--<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Locales </a>-->
 </div>
 
 <style>
-    #suggestions, #sugerencia_persona {
+    #sugerencia{
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: 70px;
+    top: 160px;
     z-index: 9999;
-    width: 192px;
-    left: -220px;
+    width: 206px;
+    right: 260px;
 }
 
-#sugerencia {
+#suggestions{
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: 70px;
+    top: -15px;
     z-index: 9999;
-    width: 192px;
+    width: 206px;
     left: 270px;
 }
- 
-#suggestions  .suggest-element {
-    background-color: #EEEEEE;
-    border-top: 1px solid #d6d4d4;
-    cursor: pointer;
-    padding: 8px;
-    width: 100%;
-    float: left;
-}
 
-#sugerencia .suggest-element2{
+#suggestions  .suggest-element , .sugerencia  , .suggest-element2{
     background-color: #EEEEEE;
     border-top: 1px solid #d6d4d4;
     cursor: pointer;
@@ -76,40 +68,22 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<!--
+<!--    
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>-->
-<th width="7%">Fecha Ing. al Sistema</th>
-<th width="7%">Fecha Factura</th>
-<th width="6%">Persona</th>
-<th width="6%">Puesto</th>
-<th width="4%">Recibo</th>
-<th width="4%">Categoria</th>
-<th width="4%">Sub Categoria</th>
-<th width="4%">Valor</th>
-<th width="4%">Abono</th>
-<th width="4%">Saldo</th>
-<th width="1%">Pendiente</th>
-<th width="10%">Observaciones</th>
+<th width="7%">Puesto</th>
+<th width="6%">Nombre</th>
+<th width="6%">Valor Total</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<!--
+<!--    
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>-->
-<th width="7%">Fecha Ing. al Sistema</th>
-<th width="7%">Fecha Factura</th>
-<th width="6%">Persona</th>
-<th width="6%">Puesto</th>
-<th width="4%">Recibo</th>
-<th width="4%">Categoria</th>
-<th width="4%">Sub Categoria</th>
-<th width="4%">Valor</th>
-<th width="4%">Abono</th>
-<th width="4%">Saldo</th>
-<th width="1%">Pendiente</th>
-<th width="10%">Observaciones</th>
+<th width="7%">Puesto</th>
+<th width="6%">Nombre</th>
+<th width="6%">Valor Total</th>
 </tr>
 </tfoot>
 </table>
@@ -129,87 +103,45 @@
 <input type="hidden" name="id" id="id">
 <input type="hidden" class="form-control" id="mode" name="mode" value="update_cartera">
 
-<!---
-<div class="form-group">
-<label for="name" class="col-sm-2 control-label">Fecha</label>
-<div class="col-sm-12">
-<input type="date" name="fecha" id="fecha">
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-2 control-label">Persona</label>
-<div class="col-sm-12">
-<div id="sugerencia"></div>
-<input type="text" class="form-control" id="perteneces" name="perteneces" placeholder="Escriba el nombre del Local" value="" required="">
-<input type="hidden" class="form-control" id="perteneces_id" name="perteneces_id" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
-</div>
-</div>
-
-<div class="form-group">
-<label for="name" class="col-sm-2 control-label">Local</label>
-<div class="col-sm-12">
-<div id="suggestions"></div>
-<input type="text" class="form-control" id="pertenece" name="pertenece" placeholder="Escriba una descripción del Local" value="" maxlength="50" required="">
-<input type="hidden" class="form-control" id="pertenece_id" name="pertenece_id" placeholder="Escriba a quien Pertenecee" value="" maxlength="50" required="">
-</div>
-</div>
-
-<div class="form-group">
-<label for="name" class="col-sm-2 control-label">Valor</label>
-<div class="col-sm-12">
-<input type="text" class="form-control" id="valor" name="valor" placeholder="Escriba los servicios del Local separado por comas" value="" maxlength="50" required="">
-</div>
-</div>
-
-<div class="form-group">
-<label for="name" class="col-sm-2 control-label">Servicios</label>
-<div class="col-sm-12">
-<input type="text" class="form-control" id="servicio" name="servicio" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
-</div>
-</div>
-
--->
-
 <!---DIVIDIR MODALES EN 2
-
-SE VA A QUITAR LA FECHA DESDE Y HASTA
-
+SE VAN A QUITAR LAS FECHAS DESDE Y HASTA
 
 <div class="form-group">
   <div class="row">
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Fecha Desde</label>
         <div class="col-sm-12">
-            <input type="date" class="form-control" id="fecha_desde" name="fecha_desde" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
+            <input type="date" class="form-control" id="fecha_desde" name="fecha_desde" placeholder="" value="" maxlength="50" required="">
         </div>
     </div>
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Fecha Hasta</label>
         <div class="col-sm-12">
-            <input type="date" class="form-control" id="fecha_hasta" name="fecha_hasta" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
+            <input type="date" class="form-control" id="fecha_hasta" name="fecha_hasta" placeholder="" value="" maxlength="50" required="">
         </div>
     </div>
   </div>
 </div>
 
 -->
-
 <!--SEGUNDA FILA-->
 
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Ing. al Sistema</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Ingreso</label>
         <div class="col-sm-12">
-            <input type="date" class="form-control" id="fecha_ing" name="fecha_ing" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
+            <input type="date" class="form-control" id="fecha_ing" name="fecha_ing" placeholder="" value="" maxlength="50" required="">
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Factura</label>
+        <label for="name" class="col-sm-12 control-label">Persona</label>
         <div class="col-sm-12">
-            <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="Escriba el # del Local" value="" maxlength="50" >
+            <!--<input type="text" class="form-control" id="persona" name="persona" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
+            <input type="text" class="form-control" id="perteneces" name="perteneces" placeholder="Escriba el nombre" value="" required="">
+            <input type="hidden" class="form-control" id="perteneces_id" name="perteneces_id" placeholder="Escriba el nombre" value="" maxlength="50" required="">
         </div>
+        <div id="sugerencia"></div>
     </div>
   </div>
 </div>
@@ -218,23 +150,20 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
 
 <div class="form-group">
   <div class="row">
-    <div class="col">
-        <label for="name" class="col-sm-12 control-label">Persona</label>
-        <div class="col-sm-12">
-            <!--<input type="text" class="form-control" id="persona" name="persona" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
-            <input type="text" class="form-control" id="perteneces" name="perteneces" placeholder="Escriba el nombre" value="" required="">
-            <input type="hidden" class="form-control" id="perteneces_id" name="perteneces_id" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
-        </div>
-        <div id="sugerencia"></div>
-    </div>
-    <div class="col">
+  <div class="col">
         <label for="name" class="col-sm-12 control-label">Puesto</label>
         <div class="col-sm-12">
             <!--<input type="text" class="form-control" id="local" name="local" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
             <input type="text" class="form-control" id="pertenece" name="pertenece" placeholder="Escriba el # del Puesto" value="" maxlength="50" required="">
-            <input type="hidden" class="form-control" id="pertenece_id" name="pertenece_id" placeholder="Escriba a quien Pertenecee" value="" maxlength="50" required="">
+            <input type="hidden" class="form-control" id="pertenece_id" name="pertenece_id" placeholder="Escriba a quien Pertenece" value="" maxlength="50" required="">
         </div>
         <div id="suggestions"></div>    
+    </div>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Recibo</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="recibo" name="recibo" placeholder="Escriba el # del Recibo" value="" maxlength="50" required="">
+        </div>
     </div>
   </div>
 </div>
@@ -243,16 +172,16 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
 
 <div class="form-group">
   <div class="row">
-    <div class="col">
-        <label for="name" class="col-sm-12 control-label">Recibo</label>
+  <div class="col">
+        <label for="name" class="col-sm-12 control-label">Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="recibo" name="recibo" placeholder="Escriba el # del Recibo" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="">
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Categoria</label>
+        <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="" readonly>
+            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="">
         </div>
     </div>
   </div>
@@ -263,63 +192,26 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" readonly>
-        </div>
-    </div>
-    <div class="col">
         <label for="name" class="col-sm-12 control-label">Valor</label>
         <div class="col-sm-12">
             <input type="text" class="form-control" id="valor" name="valor" placeholder="Escriba el valor" value="" maxlength="50" required="">
         </div>
     </div>
-  </div>
-</div>
-
-<!--SEXTA FILA-->
-
-<!---- ABONO Y SALDO VAN PARA AFUERA YA QUE NO SE PUEDEN EDITAR
-<div class="form-group">
-  <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Abono</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" disabled>
-        </div>
-    </div>
-    <div class="col">
-        <label for="name" class="col-sm-12 control-label">Saldo</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="saldo" name="saldo" placeholder="Escriba el valor" value="" maxlength="50" required="" disabled>
-        </div>
-    </div>
-  </div>
-</div>
---->
-
-<!--SEPTIMA FILA-->
-
-<div class="form-group">
-  <div class="row">
-    <div class="col">
-    <label for="name" class="col-sm-12 control-label">Pendiente</label>
+        <label for="name" class="col-sm-12 control-label">Pendiente</label>
         <div class="col-sm-12">
         <select class="form-select" name="pendiente" id="pendiente">
             <option value=""></option>
             <option value="si">si</option>
             <option value="no">no</option>
         </select>
-        </div>  
-    </div>
-    <div class="col">
-        <div class="col-sm-12">
         </div>
     </div>
   </div>
 </div>
 
-<!--SEPTIMA FILA-->
+
+<!--SEXTA FILA-->
 
 <div class="form-group">
   <div class="row">
@@ -328,14 +220,6 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
         <div class="col-sm-12">
             <input type="text" class="form-control" id="obs" name="obs" placeholder="Escriba las observaciones" value="" maxlength="50" >
         </div>
-    </div>
-    <div class="col">
-        <!--
-        <label for="name" class="col-sm-2 control-label">Fecha</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
-        </div>
-        -->
     </div>
   </div>
 </div>
@@ -355,6 +239,50 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
 </div>
 </div>
 </div>
+
+<!----AGREGAMOS MODAL PARA PODER HACER ABONOS A LA CARTERA---->
+
+
+<div class="modal fade" id="abonar-modal" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal"></h4>
+</div>
+<div class="modal-body">
+<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
+
+<!---DIVIDIR MODALES EN 2-->
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-offset-2 col-sm-10">
+<button type="button" class="btn btn-primary" id="btn-save-abonar" value="create">Guardar Cambios
+</button>
+</div>
+</form>
+</div>
+
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<!-------------------------------------------------------------->
+
+
 <div class="modal fade" id="add-modal" aria-hidden="true">
 <div class="modal-dialog">
 <div class="modal-content">
@@ -414,50 +342,10 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
 </div>
 </div>
 </div>
-
-<!----AGREGAMOS MODAL PARA PODER HACER ABONOS A LA CARTERA---->
-
-
-<div class="modal fade" id="abonar-modal" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h4 class="modal-title" id="userCrudModal"></h4>
-</div>
-<div class="modal-body">
-<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
-
-<!---DIVIDIR MODALES EN 2-->
-<div class="form-group">
-  <div class="row">
-    <div class="col">
-        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor" value="" maxlength="50" required="">
-        </div>
-    </div>
-  </div>
-</div>
-
-<div class="col-sm-offset-2 col-sm-10">
-<button type="button" class="btn btn-primary" id="btn-save-abonar" value="create">Guardar Cambios
-</button>
-</div>
-</form>
-</div>
-
-<div class="modal-footer">
-</div>
-</div>
-</div>
-</div>
-
-
-
 <script>
 $(document).ready(function(){
 $('#usersListTable').DataTable({
-  lengthMenu: [
+    lengthMenu: [
             [10, 25, 50, 100, 500, -1],
             [10, 25, 50, 100, 500, 'Todo'],
         ],
@@ -484,7 +372,7 @@ $('#usersListTable').DataTable({
 "processing": true,
 "serverSide": true,
 "order": [[0,"desc"]],
-"ajax": "fetch_cartera_vencida.php"
+"ajax": "fetch_cartera_x_persona.php"
 });
 });
 /*  add user model */
@@ -572,12 +460,8 @@ mode: 'delete_cartera'
 },
 dataType : 'json',
 success: function(result){
-    if(result === true){
-    var oTable = $('#usersListTable').dataTable(); 
-    oTable.fnDraw(false);
-    }else{
-    alert(result)
-}
+var oTable = $('#usersListTable').dataTable(); 
+oTable.fnDraw(false);
 }
 });
 } 
@@ -606,7 +490,7 @@ oTable.fnDraw(false);
 return false;
 });
 
-/*SE DEBE CREAR UN BOTON PARA HACER EL PAGO DE LA CARTERA*/
+/*BOTON PARA HACER ABONOS A CARTERA*/
 
 $(document).ready(function() {
   $('body').on('click', '.btn-abonar', function() {
@@ -638,42 +522,7 @@ $(document).ready(function() {
 });
 
 
-//ABONAR A CARTERA VENCIDA
 
-$(document).ready(function() {
-  $('body').on('click', '.btn-abonar-vencida', function() {
-    var id = $(this).data('id');
-    $('#abonar-modal').modal('show');
-    $('#add-modal').modal('hide');
-    $('#add-modal2').modal('hide');
-    $('#btn-save-abonar').data('id', id);
-  });
-
-  $('body').on('click', '#btn-save-abonar-vencida', function() {
-    var id = $(this).data('id');
-    let abono = document.getElementById("abono-vencida").value;
-
-    $.ajax({
-      url: "add-edit-delete.php",
-      type: "POST",
-      data: {
-        id: id,
-        abono: abono,
-        mode: 'abonar_cartera'
-      },
-      success: function(result) {
-        alert ("Abono Exitoso");
-
-        window.location.href = 'ingresos.php';
-        //var oTable = $('#abono_cartera').dataTable();
-        //oTable.fnDraw(false);
-        
-        $('#abonar-modal').modal('hide');
-        $('#update-form-abonos').trigger("reset");
-      }
-    });
-  });
-});
 
 
 

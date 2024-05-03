@@ -30,32 +30,41 @@
     </style>
 
 
-<h2 class="float-left">Ahorros</h2>
+<h2 class="float-left">Ahorros Pendientes por Pagar</h2>
 <!--<a href="javascript:void(0)" class="btn btn-primary float-right add-model"> Agregar Locales </a>-->
 </div>
 
 <style>
-    #sugerencia{
+    #suggestions, #sugerencia_persona {
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: 160px;
+    top: 70px;
     z-index: 9999;
-    width: 206px;
-    right: 260px;
+    width: 192px;
+    left: -220px;
 }
 
-#suggestions{
+#sugerencia {
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
     height: auto;
     position: absolute;
-    top: -18px;
+    top: 70px;
     z-index: 9999;
-    width: 206px;
+    width: 192px;
     left: 270px;
 }
+ 
+#suggestions  .suggest-element {
+    background-color: #EEEEEE;
+    border-top: 1px solid #d6d4d4;
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    float: left;
+}
 
-#suggestions  .suggest-element , .sugerencia  , .suggest-element2{
+#sugerencia .suggest-element2{
     background-color: #EEEEEE;
     border-top: 1px solid #d6d4d4;
     cursor: pointer;
@@ -68,34 +77,42 @@
 
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
-<tr>
+<tr> 
+<!--  
 <th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
-<th width="7%">Fecha Ingreso</th>
-<th width="10%">Persona</th>
-<th width="10%">Puesto</th>
-<th width="6%">Recibo</th>
-<th width="6%">Categoria</th>
-<th width="6%">Sub Categoria</th>
-<th width="6%">Valor</th>
-<th width="6%">Pendiente</th>
+<th width="7%">Fecha Hasta</th>-->
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
+<th width="6%">Persona</th>
+<th width="6%">Puesto</th>
+<th width="4%">Recibo</th>
+<th width="4%">Categoria</th>
+<th width="4%">Sub Categoria</th>
+<th width="4%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
+<th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
-
 </tr>
 </thead>
 <tfoot>
-<tr>
+<tr>  
+<!--  
 <th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
-<th width="7%">Fecha Ingreso</th>
-<th width="10%">Persona</th>
-<th width="10%">Puesto</th>
-<th width="6%">Recibo</th>
-<th width="6%">Categoria</th>
-<th width="6%">Sub Categoria</th>
-<th width="6%">Valor</th>
-<th width="6%">Pendiente</th>
+<th width="7%">Fecha Hasta</th>-->
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
+<th width="6%">Persona</th>
+<th width="6%">Puesto</th>
+<th width="4%">Recibo</th>
+<th width="4%">Categoria</th>
+<th width="4%">Sub Categoria</th>
+<th width="4%">Valor</th>
+<th width="4%">Abono</th>
+<th width="4%">Saldo</th>
+<th width="1%">Pendiente</th>
 <th width="10%">Observaciones</th>
+
 </tr>
 </tfoot>
 </table>
@@ -156,7 +173,9 @@
 
 --->
 
-<!---DIVIDIR MODALES EN 2-->
+<!---DIVIDIR MODALES EN 2
+SE VAN A ELIMINAR LAS FECHAS DESDE Y HASTA
+
 <div class="form-group">
   <div class="row">
     <div class="col">
@@ -173,17 +192,31 @@
     </div>
   </div>
 </div>
+-->
 
 <!--SEGUNDA FILA-->
 
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Ingreso</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Ing. al Sistema</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_ing" name="fecha_ing" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
         </div>
     </div>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Fecha Factura</label>
+        <div class="col-sm-12">
+            <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="Escriba el # del Local" value="" maxlength="50" >
+        </div>
+    </div>
+  </div>
+</div>
+
+<!--TERCERA FILA-->
+
+<div class="form-group">
+  <div class="row">
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Persona</label>
         <div class="col-sm-12">
@@ -193,14 +226,7 @@
         </div>
         <div id="sugerencia"></div>
     </div>
-  </div>
-</div>
-
-<!--TERCERA FILA-->
-
-<div class="form-group">
-  <div class="row">
-  <div class="col">
+    <div class="col">
         <label for="name" class="col-sm-12 control-label">Puesto</label>
         <div class="col-sm-12">
             <!--<input type="text" class="form-control" id="local" name="local" placeholder="Escriba el # del Local" value="" maxlength="50" required="">-->
@@ -209,12 +235,6 @@
         </div>
         <div id="suggestions"></div>    
     </div>
-    <div class="col">
-        <label for="name" class="col-sm-12 control-label">Recibo</label>
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="recibo" name="recibo" placeholder="Escriba el # del Recibo" value="" maxlength="50" required="">
-        </div>
-    </div>
   </div>
 </div>
 
@@ -222,16 +242,16 @@
 
 <div class="form-group">
   <div class="row">
-  <div class="col">
-        <label for="name" class="col-sm-12 control-label">Categoria</label>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Recibo</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="recibo" name="recibo" placeholder="Escriba el # del Recibo" value="" maxlength="50" required="">
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
+        <label for="name" class="col-sm-12 control-label">Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
   </div>
@@ -242,26 +262,63 @@
 <div class="form-group">
   <div class="row">
     <div class="col">
+        <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" readonly>
+        </div>
+    </div>
+    <div class="col">
         <label for="name" class="col-sm-12 control-label">Valor</label>
         <div class="col-sm-12">
             <input type="text" class="form-control" id="valor" name="valor" placeholder="Escriba el valor" value="" maxlength="50" required="">
         </div>
     </div>
+  </div>
+</div>
+
+<!--SEXTA FILA-->
+
+<!---- ABONO Y SALDO VAN PARA AFUERA YA QUE NO SE PUEDEN EDITAR
+<div class="form-group">
+  <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Pendiente</label>
+        <label for="name" class="col-sm-12 control-label">Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" disabled>
+        </div>
+    </div>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Saldo</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="saldo" name="saldo" placeholder="Escriba el valor" value="" maxlength="50" required="" disabled>
+        </div>
+    </div>
+  </div>
+</div>
+--->
+
+<!--SEPTIMA FILA-->
+
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+    <label for="name" class="col-sm-12 control-label">Pendiente</label>
         <div class="col-sm-12">
         <select class="form-select" name="pendiente" id="pendiente">
             <option value=""></option>
             <option value="si">si</option>
             <option value="no">no</option>
         </select>
+        </div>  
+    </div>
+    <div class="col">
+        <div class="col-sm-12">
         </div>
     </div>
   </div>
 </div>
 
-
-<!--SEXTA FILA-->
+<!--SEPTIMA FILA-->
 
 <div class="form-group">
   <div class="row">
@@ -270,6 +327,14 @@
         <div class="col-sm-12">
             <input type="text" class="form-control" id="obs" name="obs" placeholder="Escriba las observaciones" value="" maxlength="50" >
         </div>
+    </div>
+    <div class="col">
+        <!--
+        <label for="name" class="col-sm-2 control-label">Fecha</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
+        </div>
+        -->
     </div>
   </div>
 </div>
@@ -345,9 +410,83 @@
 </div>
 </div>
 </div>
+
+<!----AGREGAMOS MODAL PARA PODER HACER ABONOS AL AHORRO---->
+
+
+<div class="modal fade" id="abonar-modal" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="userCrudModal"></h4>
+</div>
+<div class="modal-body">
+<form id="update-form-abonos" name="update-form-abonos" class="form-horizontal" autocomplete="off">
+
+<!---DIVIDIR MODALES EN 2-->
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Digite el Valor del Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba el valor" value="" maxlength="50" required="">
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-offset-2 col-sm-10">
+<button type="button" class="btn btn-primary" id="btn-save-abonar" value="create">Guardar Cambios
+</button>
+</div>
+</form>
+</div>
+
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+
+
 <script>
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-save-abonar', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#btn-save-abonar').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_ahorros'
+      },
+      success: function(result) {
+        var oTable = $('#usersListTable').dataTable();
+        oTable.fnDraw(false);
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
+});
+
+
 $(document).ready(function(){
 $('#usersListTable').DataTable({
+  lengthMenu: [
+            [10, 25, 50, 100, 500, -1],
+            [10, 25, 50, 100, 500, 'Todo'],
+        ],
     language: {
         "decimal": "",
         "emptyTable": "No hay información",
@@ -370,7 +509,7 @@ $('#usersListTable').DataTable({
     },
 "processing": true,
 "serverSide": true,
-"order": [],
+"order": [[0,"desc"]],
 "ajax": "fetch_ahorros.php"
 });
 });
@@ -407,8 +546,8 @@ mode: 'edit_ahorros'
 dataType : 'json',
 success: function(result){
     $('#id').val(result.id);
-$('#fecha_desde').val(result.fecha_desde);
-$('#fecha_hasta').val(result.fecha_hasta);
+//$('#fecha_desde').val(result.fecha_desde);
+//$('#fecha_hasta').val(result.fecha_hasta);
 $('#fecha_ing').val(result.fecha_ingreso);
 $('#fecha_pago').val(result.fecha_pago);
 $('#perteneces').val(result.nombre);
@@ -459,8 +598,12 @@ mode: 'delete_cartera'
 },
 dataType : 'json',
 success: function(result){
-var oTable = $('#usersListTable').dataTable(); 
-oTable.fnDraw(false);
+    if(result === true){
+    var oTable = $('#usersListTable').dataTable(); 
+    oTable.fnDraw(false);
+    }else{
+    alert(result)
+}
 }
 });
 } 
@@ -488,6 +631,41 @@ oTable.fnDraw(false);
 });
 } 
 return false;
+});
+
+
+///////////////////////ABONO DE AHORRO
+
+
+
+
+$(document).ready(function() {
+  $('body').on('click', '.btn-abonar-ahorro', function() {
+    var id = $(this).data('id');
+    $('#abonar-modal').modal('show');
+    $('#btn-save-abonar-ahorro').data('id', id);
+  });
+
+  $('body').on('click', '#btn-save-abonar-ahorro', function() {
+    var id = $(this).data('id');
+    let abono = document.getElementById("abono").value;
+
+    $.ajax({
+      url: "add-edit-delete.php",
+      type: "POST",
+      data: {
+        id: id,
+        abono: abono,
+        mode: 'abonar_ahorros'
+      },
+      success: function(result) {
+        var oTable = $('#usersListTable').dataTable();
+        oTable.fnDraw(false);
+        $('#abonar-modal').modal('hide');
+        $('#update-form-abonos').trigger("reset");
+      }
+    });
+  });
 });
 
 $(document).ready(function() {

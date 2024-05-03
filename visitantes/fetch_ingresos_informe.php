@@ -6,13 +6,11 @@ $dbDetails = array(
 'pass' => '', 
 'db'   => 'sistema_pagos'
 ); 
-
+//en el where del i.abono <> '0' se quitó para que se puedan ver los ingresos que se hacen cuando es un ahorro
 $table = <<<EOT
  (
     SELECT
     i.id, 
-    i.fecha_desde,
-    i.fecha_hasta,
     i.fecha_ingreso,
     i.fecha_pago,
     concat(p.nombre,' ',p.apellido) as persona,
@@ -21,11 +19,15 @@ $table = <<<EOT
     i.categoria,
     i.sub_categoria,
     i.valor,
+    i.abono,
+    i.saldo,
     i.pendiente,
     i.observaciones
   FROM ingresos i
   INNER JOIN locales l on i.local_fk = l.id
   INNER JOIN personas p on i.persona_fk = p.id
+  #WHERE i.abono <> '0'
+  ORDER BY i.id DESC
  ) temp
 EOT;
 
@@ -35,16 +37,18 @@ $userData = array();
 $con = new mysqli("localhost","root","","sistema_pagos");
 
    $columns = array( 
-    array( 'db' => 'fecha_desde', 'dt' => 0 ), 
-    array( 'db' => 'fecha_hasta',  'dt' => 1 ), 
-    array( 'db' => 'fecha_ingreso',  'dt' => 2 ),
-    array( 'db' => 'fecha_pago',  'dt' => 3 ), 
-    array( 'db' => 'persona',  'dt' => 4 ), 
-    array( 'db' => 'local',  'dt' => 5 ),
-    array( 'db' => 'recibo',  'dt' => 6 ),
-    array( 'db' => 'categoria',  'dt' => 7 ),
-    array( 'db' => 'sub_categoria',  'dt' => 8 ),
-    array( 'db' => 'valor',  'dt' => 9 ),
+    //si pongo en en el id = 0 puedo tener el registro en orden descendente
+    array( 'db' => 'id', 'dt' => 0 ), 
+    array( 'db' => 'fecha_ingreso',  'dt' => 0 ),
+    array( 'db' => 'fecha_pago',  'dt' => 1 ), 
+    array( 'db' => 'persona',  'dt' => 2 ), 
+    array( 'db' => 'local',  'dt' => 3 ),
+    array( 'db' => 'recibo',  'dt' => 4 ),
+    array( 'db' => 'categoria',  'dt' => 5),
+    array( 'db' => 'sub_categoria',  'dt' => 6),
+    array( 'db' => 'valor',  'dt' => 7 ),
+    array( 'db' => 'abono',  'dt' => 8 ), 
+    array( 'db' => 'saldo',  'dt' => 9 ), 
     array( 'db' => 'pendiente',  'dt' => 10 ),
     array( 'db' => 'observaciones',  'dt' => 11 ), 
     array( 

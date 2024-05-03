@@ -68,20 +68,24 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
+<!--    
 <th width="20%">Fecha Desde</th>
-<th width="20%">Fechas Hasta</th>
-<th width="20%">Nombre</th>
+<th width="20%">Fechas Hasta</th>-->
 <th width="20%">Puesto</th>
+<th width="20%">Nombre</th>
 <th width="20%">Valor</th>
+<!--<th width="20%">Acciones</th>-->
 </tr>
 </thead>
 <tfoot>
 <tr>
+<!--    
 <th width="20%">Fecha Desde</th>
-<th width="20%">Fechas Hasta</th>
-<th width="20%">Nombre</th>
+<th width="20%">Fechas Hasta</th>-->
 <th width="20%">Puesto</th>
+<th width="20%">Nombre</th>
 <th width="20%">Valor</th>
+<!--<th width="20%">Acciones</th>-->
 </tr>
 </tfoot>
 </table>
@@ -141,7 +145,9 @@
 </div>
 --->
 
-<!---DIVIDIR MODALES EN 2-->
+<!---DIVIDIR MODALES EN 2
+SE VAN A QUITAR LAS FECHAS DESDE Y HASTA
+
 <div class="form-group">
   <div class="row">
     <div class="col">
@@ -158,6 +164,8 @@
     </div>
   </div>
 </div>
+-->
+
 
 <!--SEGUNDA FILA-->
 
@@ -282,7 +290,7 @@ var table = $('#usersListTable').DataTable({
             titleAttr: 'Exportar a Excel',
             className: 'btn btn-success',
             exportOptions: {
-                    columns: [ 0,1,2,3,4]
+                    columns: [ 0,1,2]
                 }
         },
         {
@@ -290,10 +298,10 @@ var table = $('#usersListTable').DataTable({
             titleAttr: 'Exportar a Pdf',
             className: 'btn btn-danger',
             exportOptions: {
-                    columns: [ 0,1,2,3,4]
+                    columns: [ 0,1,2]
                 },
             filename: function() {
-            return "MyPDF"      
+            return "Total Ahorro"      
             },      
             title: function() {
             var searchString = table.search();        
@@ -361,8 +369,8 @@ mode: 'edit_ahorros_informes'
 dataType : 'json',
 success: function(result){
 $('#id').val(result.id);
-$('#fecha_desde').val(result.fecha_desde);
-$('#fecha_hasta').val(result.fecha_hasta);
+//$('#fecha_desde').val(result.fecha_desde);
+//$('#fecha_hasta').val(result.fecha_hasta);
 //$('#fecha_ing').val(result.fecha_ingreso);
 //$('#fecha_pago').val(result.fecha_pago);
 $('#perteneces').val(result.nombre);

@@ -78,33 +78,39 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
+<!--<th width="7%">Id</th>
 <th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
-<th width="7%">Fecha Ingreso</th>
-<th width="7%">Fecha Pago</th>
+<th width="7%">Fecha Hasta</th>-->
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
 <th width="7%">Persona</th>
 <th width="7%">Puesto</th>
 <th width="7%">Recibo</th>
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
 <th width="7%">Valor</th>
-<th width="1%">Pendiente</th>
+<th width="7%">Abono</th>
+<th width="7%">Saldo</th>
+<th width="1%">Pendiente X Pagar</th>
 <th width="7%">Observaciones</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
+<!--<th width="7%">Id</th
 <th width="7%">Fecha Desde</th>
-<th width="7%">Fecha Hasta</th>
-<th width="7%">Fecha Ingreso</th>
-<th width="7%">Fecha Pago</th>
+<th width="7%">Fecha Hasta</th>-->
+<th width="7%">Fecha Ing. al Sistema</th>
+<th width="7%">Fecha Factura</th>
 <th width="7%">Persona</th>
 <th width="7%">Puesto</th>
 <th width="7%">Recibo</th>
 <th width="7%">Categoria</th>
 <th width="7%">Sub Categoria</th>
 <th width="7%">Valor</th>
-<th width="1%">Pendiente</th>
+<th width="7%">Abono</th>
+<th width="7%">Saldo</th>
+<th width="1%">Pendiente X Pagar</th>
 <th width="7%">Observaciones</th>
 </tr>
 </tfoot>
@@ -128,6 +134,8 @@
 <input type="hidden" class="form-control" id="mode" name="mode" value="update_ingresos_informe">
 
 <!---DIVIDIR MODALES EN 2-->
+
+<!--
 <div class="form-group">
   <div class="row">
     <div class="col">
@@ -145,18 +153,20 @@
   </div>
 </div>
 
+-->
+
 <!--SEGUNDA FILA-->
 
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Ingreso</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Ing. al Sistema</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_ing" name="fecha_ing" placeholder="Escriba el # del Local" value="" maxlength="50" required="">
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Pago</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Factura</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="Escriba el # del Local" value="" maxlength="50" >
         </div>
@@ -202,7 +212,7 @@
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Escriba la categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
   </div>
@@ -215,7 +225,7 @@
     <div class="col">
         <label for="name" class="col-sm-12 control-label">Sub Categoria</label>
         <div class="col-sm-12">
-            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="">
+            <input type="text" class="form-control" id="sub_categ" name="sub_categ" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" readonly>
         </div>
     </div>
     <div class="col">
@@ -227,8 +237,28 @@
   </div>
 </div>
 
-
 <!--SEXTA FILA-->
+
+<!---- ABONO Y SALDO VAN PARA AFUERA YA QUE NO SE PUEDEN EDITAR
+<div class="form-group">
+  <div class="row">
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Abono</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="abono" name="abono" placeholder="Escriba la sub categoria" value="" maxlength="50" required="" disabled>
+        </div>
+    </div>
+    <div class="col">
+        <label for="name" class="col-sm-12 control-label">Saldo</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="saldo" name="saldo" placeholder="Escriba el valor" value="" maxlength="50" required="" disabled>
+        </div>
+    </div>
+  </div>
+</div>
+--->
+
+<!--SEPTIMA FILA-->
 
 <div class="form-group">
   <div class="row">
@@ -239,6 +269,7 @@
             <option value=""></option>
             <option value="si">si</option>
             <option value="no">no</option>
+            <option value="ahorro cancelado">ahorro cancelado</option>
         </select>
         </div>  
     </div>
@@ -362,7 +393,8 @@
 <script>
 $(document).ready(function(){
     var table = $('#usersListTable').DataTable({
-    dom: 'Bfrtip',
+    //dom: 'Bfrtip',
+    dom: 'Blfrtip',
     lengthMenu: [
             [10, 25, 50, 100, 500, -1],
             [10, 25, 50, 100, 500, 'Todo'],
@@ -397,16 +429,21 @@ $(document).ready(function(){
             return searchString.length? "Search: " + searchString : "Ingresos Informe"
             }
         },
+        /*
         {
-            extend: "pageLength",
+            //extend: "pageLength",
             //text: "Registros"
         }
+        */
             
     ],
     language: {
+        /*
         buttons: {
         pageLength: '%d'
-    },
+        }  
+    ,
+    */
         "decimal": "",
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
@@ -428,7 +465,7 @@ $(document).ready(function(){
     },
 "processing": true,
 "serverSide": true,
-"order": [],
+"order": [[0, "desc"]],
 "ajax": "fetch_ingresos_informe.php"
 });
 });
@@ -467,8 +504,8 @@ success: function(result){
 
 //nombre y num_local
 $('#id').val(result.id);
-$('#fecha_desde').val(result.fecha_desde);
-$('#fecha_hasta').val(result.fecha_hasta);
+//$('#fecha_desde').val(result.fecha_desde);
+//$('#fecha_hasta').val(result.fecha_hasta);
 $('#fecha_ing').val(result.fecha_ingreso);
 $('#fecha_pago').val(result.fecha_pago);
 $('#perteneces').val(result.nombre);
@@ -481,6 +518,10 @@ $('#recibo').val(result.recibo);
 $('#categoria').val(result.categoria);
 $('#sub_categ').val(result.sub_categoria);
 $('#valor').val(result.valor);
+
+
+$('#abono').val(result.abono);
+$('#saldo').val(result.saldo);
 //$('#persona').val(result.persona_fk);
 //$('#local').val(result.local_fk);
 //$('#abono').val(result.abono);
@@ -519,8 +560,12 @@ mode: 'delete_ingresos_informe'
 },
 dataType : 'json',
 success: function(result){
-var oTable = $('#usersListTable').dataTable(); 
-oTable.fnDraw(false);
+if(result === true){
+    var oTable = $('#usersListTable').dataTable(); 
+    oTable.fnDraw(false);
+}else{
+    alert(result)
+}
 }
 });
 } 

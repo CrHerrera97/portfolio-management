@@ -270,6 +270,9 @@ function pdf() {
     let total_multas = document.getElementById("total_multas").value;
     let total_ahorros = document.getElementById("total_ahorros").value;
 
+    let fechaInicio = document.getElementById("fecha_ini").value;
+    let fechaFin = document.getElementById("fecha_fin").value;
+
 
     var datos = {
         admon: admon,
@@ -280,7 +283,9 @@ function pdf() {
         total_cartera_actual: total_cartera_actual,
         total_cartera_vencida:total_cartera_vencida,
         total_multas:total_multas,
-        total_ahorros:total_ahorros
+        total_ahorros:total_ahorros,
+        fechaInicio:fechaInicio,
+        fechaFin:fechaInicio
         //ahorro : ahorro,
         //multas : multas
     }
@@ -297,7 +302,7 @@ function pdf() {
         var blob = new Blob([data]);
         var link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
-        link.download = 'archivo.pdf';
+        link.download = 'informe.pdf';
         link.click();
   },
   error: function(xhr, status, error) {
@@ -413,6 +418,17 @@ function myFunction() {
 
   $('#fecha').val('');
 
+
+  $('#fecha_ini').val('');
+  $('#fecha_fin').val('');
+
+
+
+  $('#total_ingresos').val('0');
+  $('#total_cartera_actual').val('0');
+  $('#total_cartera_vencida').val('0');
+  $('#total_multas').val('0');
+  $('#total_ahorros').val('0');
   //borrar tambien el local y la persona
 }
 

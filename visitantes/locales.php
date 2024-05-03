@@ -4,7 +4,7 @@
   if(isset($_SESSION['username'])) {
       //header('Location: inicio.php');
   }else{
-    header('Location: ./../login.php');
+    header('Location: login.php');
   }
 ?>
 
@@ -62,20 +62,16 @@
 <table id="usersListTable" class="display" style="width:100%">
 <thead>
 <tr>
-<th width="20%">Numero</th>
-<th width="20%">Nombre</th>
-<th width="20%">Descripcion</th>
-<th width="20%">Servicios</th>
-<th width="20%">Pertenece</th>
+<th width="16%">Numero</th>
+<th width="16%">Servicios</th>
+<th width="16%">Pertenece</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th width="20%">Numero</th>
-<th width="20%">Nombre</th>
-<th width="20%">Descripcion</th>
-<th width="20%">Servicios</th>
-<th width="20%">Pertenece</th>
+<th width="16%">Numero</th>
+<th width="16%">Servicios</th>
+<th width="16%">Pertenece</th>
 </tr>
 </tfoot>
 </table>
@@ -102,6 +98,7 @@
 </div>
 </div>
 
+<!---
 <div class="form-group">
 <label class="col-sm-2 control-label">Nombre</label>
 <div class="col-sm-12">
@@ -115,11 +112,11 @@
 <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Escriba una descripción del Puesto" value="" maxlength="50" required="">
 </div>
 </div>
-
+-->
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Servicios</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Puesto separado por comas" value="" maxlength="50" required="">
+<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Puesto separado por comas" value="" maxlength="50" >
 </div>
 </div>
 
@@ -161,6 +158,7 @@
 </div>
 </div>
 
+<!--
 <div class="form-group">
 <label class="col-sm-2 control-label">Nombre</label>
 <div class="col-sm-12">
@@ -174,11 +172,12 @@
 <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Escriba una descripción del Puesto" value="" maxlength="50" required="">
 </div>
 </div>
+-->
 
 <div class="form-group">
 <label for="name" class="col-sm-2 control-label">Servicios</label>
 <div class="col-sm-12">
-<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Puesto separado por comas" value="" maxlength="50" required="">
+<input type="text" class="form-control" id="servicios" name="servicios" placeholder="Escriba los servicios del Puesto separado por comas" value="" maxlength="50" >
 </div>
 </div>
 
@@ -209,6 +208,10 @@
 <script>
 $(document).ready(function(){
 $('#usersListTable').DataTable({
+    lengthMenu: [
+            [10, 25, 50, 100, 500, -1],
+            [10, 25, 50, 100, 500, 'Todo'],
+        ],
     language: {
         "decimal": "",
         "emptyTable": "No hay información",
@@ -269,7 +272,7 @@ dataType : 'json',
 success: function(result){
 $('#id').val(result.id);
 $('#numero').val(result.numero);
-$('#nombre').val(result.nombre);
+//$('#nombre').val(result.nombre);
 $('#descripcion').val(result.descripcion);
 $('#servicios').val(result.servicios);
 $('#pertenece').val(result.nombre_c);
