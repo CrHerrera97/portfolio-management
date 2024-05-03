@@ -1,11 +1,18 @@
 <?php 
 // Database connection info 
+include 'database.php';
+
+
 $dbDetails = array( 
 'host' => 'localhost', 
 'user' => 'root', 
 'pass' => '', 
 'db'   => 'sistema_pagos'
 ); 
+// mysql db table to use 
+
+
+$dbDetails = $database;
 //en el where del i.abono <> '0' se quitó para que se puedan ver los ingresos que se hacen cuando es un ahorro
 $table = <<<EOT
  (

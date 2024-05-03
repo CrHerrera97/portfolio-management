@@ -1,7 +1,9 @@
 <?php 
 
+include 'database.php';
 
-$mysqli = new mysqli("localhost","root","","sistema_pagos");
+$mysqli = $conn;
+
 
 // Check connection
 if ($mysqli -> connect_errno) {
