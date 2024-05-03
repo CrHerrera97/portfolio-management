@@ -1,11 +1,18 @@
 <?php
 // Database connection info
-$dbDetails = array(
-    'host' => 'localhost',
-    'user' => 'root',
-    'pass' => '',
-    'db'   => 'sistema_pagos'
-);
+include 'database.php';
+
+
+$dbDetails = array( 
+'host' => 'localhost', 
+'user' => 'root', 
+'pass' => '', 
+'db'   => 'sistema_pagos'
+); 
+// mysql db table to use 
+
+
+$dbDetails = $database;
 
 // mysql db table to use
 $table = <<<EOT
