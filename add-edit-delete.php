@@ -303,7 +303,31 @@ echo json_encode(true);
         //$registro_delete = mysqli_query($conn, "DELETE FROM cartera WHERE id='" . $_POST["id"] . "'");
         //mysqli_query($conn, "UPDATE ingresos set pendiente = 'no', fecha_pago = '".$fecha_hoy."' where pendiente = 'si' and persona_fk='" . $_POST["id"] . "' and sub_categoria = 'ahorro'");
         //UPDATE ingresos set pendiente = 'no', fecha_pago = '2023-05-04' WHERE pendiente = 'si' and persona_fk = 1 AND sub_categoria = 'ahorro'
-        $registro_delete = mysqli_query($conn, "UPDATE ingresos set pendiente = 'ahorro cancelado' where pendiente = 'no' and local_fk='" . $_POST["persona"] . "' and sub_categoria = 'ahorro'");
+        $registro_delete = mysqli_query($conn, "UPDATE ingresos
+        SET pendiente = 'ahorro cancelado'
+        WHERE pendiente = 'no'
+        AND sub_categoria = 'ahorro'
+        AND (id, local_fk, persona_fk) IN (
+            SELECT
+                i.id,
+                i.local_fk,
+                i.persona_fk
+            FROM
+                ingresos i
+            INNER JOIN
+                locales l ON i.local_fk = l.id
+            INNER JOIN
+                personas p ON i.persona_fk = p.id
+            WHERE
+                i.sub_categoria = 'ahorro'
+                AND i.pendiente <> 'ahorro cancelado'
+                AND i.pendiente <> 'si'
+                AND l.numero = '" . $_POST["persona"] . "'
+            GROUP BY
+                p.id,
+                p.nombre,
+                l.numero
+        );");
         //$registro_delete = mysqli_query($conn, "UPDATE ingresos set fecha_pago = '".$fecha_hoy."', pendiente = 'no' WHERE id='" . $_POST["id"] . "'");
         echo json_encode(true);
     }
