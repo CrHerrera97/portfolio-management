@@ -225,7 +225,7 @@
 <div class="form-group">
   <div class="row">
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Valor</label>
+        <label for="name" class="col-sm-12 control-label">Abono</label>
         <div class="col-sm-12">
             <input type="text" class="form-control" id="valor" name="valor" placeholder="Escriba el valor" value="" maxlength="50" required="">
         </div>
