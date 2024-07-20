@@ -171,7 +171,11 @@ oTable.fnDraw(false);
 $('#add-modal').modal('hide');
 $('#add-form').trigger("reset");
 }
-});
+}).done(function(response){
+    if(response === 'false'){
+        alert('El Nombre y el Apellido ya existen en la base de datos')
+    }
+})
 });  
 /* edit user function */
 $('body').on('click', '.btn-edit', function () {
@@ -228,6 +232,12 @@ oTable.fnDraw(false);
 } 
 return false;
 });
+</script>
+
+
+
+<script>
+
 </script>
 
                     <!---HASTA AQUI VA EL CODIGO-->

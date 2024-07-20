@@ -80,7 +80,7 @@
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>-->
 <th width="7%">Fecha Ing. al Sistema</th>
-<th width="7%">Fecha Factura</th>
+<th width="7%">Fecha Recibo</th>
 <th width="6%">Persona</th>
 <th width="6%">Puesto</th>
 <th width="4%">Recibo</th>
@@ -100,7 +100,7 @@
 <th width="7%">Fecha Desde</th>
 <th width="7%">Fecha Hasta</th>-->
 <th width="7%">Fecha Ing. al Sistema</th>
-<th width="7%">Fecha Factura</th>
+<th width="7%">Fecha Recibo</th>
 <th width="6%">Persona</th>
 <th width="6%">Puesto</th>
 <th width="4%">Recibo</th>
@@ -208,7 +208,7 @@ SE VA A QUITAR LA FECHA DESDE Y HASTA
         </div>
     </div>
     <div class="col">
-        <label for="name" class="col-sm-12 control-label">Fecha Factura</label>
+        <label for="name" class="col-sm-12 control-label">Fecha Recibo</label>
         <div class="col-sm-12">
             <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="Escriba el # del Local" value="" maxlength="50" >
         </div>

@@ -23,15 +23,34 @@
         ?>
 
 <style>
-        #lista {
-            list-style:none;
-        }
-    </style>
+    #lista {
+        list-style:none;
+    }
+    #valor_t{
+        text-align: center;
+        margin-right: 1px;
+        display: inline-block;
+    }
+    #valor_total_acumulado{
+        color: red;
+    }
 
+</style>
 
+<h2 class="float-left">Comprobante de Ingreso</h2>
 
-
-<h2 class="float-left">Ingresos</h2>
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-2" id="valor_t">
+        <h2>Valor Total:</h2>
+    </div>
+    <div class="col-sm-1">
+        <div>
+            <h3 id="valor_total_acumulado">0</h3>
+        </div>
+    </div>
+    <div></div>
+</div>
 
 <!---Se va a poner los diferentes botones para hacer los ingresos-->
 
@@ -84,7 +103,6 @@
 
 </style>
 
-<br><br>
 
 <div class="">
   <div class="row">
@@ -201,18 +219,18 @@
             <div class="col-sm-1"></div>
                 
                 <div class="col-sm-5">
-                    <h4><label class="col-sm-12 control-label">Fecha Factura</label></h4>
+                    <h4><label class="col-sm-12 control-label">Fecha Recibo</label></h4>
                     <div class="col-sm-12">
                     <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="" value="" required="" autocomplete="off">
                     </div>     
                 </div>
 
                 <div class="col-sm-5">
-                    <h4><label class="col-sm-12 control-label">Persona</label></h4>
+                    <h4><label class="col-sm-12 control-label">Puesto</label></h4>
                     <div id="sugerencia_persona"></div>
                     <div class="col-sm-12">
-                    <input type="text" class="form-control" id="persona" name="persona" placeholder="Ingrese la persona" value="" required="" autocomplete="off">
-                    <input type="hidden" class="form-control" id="persona_key" name="persona_key" placeholder="Ingrese la persona" value="" required="" autocomplete="off">
+                    <input type="hidden" class="form-control" id="key" name="key" placeholder="Ingrese el local" value="" required="" autocomplete="off">
+                    <input type="text" class="form-control" id="key_id" name="key_id" placeholder="Ingrese el local" value="" required="" autocomplete="off">
                     </div>     
                 </div>
 
@@ -224,11 +242,11 @@
         <div class="row">
         <div class="col-sm-1"></div>
                 <div class="col-sm-5">
-                    <h4><label class="col-sm-12 control-label">Puesto</label></h4>
+                    <h4><label class="col-sm-12 control-label">Persona</label></h4>
                     <div id="suggestions"></div>
                     <div class="col-sm-12">
-                    <input type="text" class="form-control" id="key" name="key" placeholder="Ingrese el local" value="" required="" autocomplete="off">
-                    <input type="hidden" class="form-control" id="key_id" name="key_id" placeholder="Ingrese el local" value="" required="" autocomplete="off">
+                    <input type="text" class="form-control" id="persona" name="persona" placeholder="Ingrese la persona" value="" required="" autocomplete="off">
+                    <input type="hidden" class="form-control" id="persona_key" name="persona_key" placeholder="Ingrese la persona" value="" required="" autocomplete="off">
                     </div>
                 </div>
 
@@ -341,7 +359,7 @@
             </div>
     
             <div class="col-sm-3">
-                <input type="text" class="form-control" id="otros" name="otros" placeholder="Ingrese el Valor" value="" disabled>
+                <input type="text" class="form-control myInput" id="otros" name="otros" placeholder="Ingrese el Valor" value="" disabled>
             </div>
 
         </div>
@@ -374,9 +392,8 @@
     </div>
 </div>
 
+
 <br>
-
-
 </form>
 </div>
 
@@ -391,9 +408,9 @@
 </body>
 
 
-<br>
+
 </div>
-<br>
+
 <div class="modal-footer">
 </div>
 
@@ -475,7 +492,7 @@
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ing. al Sistema</th>
-                    <th width="7%">Fecha Factura</th>
+                    <th width="7%">Fecha Recibo</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
                     <th width="7%">Recibo</th>
@@ -495,7 +512,7 @@
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ing. al Sistema</th>
-                    <th width="7%">Fecha Factura</th>
+                    <th width="7%">Fecha Recibo</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
                     <th width="7%">Recibo</th>
@@ -621,7 +638,7 @@
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ing. al Sistema</th>
-                    <th width="7%">Fecha Factura</th>
+                    <th width="7%">Fecha Recibo</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
                     <th width="5%">Recibo</th>
@@ -641,7 +658,7 @@
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ing. al Sistema</th>
-                    <th width="7%">Fecha Factura</th>
+                    <th width="7%">Fecha Recibo</th>
                     <th width="7%">Persona</th>
                     <th width="7%">Puesto</th>
                     <th width="5%">Recibo</th>
@@ -683,7 +700,7 @@
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ing. al Sistema</th>
-                    <th width="7%">Fecha Factura</th>
+                    <th width="7%">Fecha Recibo</th>
                     <th width="10%">Persona</th>
                     <th width="10%">Puesto</th>
                     <th width="6%">Recibo</th>
@@ -703,7 +720,7 @@
                     <th width="7%">Fecha Desde</th>
                     <th width="7%">Fecha Hasta</th>-->
                     <th width="7%">Fecha Ing. al Sistema</th>
-                    <th width="7%">Fecha Factura</th>
+                    <th width="7%">Fecha Recibo</th>
                     <th width="10%">Persona</th>
                     <th width="10%">Puesto</th>
                     <th width="6%">Recibo</th>
@@ -1330,7 +1347,7 @@ function pressButton(){
 
 function myFunction() {
   
-  $("#key").val('');
+  $("#key_id").val('');
   $("#persona").val('');
 
   $("#admon").val('0');
@@ -1356,6 +1373,9 @@ function myFunction() {
 
   $("#otros").val('');
 
+  document.querySelector('#valor_total_acumulado').innerText = 0;
+
+  //$('#valor_total_acumulado').val('0')
   //borrar tambien el local y la persona
 }
 
@@ -1383,15 +1403,46 @@ $("#cartera,#admon,#parque,#agua,#luz").on({
 <script>
 $('#form-ingresos').submit(function(e){
 e.preventDefault();
+
+//validacion que los campos estén bien
+let admon = $('#admon').val();
+let parque = $('#parque').val();
+let agua = $('#agua').val();
+let luz = $('#luz').val();
+let otros = $('#otros').val();
+
+let valor = $('#valor').val();
+
+// validamos que los radio buttons tambien estén seleccionados
+
+
+if($('input[name="categoria"]:checked').length == 0) {
+    // mostrar mensaje de error
+    alert('Debe seleccionar una categoría');
+
+    // cancelar el envío del formulario
+    return false;
+}
+
+
+
+if(admon === '0' && parque === '0' && agua === '0' && luz === '0' && otros ==='0' && valor ==='0'){
+    alert('Debe llenar el valor de algun concepto')
+    return false
+}
 // ajax
 $.ajax({
 url:"fetch_ingresos.php",
 type: "POST",
 data: $(this).serialize(), // get all form field value in serialize form
 success: function(){
+
     alert("Inserccion Exitosa");
 
     myFunction();
+
+    // poner el valor total en 0
+    document.querySelector('#valor_total_acumulado').innerText = 0;
     
 
 }
@@ -1401,6 +1452,10 @@ success: function(){
 
 //autocompletar el local
 
+
+
+
+/*
 $(document).ready(function() {
     $('#key').on('keyup', function() {
         var key = $(this).val();		
@@ -1447,10 +1502,46 @@ $(document).ready(function() {
     });
 }); 
 
+*/
 
 //autocompletar la persona
 
+// se debe autocompletar de manera de que uno ponga el local y me traiga el usuario que pertenece a ese local
 
+
+$(document).ready(function(){
+  // detectar cambio en el campo puesto
+  $('#key_id').change(function(){
+    
+    // obtener el valor del campo puesto
+    let puesto = $(this).val();
+
+    // validar que el campo puesto no esté vacío
+    if(puesto !== ''){
+      // realizar solicitud AJAX para obtener los datos de la persona correspondiente al puesto
+      $.ajax({
+        url: 'persona_autocompletar.php', // archivo PHP que realiza la consulta a la base de datos
+        type: 'POST',
+        data: {puesto: puesto}, // enviar el valor del campo puesto al archivo PHP
+        success: function(response){
+
+        const {nombre, apellido, id_persona, id_local} = response
+        // asignar los valores obtenidos a los campos persona y persona_key
+
+        if(!nombre && !apellido){
+            $('#persona').val(`El puesto ${puesto} no Existe`);    
+        }else{
+            $('#persona').val(nombre + ' ' + apellido);
+        }
+        $('#persona_key').val(id_persona); 
+        $('#key').val(id_local); // key = al id del local
+        }
+      });
+    }
+  });
+});
+
+/*
 $(document).ready(function() {
     $('#persona').on('keyup', function() {
         var persona = $(this).val();		
@@ -1495,6 +1586,8 @@ $(document).ready(function() {
         });
     });
 }); 
+*/
+
 
 
 // vamos a validar que cuando la persona salga del cuadro de un item si no está lleno se ponga en valor "0"
@@ -1530,7 +1623,36 @@ function validaCampoLleno(){
 
 validaCampoLleno()
 
+// sumar todos los inputs
 
+const inputs = document.querySelectorAll('.myInput');
+
+// agregar event listener a cada input
+inputs.forEach((input) => {
+  input.addEventListener('input', actualizarValorTotal);
+});
+
+// función para actualizar el valor total
+function actualizarValorTotal() {
+  // obtener valores de los inputs
+  const parque = parseFloat(document.querySelector('#parque').value) || 0;
+  const admon = parseFloat(document.querySelector('#admon').value) || 0;
+  const agua = parseFloat(document.querySelector('#agua').value) || 0;
+  const luz = parseFloat(document.querySelector('#luz').value) || 0;
+//valor = ahorro
+  const valor = parseFloat(document.querySelector('#valor').value) || 0;
+  const otros = parseFloat(document.querySelector('#otros').value) || 0;
+
+  // calcular valor total
+  let valorTotal = 0
+  valorTotal = parque + admon + agua + luz + valor + otros;
+
+   // convertir valorTotal a cadena con separador de miles
+   const valorTotalFormateado = valorTotal.toLocaleString('es-ES');
+
+  // actualizar texto del elemento h3 con id "valor_total"
+  document.querySelector('#valor_total_acumulado').innerText = valorTotalFormateado;
+}
 
 </script>
 

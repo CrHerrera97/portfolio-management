@@ -7,10 +7,20 @@ include('database.php');
 if ($_POST['mode'] === 'add_personas') {
 $name = $_POST['name'];
 $email = $_POST['email'];
-mysqli_query($conn, "INSERT INTO personas (nombre,apellido)
-VALUES ('$name','$email')");
-echo json_encode(true);
+//verificamos que la persona no exista en la bd
+
+$resultQuery = mysqli_query($conn,"select * from personas where nombre = '$name' and apellido = '$email'");
+
+if (mysqli_num_rows($resultQuery) > 0) {
+    // la persona ya existe en la base de datos
+    echo json_encode(false);
+} else {
+    mysqli_query($conn, "INSERT INTO personas (nombre,apellido) VALUES ('$name','$email')");
+    echo json_encode(true);
+}
+
 }  
+
 if ($_POST['mode'] === 'edit') {
 //se comento, lo que se busca es que aparezcan las personas con el nombre y no como una foranea    
 $result = mysqli_query($conn,"SELECT * FROM personas WHERE id='" . $_POST['id'] . "'");
