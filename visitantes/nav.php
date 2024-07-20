@@ -89,7 +89,8 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <li class="nav-item active"><a class="nav-link" href="ingresos.php">Inicio</a></li>
+                                <li><li><img src="../assets/logo-asomercobu.png" alt="Fuente" class="d-none d-md-block" style="height: 36px; margin-right: 10px; margin-top: 3px;"></li></li>
+                                <li class="nav-item active"><a class="nav-link" href="locales.php">Inicio</a></li>
                                 <li class="nav-item"><a class="nav-link" href="cerrar_sesion.php">Cerrar Sesión</a></li>
                             </ul>
                         </div>

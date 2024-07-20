@@ -300,12 +300,30 @@ var table = $('#usersListTable').DataTable({
             exportOptions: {
                     columns: [ 0,1,2]
                 },
+                "customize": function (doc) {
+                doc.defaultStyle.fontSize = 11; // Cambiar tamaño de fuente predeterminado
+                //doc.styles.table.header.fontSize = 12; // Cambiar tamaño de fuente del encabezado de tabla
+                //doc.styles.table.body.fontSize = 10; // Cambiar tamaño de fuente del cuerpo de tabla
+
+                // agregando subtitulo
+                doc.content.splice(1, 0, {
+                    text: 'ASOMERCOBU NIT: 804.007.774-0',
+                    style: 'subheader'
+                });
+                
+                // Estilo del subtítulo adicional
+                doc.styles.subheader = {
+                    fontSize: 14,
+                    bold: true,
+                    margin: [0, 20, 0, 10]
+                };
+            },
             filename: function() {
             return "Total Ahorro"      
             },      
             title: function() {
             var searchString = table.search();        
-            return searchString.length? "Search: " + searchString : "Ahorros Informe"
+            return searchString.length? "Search: " + searchString : "Informe de Ahorros"
       }
         }
             

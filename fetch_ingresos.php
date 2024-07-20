@@ -18,7 +18,9 @@ TOMAMOS LOS VALORES DE LA PARTE IZQUIERDA DE LA PANTALLA DE LOS INGRESOS
 //$fecha_hasta = $_POST['fecha_hasta'];
 $fecha_pago = $_POST['fecha_pago'];
 $persona = $_POST["persona_key"];
-$local = $_POST["key_id"];
+//antes estaba recibiendo del key_id pero ahora deberia ser solo del key 8-07-2024
+//$local = $_POST["key_id"];
+$local = $_POST["key"];
 $recibo = $_POST['recibo'];
 
 
