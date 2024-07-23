@@ -1,6 +1,11 @@
 <?php
 // conectar a la base de datos
-$mysqli = new mysqli("localhost","root","","sistema_pagos");
+
+include 'database.php';
+
+$mysqli = $conn;
+
+//$mysqli = new mysqli("localhost","root","","sistema_pagos");
 
 // obtener el valor del parámetro puesto
 $puesto = $_POST['puesto'];
