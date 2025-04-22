@@ -20,7 +20,7 @@ Aplicación web para la gestión de cartera, ingresos, abonos e informes financi
 
 ## 📸 Capturas de pantalla
 
-_(Aquí puedes incluir imágenes del sistema. Si no tienes, puedo ayudarte a hacerlas o a poner un demo visual.)_
+
 
 ## 🗂️ Estructura del proyecto
 
