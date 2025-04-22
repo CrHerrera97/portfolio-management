@@ -17,9 +17,35 @@ Aplicación web para la gestión de cartera, ingresos, abonos e informes financi
 - 📋 Listado de cartera con filtros
 - 📈 Generación de informes
 - 🔎 Búsqueda rápida y actualizaciones dinámicas con Ajax
-
+  
 ## 📸 Capturas de pantalla
 
+### 🏠 Pantalla de inicio
+![Home](assets/home.PNG)
+
+### 🔐 Login
+![Login](assets/login.PNG)
+
+### 💰 Registro de ingresos
+![Ingresos](assets/ingresos.PNG)
+
+### 💳 Abonos de ingresos
+![Abono ingreso](assets/abono_ingreso.PNG)
+
+### 🧾 Reporte de abonos
+![Abono report](assets/abono_report.PNG)
+
+### 📊 Reportes generales
+![Reportes](assets/reportes.PNG)
+
+### 🧑‍💼 Cartera por persona
+![Cartera por persona](assets/cartera_x_persona.PNG)
+
+### 📋 Cartera general
+![Cartera](assets/cartera.PNG)
+
+### 💵 Ahorros
+![Ahorros](assets/ahorro.PNG)
 
 
 ## 🗂️ Estructura del proyecto
