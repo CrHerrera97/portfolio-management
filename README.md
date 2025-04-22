@@ -46,7 +46,3 @@ Aplicación web para la gestión de cartera, ingresos, abonos e informes financi
 
 ### 💵 Ahorros
 ![Ahorros](assets/ahorro.PNG)
-
-
-## 🗂️ Estructura del proyecto
-
